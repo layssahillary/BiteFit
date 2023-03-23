@@ -5,6 +5,7 @@ const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 
 let direction;
+//fjeofiejfioeji
 
 prevBtn.addEventListener("click", () => {
   direction = -1;
