@@ -17,10 +17,12 @@
 
 /*BICICLETAS*/
 @import "./bicicletas/bicicletas-listas.css";
-@import "./bicicletas/bicicletas.css";
+
+/*INTRODUÇÃO HOME ----- CERTO*/ 
+@import "./homebitefit/introducao.css";
 
 /*BICICLETA*/
-@import "./bicicleta/bicicleta.css";
+@import "./bicicleta/home.css";
 @import "./bicicleta/seguro.css";
 
 
