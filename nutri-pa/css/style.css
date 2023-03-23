@@ -20,6 +20,8 @@
 
 /*INTRODUÇÃO HOME ----- CERTO*/ 
 @import "./homebitefit/introducao.css";
+@import "./homebitefit/carousel.css";
+@import "./homebitefit/artigos.css";
 
 /*BICICLETA*/
 @import "./bicicleta/home.css";
@@ -34,7 +36,7 @@
 
 /*CONTATO*/
 @import "./contato/contato.css";
-@import "./contato/lojas.css";
+
 
 /*CONTATO*/
 @import "./orcamento/orcamento.css";
@@ -42,6 +44,6 @@
 /*TERMOS*/
 @import "./termos/termos.css";
 
-@import "./carousel/carousel.css";
+
 
 
