@@ -23,6 +23,8 @@
 @import "./homebitefit/carousel.css";
 @import "./homebitefit/artigos.css";
 
+@import "./login/login.css";
+
 /*BICICLETA*/
 @import "./bicicleta/home.css";
 @import "./bicicleta/seguro.css";
