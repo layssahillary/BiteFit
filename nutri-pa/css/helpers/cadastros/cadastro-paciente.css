@@ -1,0 +1,63 @@
+#cadastro{
+    background: linear-gradient(var(--cor-11) 600px, var(--cor-1) 0px);
+}
+
+.cadastro{
+    padding-bottom: 120px; 
+}
+
+.cadastro h2{
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cadastro h2::before{
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 8px;
+    background-color: var(--cor-p1);
+    position: absolute;
+    left: -12px;
+}
+
+.cadastro-dados{
+    padding: 60px;
+    box-shadow:  0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.cadastro-dados{
+    border-radius: 0 5px 5px 0;
+    background: var(--cor-0) url("../../img/dec/bottom-right.svg") no-repeat bottom 20px right 20px;
+}
+
+
+@media (max-width: 1200px){
+    .cadastro-dados,
+    .cadastro-produto{
+        padding: 32px;
+    }
+}
+
+@media (max-width: 800px){
+    .cadastro{
+        grid-template-columns: 1fr;
+    }
+    .cadastro-produtos{
+        border-radius:  5px 5px 0 0;
+        background: var(--cor-12);
+    }
+    .cadastro-dados{
+        border-radius: 0 0 5px 5px;
+    }
+}
+
+@media (max-width: 400px ){
+    .cadastro-produto{
+        grid-template-columns: 1fr;
+    }
+}

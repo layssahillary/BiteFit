@@ -16,6 +16,10 @@
 
 .form input[type="text"],
 .form input[type="email"],
+.form input[type="date"],
+.form input[type="number"],
+.form input[type="password"],
+.form input , select,
 .form textarea{
     font: 400 1rem/1.5 "Roboto", sans-serif;
     background: var(--cor-1);

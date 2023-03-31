@@ -10,13 +10,13 @@
 @import "./utilidades/formulario.css";
 
 /*HOME*/
-@import "./home/introducao.css";
-@import "./home/tecnologia.css";
-@import "./home/parceiros.css";
-@import "./home/depoimento.css";
+@import "helpers/home/introducao.css";
+@import "helpers/home/tecnologia.css";
+@import "helpers/home/parceiros.css";
+@import "helpers/home/depoimento.css";
 
 /*BICICLETAS*/
-@import "./bicicletas/bicicletas-listas.css";
+@import "helpers/bicicletas/bicicletas-listas.css";
 
 /*INTRODUÇÃO HOME ----- CERTO*/ 
 @import "./homebitefit/introducao.css";
@@ -24,27 +24,28 @@
 @import "./homebitefit/artigos.css";
 
 @import "./login/login.css";
+@import "helpers/cadastros/cadastro-nutri.css";
 
 /*BICICLETA*/
-@import "./bicicleta/home.css";
-@import "./bicicleta/seguro.css";
+@import "helpers/bicicleta/home.css";
+@import "helpers/bicicleta/seguro.css";
 
 
 /*SEGUROS*/
-@import "./seguros/seguros.css";
-@import "./seguros/vantangens.css";
-@import "./seguros/perguntas.css";
+@import "helpers/seguros/seguros.css";
+@import "helpers/seguros/vantangens.css";
+@import "helpers/seguros/perguntas.css";
 
 
 /*CONTATO*/
-@import "./contato/contato.css";
+@import "helpers/contato/contato.css";
 
 
 /*CONTATO*/
-@import "./orcamento/orcamento.css";
+@import "helpers/cadastros/cadastro-paciente.css";
 
 /*TERMOS*/
-@import "./termos/termos.css";
+@import "helpers/termos/termos.css";
 
 
 
