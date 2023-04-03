@@ -6,6 +6,19 @@
     padding-bottom: 120px; 
 }
 
+
+
+#h2-cadastro{
+    justify-content: center;
+    text-transform: uppercase;
+    color: var(--cor-8);
+}
+
+#h2-cadastro::before{
+    content: none;
+}
+
+
 .cadastro h2{
     text-transform: uppercase;
     position: relative;
@@ -13,7 +26,10 @@
     align-items: center;
 }
 
-.cadastro h2::before{
+
+
+
+.cadastro-dados h2::before{
     content: "";
     display: inline-block;
     width: 4px;
@@ -22,6 +38,8 @@
     position: absolute;
     left: -12px;
 }
+
+
 
 .cadastro-dados{
     padding: 60px;
@@ -35,6 +53,41 @@
     background: var(--cor-0) url("../../img/dec/bottom-right.svg") no-repeat bottom 20px right 20px;
 }
 
+.botao-cadastro  {
+    display: inline-block;
+    padding: 16px 32px;
+    background: linear-gradient(#198831, #095e22);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    color: var(--cor-p5);
+    font: 600 1.125rem/1.35 "Poppins", sans-serif;
+    max-width: max-content;
+    border: none;
+    cursor: pointer;
+  }
+
+  
+  #meu-dialog{
+    width: 30%;
+    min-width: 450px;
+    min-height: 200px;
+    background-color: #ffffffec;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1); 
+    padding: 50px;
+    border-radius: 20px;
+    border: 1.5px solid  var(--cor-p1);
+    
+  }
+
+  #meu-dialog > a > img {
+    position: absolute;
+    width: 30px;
+    right: 8px;
+    top: 8px;
+  }
+
+  
 
 @media (max-width: 1200px){
     .cadastro-dados,

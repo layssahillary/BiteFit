@@ -22,6 +22,7 @@
 @import "./homebitefit/introducao.css";
 @import "./homebitefit/carousel.css";
 @import "./homebitefit/artigos.css";
+@import "./homebitefit/home-nutricionista.css";
 
 @import "./login/login.css";
 @import "helpers/cadastros/cadastro-nutri.css";

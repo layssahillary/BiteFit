@@ -37,7 +37,8 @@
   cursor: pointer;
 }
 
-
+.botao-direita:hover,
+.botao-direita:hover,
 .botao:hover {
   background: linear-gradient(#02610f, #079637);
 }

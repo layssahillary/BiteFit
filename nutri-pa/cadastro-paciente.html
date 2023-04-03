@@ -77,6 +77,7 @@ if (isset($mensagem)) {
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+      
 
     </head>
 
@@ -107,7 +108,8 @@ if (isset($mensagem)) {
     </div>
 
 
-    <form method="POST" action="cadastro_paciente.php" class="cadastro container" action="./">
+    <form id="formulario" method="POST" class="cadastro container" action="cadastro-paciente.html">
+
  
     <div class="cadastro-dados form">
         <h2 class="font-1-xs cor-9 col-2">Dados pessoais</h2>
@@ -150,13 +152,21 @@ if (isset($mensagem)) {
             <label for="peso">Peso:</label>
             <input type="number" id="peso" name="peso" step="0.01" required><br>
         </div>
-        <button class="botao col-1 " type="submit">Cadastrar</button>
+
+        <button id="abrir-dialog" class="botao-cadastro col-1 " type="submit">Cadastrar</button>
+        <dialog id="meu-dialog">
+            <a id="fechar-dialog" >
+                <img src="iconClose.svg" alt="texto-descritivo-da-imagem">
+            </a>
+            <h2 id="h2-cadastro">Cadastro feito <br>com sucesso! &#10024</h2>
+        </dialog>
          
         <a class="botao-direita" href="homebitefit.html">Voltar</a>
         
     </div>
-    </form>                       
+    </form>      
 </main>
+	
 
 <footer class="footer-bg">
     <div class="footer container">
@@ -194,7 +204,7 @@ if (isset($mensagem)) {
     </div>
 </footer>
 
-
+<script src="javascript/modal.js"></script>
 
 
     </body>
