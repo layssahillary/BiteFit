@@ -42,7 +42,13 @@ $pacientes = $stmt_pacientes->fetchAll();
         $stmt_pacientes->execute([$nutricionista_id]);
         $pacientes = $stmt_pacientes->fetchAll();
     ?>
-    <form method="post">
+    <script>
+        function confirmSubmit() {
+             return confirm("Tem certeza que deseja salvar as informações para o paciente selecionado?");
+        }
+    </script>
+
+    <form method="post" onsubmit="return confirmSubmit()">
         <label for="id_paciente">Paciente:</label>
         <select name="id_paciente" id="id_paciente">
             <option value="">Selecione</option>
@@ -61,8 +67,11 @@ $pacientes = $stmt_pacientes->fetchAll();
         <input type="number" name="idade" id="idade" required>
         <br><br>
         <label for="sexo">Gênero:</label>
-        <input type="text" name="sexo" id="sexo" required>
-
+            <select name="sexo" id="sexo" required>
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Outro">Outro</option>
+            </select>
 
     <script>
         const select = document.getElementById('id_paciente');
@@ -76,7 +85,7 @@ $pacientes = $stmt_pacientes->fetchAll();
 
             // Percorre a lista de pacientes para encontrar as informações do paciente selecionado
             for (const paciente of <?php echo json_encode($pacientes) ?>) {
-                if (paciente.id === selectedPacienteId) {
+                if (+paciente.id === +selectedPacienteId) {
                     inputPeso.value = paciente.peso;
                     inputAltura.value = paciente.altura;
                     inputIdade.value = paciente.idade;
@@ -85,7 +94,8 @@ $pacientes = $stmt_pacientes->fetchAll();
                 }
             }
         });
-    </script>
+    </script> 
+        <br><br>
         <label>Nível de atividade física:</label>
             <select name="atividade">
                 <option value="1.2" <?php echo (isset($nivel_atividade) && $nivel_atividade == '1.2') ? 'selected' : '' ?>>Sedentário</option>
@@ -96,8 +106,12 @@ $pacientes = $stmt_pacientes->fetchAll();
             </select><br><br>
         <input type="submit" value="Calcular">
     </form>
+    <br>
+    <a href="inicio_nutricionista.php"><button>Voltar</button></a>
+    <br>
 </body>
 </html>
+
 <?php
 $imc = null;
 $gcd = null;
@@ -107,9 +121,11 @@ $altura = null;
 $idade = null;
 $nivel_atividade = null;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_paciente'])) {
+    $id_paciente = $_POST['id_paciente'];
     $peso = $_POST["peso"];
-    $altura = $_POST["altura"] / 100;
+    $altura = $_POST["altura"];
     $idade = $_POST["idade"];
     $genero = $_POST["sexo"];
     $imc = $peso / ($altura * $altura);
@@ -126,6 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gorduras = $taxa_metabolica * 0.25 / 9;
     $carboidratos = ($gcd - ($proteinas * 4) - ($gorduras * 9)) / 4;
 
+    echo "<br>";
     echo "Taxa Metabólica Basal: " . number_format($taxa_metabolica, 2) . " calorias<br>";
     echo "<p>O seu Gasto Calórico Diário é de: " . number_format($gcd, 2) . " calorias por dia.</p>";
     echo "Proteínas: " . number_format($proteinas, 2) . " gramas<br>";
@@ -133,18 +150,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Carboidratos: " . number_format($carboidratos, 2) . " gramas";
     echo "<p>Seu IMC é: " . number_format($imc, 2) . "</p>";
     if($imc < 18.5){
-        echo "<p>Você está abaixo do peso.</p>";
+        $resultado = "Paciente abaixo do peso.";
+        echo "<p>Paciente abaixo do peso.</p>";
     }if($imc >= 18.5 && $imc <= 24.9){
-        echo "<p>Seu peso está normal.</p>";
+        $resultado = "Paciente com IMC normal.";
+        echo "<p>Paciente com IMC normal.</p>";
     }if($imc >= 25 && $imc <= 29.9){
-        echo "<p>Você está com sobrepeso.</p>";
+        $resultado = "Paciente com sobrepeso.";
+        echo "<p>Paciente com sobrepeso.</p>";
     }if($imc >= 30 && $imc <= 34.9){
-        echo "<p>Você está com obesidade grau I.</p>";
+        $resultado = "Paciente com obesidade grau I.";
+        echo "<p>Paciente com obesidade grau I.</p>";
     }if($imc >= 35 && $imc <= 39.9){
-        echo "<p>Você está com obesidade grau II.</p>";
+        $resultado = "Paciente com besidade grau II.";
+        echo "<p>Paciente com besidade grau II.</p>";
     }if($imc >39.9){
-        echo "<p>Você está com obesidade grau III.</p>";
+        $resultado = "Paciente com obesidade grau III.";
+        echo "<p>Paciente com obesidade grau III.</p>";
     }
-    
+
+    // Defina a data atual
+    $data = date('Y-m-d');
+
+    $stmt = $pdo->prepare("INSERT INTO info_nutri (IMC, proteinas, carboidratos, gorduras, taxa_metabolica, GCD, resultado, paciente_id, data) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $params = array(
+        $imc,
+        $proteinas,
+        $carboidratos,
+        $gorduras,
+        $taxa_metabolica,
+        $gcd,
+        $resultado,
+        $id_paciente,
+        $data
+    );
+
+    // Executando a consulta SQL
+    $stmt->execute($params);
 }
+
 ?>
