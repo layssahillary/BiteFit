@@ -84,17 +84,17 @@ if (isset($mensagem)) {
 
     <label for="sexo">Sexo:</label>
       <select id="sexo" name="sexo">
-        <option value="nada">Selecione</option>
+        <option value="">Selecione</option>
         <option value="Masculino">Masculino</option>
         <option value="Feminino">Feminino</option>
         <option value="Outro">Outro</option>
       </select><br>
 
-    <label for="altura">Altura:</label>
-    <input type="number" id="altura" name="altura" step="0.01" required><br>
+    <label for="altura">Altura (cm):</label>
+    <input type="number" id="altura" name="altura" required><br>
 
-    <label for="peso">Peso:</label>
-    <input type="number" id="peso" name="peso" step="0.01" required><br>
+    <label for="peso">Peso (kg):</label>
+    <input type="number" id="peso" name="peso" required><br>
 
     <label for="senha">Senha:</label>
     <input type="password" id="senha" name="senha" required><br>

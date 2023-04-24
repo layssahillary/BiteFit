@@ -115,10 +115,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <label for="email">E-mail:</label>
       <input type="email" id="email" name="email" value="<?php echo $email; ?>">
       <br>
-      <label for="peso">Peso:</label>
+      <label for="peso">Peso (kg):</label>
       <input type="number" id="peso" name="peso" value="<?php echo $peso; ?>">
       <br>
-      <label for="altura">Altura:</label>
+      <label for="altura">Altura (cm):</label>
       <input type="number" id="altura" name="altura" value="<?php echo $altura; ?>">
       <br>
       <label for="sexo">Sexo:</label>
