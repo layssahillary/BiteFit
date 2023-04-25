@@ -31,16 +31,17 @@ $celularErro        = "";
 $crnErro            = "";
 $enderecoErro       = "";
 
-// Verifica se o formulário foi submetido
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Verifica se o formulário foi submetido
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
   // Define as variáveis com os dados enviados pelo formulário
-  $nome           = trim($_POST["nome"]);
-  $email          = trim($_POST["email"]);
-  $telefone       = trim($_POST["telefone"]);
-  $celular        = trim($_POST["celular"]);
-  $crn            = trim($_POST["crn"]);
-  $endereco       = trim($_POST["endereco"]);
-  $senha          = $_POST["senha"];
+  $nome = trim($_POST["nome"]);
+  $email = trim($_POST["email"]);
+  $telefone = trim($_POST["telefone"]);
+  $celular = trim($_POST["celular"]);
+  $crn = trim($_POST["crn"]);
+  $endereco = trim($_POST["endereco"]);
+  $senha = $_POST["senha"];
   $confirmarSenha = $_POST["confirmarSenha"];
 
   // Verifica se o nome foi preenchido
@@ -69,6 +70,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirmarSenhaErro = "As senhas não são iguais.";
   }
 
+  // Verifica se o email já existe no banco de dados
+  $sql_verificar_email = "SELECT id FROM nutricionista WHERE email = ?";
+  $stmt = $pdo->prepare($sql_verificar_email);
+  $stmt->execute([$email]);
+
+  if ($stmt->rowCount() > 0) {
+  $emailErro = "Este email já está sendo utilizado por outro nutricionista.";
+  } else{
+
   // Se não houver erros de validação, insere o nutricionista no banco de dados
   if (empty($nomeErro) && empty($emailErro) && empty($senhaErro) && empty($confirmarSenhaErro)) {
     // Cria uma consulta SQL para inserir o nutricionista no banco de dados
@@ -87,6 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   header("Location: inicio_nutricionista.php");
   exit();
   }
+  }
+  
 }
 ?>
 
@@ -98,14 +110,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 	<h1>Cadastro de Nutricionista</h1>
+  <h2>Dados Pessoais</h2>
   <form  method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
   <label for    = "nome">Nome completo:</label>
   <input type   = "text" name   = "nome" id = "nome" value = "<?php echo $nome; ?>">
 	<span><?php echo $nomeErro; ?></span><br>
-
-	<label for  = "email">E-mail:</label>
-	<input type = "email" name = "email" id = "email" value = "<?php echo $email; ?>">
-	<span><?php echo $emailErro; ?></span><br>
 
   <label for  = "telefone">Telefone:</label>
 	<input type = "text" name = "telefone" id = "telefone" value = "<?php echo $telefone; ?>">
@@ -123,14 +132,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<input type = "text" name = "endereco" id = "endereco" value = "<?php echo $endereco; ?>">
 	<span><?php echo $enderecoErro; ?></span><br>
 
+  <h2>Informações de usuário</h2>
+
+  <label for  = "email">E-mail:</label>
+	<input type = "email" name = "email" id = "email" value = "<?php echo $email; ?>">
+	<span><?php echo $emailErro; ?></span><br>
+
 	<label for  = "senha">Senha:</label>
 	<input type = "password" name = "senha" id = "senha">
 	<span><?php echo $senhaErro; ?></span><br>
 
-	<label for  = "confirmarSenha">Confirmar senha:</label>
+	<label for  = "confirmarSenha">Confirme sua senha:</label>
 	<input type = "password" name = "confirmarSenha" id = "confirmarSenha">
 	<span><?php echo $confirmarSenhaErro; ?></span><br>
-
+  <br>
 	<input type = "submit" value = "Cadastrar">
 </form>
 </body>

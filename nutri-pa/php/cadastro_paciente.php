@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $sexo = $_POST['sexo'];
   $altura = $_POST['altura'];
   $peso = $_POST['peso'];
+  $confirmarSenha = $_POST['confirmarSenha'];
   $senha = $_POST['senha'];
   $objetivo = $_POST['objetivo'];
 
@@ -25,6 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (empty($nome) || empty($email) || empty($data_nascimento) || empty($sexo) || empty($altura) || empty($peso) || empty($senha) || empty($objetivo)) {
     $mensagem = "Por favor, preencha todos os campos obrigatórios.";
   } else {
+    // Verifica se a confirmação de senha foi preenchida e se é igual à senha informada
+  if (empty($confirmarSenha)) {
+    $confirmarSenhaErro = "Por favor, confirme sua senha.";
+  } elseif ($senha !== $confirmarSenha) {
+    $confirmarSenhaErro = "As senhas não são iguais.";
+  }
     // Verifica se o email já está cadastrado
     $sql_verificar_email = "SELECT * FROM paciente WHERE email = ?";
     $stmt_verificar_email = $pdo->prepare($sql_verificar_email);
@@ -72,12 +79,10 @@ if (isset($mensagem)) {
 </head>
 <body>
   <h1>Cadastro de Paciente</h1>
+  <h2>Dados pessoais</h2>
   <form method="POST" action="cadastro_paciente.php">
     <label for="nome">Nome completo:</label>
     <input type="text" id="nome" name="nome" required><br>
-
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="email" required><br>
 
     <label for="data_nascimento">Data de Nascimento:</label>
     <input type="date" id="data_nascimento" name="data_nascimento" required><br>
@@ -96,12 +101,21 @@ if (isset($mensagem)) {
     <label for="peso">Peso (kg):</label>
     <input type="number" id="peso" name="peso" required><br>
 
-    <label for="senha">Senha:</label>
-    <input type="password" id="senha" name="senha" required><br>
-
     <label for="objetivo">Qual o seu objetivo:</label>
     <input type="text" id="objetivo" name="objetivo" required><br>
 
+    <h2>Informações de usuário</h2>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required><br>
+
+    <label for="senha">Comfirme a Senha:</label>
+    <input type="password" id="confirmarSenha" name="confirmarSenha" required><br>
+
+    <br>
+    
     <button type="submit">Cadastrar</button>
     <button type="button" onclick="window.history.back()">Voltar</button>
   </form>
