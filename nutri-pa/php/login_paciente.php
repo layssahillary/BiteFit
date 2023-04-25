@@ -61,5 +61,7 @@
       </label><br><br>
       <button type = "submit">Entrar</button>
     </form>
+    <br>
+    <a href="index.html"><button>Voltar para o Início</button></a>
   </body>
 </html>
