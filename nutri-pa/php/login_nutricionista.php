@@ -65,5 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </form>
   <p>Não tem uma conta? <a href = "cadastro_nutricionista.php">Cadastre-se aqui</a>.</p>
+  <a href="index.html"><button>Voltar para o Início</button></a>
 </body>
 </html>
