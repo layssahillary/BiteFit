@@ -105,48 +105,86 @@ $enderecoErro       = "";
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cadastro de Nutricionista</title>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./cadastro-nutri.css">
+    <title>Cadastro nutricionista | BiteFit</title>
 </head>
 <body>
-	<h1>Cadastro de Nutricionista</h1>
-  <h2>Dados Pessoais</h2>
-  <form  method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-  <label for    = "nome">Nome completo:</label>
-  <input type   = "text" name   = "nome" id = "nome" value = "<?php echo $nome; ?>">
-	<span><?php echo $nomeErro; ?></span><br>
+	
+<div class= "container-nutri">
 
-  <label for  = "telefone">Telefone:</label>
+<div class="ilustracao">
+  <img src="./cadastro-nutricionista.svg" alt="ilustracao">
+</div>
+
+  <form class= "form-nutri"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+  
+  <h1 class= " col-2" >Cadastro de Nutricionista</h1>
+  <h2 class= " col-2">Dados Pessoais</h2>
+
+  <div class= "col-2" >
+  <label for="nome">Nome completo:</label>
+  <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>">
+	<span><?php echo $nomeErro; ?></span><br>
+  </div>
+
+  <div class= "col-1">
+  <label  for="telefone">Telefone:</label>
 	<input type = "text" name = "telefone" id = "telefone" value = "<?php echo $telefone; ?>">
 	<span><?php echo $telefoneErro; ?></span><br>
+  </div>
 
-	<label for  = "celular">Celular:</label>
+  <div class= "col-1">
+	<label   = "celular">Celular:</label>
 	<input type = "text" name = "celular" id = "celular" value = "<?php echo $celular; ?>">
 	<span><?php echo $celularErro; ?></span><br>
+  </div>
 
+  <div class= "col-2">
 	<label for  = "crn">CRN:</label>
 	<input type = "text" name = "crn" id = "crn" value = "<?php echo $crn; ?>">
 	<span><?php echo $crnErro; ?></span><br>
+  </div>
 
+
+  <div class= "col-2">
 	<label for  = "endereco">Endereço:</label>
 	<input type = "text" name = "endereco" id = "endereco" value = "<?php echo $endereco; ?>">
 	<span><?php echo $enderecoErro; ?></span><br>
+  </div>
 
   <h2>Informações de usuário</h2>
 
+  <div class= "col-2">
   <label for  = "email">E-mail:</label>
 	<input type = "email" name = "email" id = "email" value = "<?php echo $email; ?>">
 	<span><?php echo $emailErro; ?></span><br>
+  </div>
 
+  <div class= "col-1"> 
 	<label for  = "senha">Senha:</label>
 	<input type = "password" name = "senha" id = "senha">
 	<span><?php echo $senhaErro; ?></span><br>
-
+  </div>
+  
+  <div class= "col-1">
 	<label for  = "confirmarSenha">Confirme sua senha:</label>
 	<input type = "password" name = "confirmarSenha" id = "confirmarSenha">
 	<span><?php echo $confirmarSenhaErro; ?></span><br>
   <br>
-	<input type = "submit" value = "Cadastrar">
+  </div>
+
+  <div class= "botao-submit col-2">
+	<button class= "button-68" type="submit" > Cadastrar </button>
+  </div>
+  
+
 </form>
+
+
+</div>
+
 </body>
 </html>

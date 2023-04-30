@@ -25,7 +25,9 @@
 @import "./homebitefit/home-nutricionista.css";
 
 @import "./login/login.css";
-@import "helpers/cadastros/cadastro-nutri.css";
+@import "./login/index.css";
+
+@import "./cadastro-nutricionista.css";
 
 /*BICICLETA*/
 @import "helpers/bicicleta/home.css";
