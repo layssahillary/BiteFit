@@ -41,30 +41,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset = "utf-8">
-  <title>Login Nutricionista</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/cadastro-nutri.css">
+    <title>Login | BiteFit</title>
 </head>
 <body>
-  <h1>Login Nutricionista</h1>
+<div class="main-login">
+        <div class="left-login">
+            <img src="../imagens/Nature benefits-amico.svg" class="left-login-image" alt="helth">
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+  <h1 class="font-1-xl">Login Nutricionista</h1>
 
   <?php if (isset($erro)): ?>
     <p><?php echo $erro; ?></p>
   <?php endif; ?>
 
   <form method = "POST">
-    <div>
+    <div class="textfield">
       <label for  = "email">Email:</label>
       <input type = "email" name = "email" required>
     </div>
-    <div>
+    <div class="textfield">
       <label for  = "senha">Senha:</label>
       <input type = "password" name = "senha" required>
     </div>
-    <div>
-      <button type = "submit">Entrar</button>
+    <div >
+      <button  class="btn-login" type = "submit">Entrar</button>
     </div>
+    <p>Não possui cadastro? <a class="link-unico" href="cadastro_nutricionista.php">Cadastar-se</a></p>
+    <a class="link-unico" href="index.html">Voltar</a>
   </form>
-  <p>Não tem uma conta? <a href = "cadastro_nutricionista.php">Cadastre-se aqui</a>.</p>
-  <a href="index.html"><button>Voltar para o Início</button></a>
+  
 </body>
 </html>
