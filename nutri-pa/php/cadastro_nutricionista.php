@@ -116,9 +116,8 @@ $enderecoErro       = "";
 	
 <div class= "container-nutri">
 
-<div class="ilustracao">
   <img src="./cadastro-nutricionista.svg" alt="ilustracao">
-</div>
+
 
   <form class= "form-nutri"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
   
@@ -182,7 +181,6 @@ $enderecoErro       = "";
 	<button class= "button-68" type="submit" > Cadastrar </button>
   </div>
   
-  <script src="../javascript/senhaOculta.js"></script>
 </form>
 
 

@@ -2,65 +2,160 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  height: 100vh;
-  background-color: #11361c;
   overflow: hidden;
-  
 }
 
 
 .container-index {
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr ;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  /* justify-content: center; */
   align-items: center;
+  background-color: #f7f7f7;
+  /* 
   border-radius: 5px;
-  min-width: auto;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: #dd3030;
+  
+  min-height: auto;
+  
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  */
+}
+
+.container-index h1 {
+  margin: 0;
+  padding-top: 70px;
+  padding-bottom: 20px;
+  font: 400 1.5rem/1.125 "Poppins", sans-serif;
+  text-align: center;
+  color: #1d3d23;
+}
+
+.container-index p {
+  margin: 0;
+  padding: 0;
+  font: 400 1.07rem "Quicksand", sans-serif;
+  text-align: center;
+  color: #9C9C9C;
+}
+
+.container-index h2 {
+  font: 400 1.2rem "Poppins", sans-serif;
+  text-align: center;
+  color: #717171;
+}
+
+.img{
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.div {
+  width: 600px;
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px;
 }
 
 .icones{
   width: 130px;
 }
 
-.logo{
-  display: flex;
-  justify-content: center;
-}
-
-.container-index h1 {
-  font: 600 2.2rem/1.125 "Poppins", sans-serif;
-  text-align: center;
-  color: #f7f7f7;
-}
-
-.container-index h2 {
-  font: 400 1.5rem "Poppins", sans-serif;
-  text-align: center;
-  color: #404040;
-}
-
-
-.left-login{
-  margin: 100px;
-}
-
-
 .cards{
   display: grid;
-  grid-template-rows: 1fr 1fr ;
-  gap: 40px;
+  grid-template-columns: 1fr;
+  padding: 20px 70px 20px 70px;
+  gap: 10px;
 }
-
 
 .card-nutricionista, .card-paciente {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #f7f7f7;
-  border: 1.5px solid #5f2323;
-  padding: 10px;
-  border-radius: 5px;
+  align-content: space-around;
+  align-self: center;
+  background: #ffffff;
+  width: 512px;
+  height: 151px;
+  border: 1.5px solid #EDEDED;
+  box-shadow: rgba(0, 0, 0, 0.041) 0px 4px 12px;
+  margin: 8px 175px 20px 179px;
+  border-radius: 8px;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
+
+.card-nutricionista:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.card-paciente:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.botao-card img{
+  width: 12px;
+}
+
+
+/* CSS */
+.botao-card {
+  background:rgba(51, 51, 51, 0.02);
+  backface-visibility: hidden;
+  padding: 10px;
+  border-radius: 8px;
+  border:  1px #e6e6e6 solid;
+  box-sizing: border-box;
+  cursor: pointer;
+  transform: translateZ(0) scale(1);
+  transition: transform .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.botao-card:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.botao-card:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(.125rem);
+}
+
+.botao-card:focus {
+  outline: 0 solid transparent;
+}
+
+.botao-card:focus:before {
+  content: "";
+  left: calc(-1*.375rem);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-1*.375rem);
+  transition: border-radius;
+  user-select: none;
+}
+
+.botao-card:focus:not(:focus-visible) {
+  outline: 0 solid transparent;
+}
+
+.botao-card:focus:not(:focus-visible):before {
+  border-width: 0;
+}
+
+.botao-card:not(:disabled):active {
+  transform: translateY(.125rem);
+}
+
+ 
+
+
+
+
+
+
