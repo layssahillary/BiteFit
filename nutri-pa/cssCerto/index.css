@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-color: #11361c;
+  overflow: hidden;
+  
+}
+
+
+.container-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  min-width: auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.icones{
+  width: 130px;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+}
+
+.container-index h1 {
+  font: 600 2.2rem/1.125 "Poppins", sans-serif;
+  text-align: center;
+  color: #f7f7f7;
+}
+
+.container-index h2 {
+  font: 400 1.5rem "Poppins", sans-serif;
+  text-align: center;
+  color: #404040;
+}
+
+
+.left-login{
+  margin: 100px;
+}
+
+
+.cards{
+  display: grid;
+  grid-template-rows: 1fr 1fr ;
+  gap: 40px;
+}
+
+
+.card-nutricionista, .card-paciente {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f7f7;
+  border: 1.5px solid #5f2323;
+  padding: 10px;
+  border-radius: 5px;
+}

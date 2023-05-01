@@ -108,7 +108,8 @@ $enderecoErro       = "";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./cadastro-nutri.css">
+    <link rel="stylesheet" type="text/css" href="../cssCerto/cadastro-nutri.css">
+    
     <title>Cadastro nutricionista | BiteFit</title>
 </head>
 <body>
@@ -164,14 +165,15 @@ $enderecoErro       = "";
   </div>
 
   <div class= "col-1"> 
-	<label for  = "senha">Senha:</label>
-	<input type = "password" name = "senha" id = "senha">
+	<label for  = "senha">Senha: </label>
+	<input type = "password" name = "senha" id = "senha" >
 	<span><?php echo $senhaErro; ?></span><br>
   </div>
   
   <div class= "col-1">
 	<label for  = "confirmarSenha">Confirme sua senha:</label>
 	<input type = "password" name = "confirmarSenha" id = "confirmarSenha">
+  
 	<span><?php echo $confirmarSenhaErro; ?></span><br>
   <br>
   </div>
@@ -180,7 +182,7 @@ $enderecoErro       = "";
 	<button class= "button-68" type="submit" > Cadastrar </button>
   </div>
   
-
+  <script src="../javascript/senhaOculta.js"></script>
 </form>
 
 
