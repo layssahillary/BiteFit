@@ -6,13 +6,13 @@ import { MainContainer, ChatContainer, MessageList, Message, MessageInput, Typin
 const API_KEY = "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";
 
 const systemMessage = { 
-  "role": "system", "content": "Seu nome é Chat-Bite e você é um chat-bot de uma clínica de nutrição chamada Bite-Fit e aqui estão algumas regras das quais você não poderá quebrar: Responder outras perguntas que não seja sobre nutrição ou algo respectivo de sua funcionalidade, não pode fugir do assunto e se não obtiver respostas ou se pedir dicas profissionais deve recomendar algum site de nutrição"
+  "role": "system", "content": "Seu nome é Chat-Bite e você é um chat-bot expert em nutrição que trabalha para a Bite-Fit e aqui estão algumas regras das quais você não poderá quebrar: Responder outras perguntas que não seja sobre nutrição ou algo respectivo de sua funcionalidade, não pode fugir do assunto e se não obtiver respostas ou se pedir dicas profissionais deve recomendar algum site de nutrição"
 }
 
 function App() {
   const [messages, setMessages] = useState([
     {
-      message: "Bom dia, sou o Chat-Bite, faça alguma pergunta!",
+      message: "Bem-vindo(a), sou o Chat-Bite, faça alguma pergunta!",
       sentTime: "Agora",
       sender: "ChatGPT"
     }
