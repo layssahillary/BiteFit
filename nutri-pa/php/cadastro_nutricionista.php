@@ -76,7 +76,7 @@ $enderecoErro       = "";
   $stmt->execute([$email]);
 
   if ($stmt->rowCount() > 0) {
-  $emailErro = "Este email já está sendo utilizado por outro nutricionista.";
+  $emailErro = "Este email já está sendo utilizado.";
   } else{
 
   // Se não houver erros de validação, insere o nutricionista no banco de dados
