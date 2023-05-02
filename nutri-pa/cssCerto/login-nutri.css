@@ -3,6 +3,7 @@ body {
   padding: 0;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 
@@ -46,9 +47,22 @@ body {
   height: 40px;
   display: block;
   margin-bottom: 28px;
-  background-color: aqua;
+  background-color: rgb(233, 233, 233);
+  border: 1px #bebebe solid;
+  border-radius: 5px;
   font: 400 1rem/1.125 "Poppins", sans-serif;
- 
+  padding-left: 10px;
+}
+
+.div form input:hover{
+  border: 1px #0e5a25 solid;
+}
+
+
+
+.div form input:focus{
+  border: 2px solid #0e5a25;
+  outline: none;
 }
 
 .div form label{
