@@ -1,0 +1,211 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.container-login-nutri  {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  background-color: #ffff;
+}
+
+.container-login-nutri .logo {
+  
+  display: flex;
+  align-items: center;
+}
+
+ .container-login-nutri h1 {
+  margin: 0;
+  padding-top: 70px;
+  padding-bottom: 20px;
+  font: 400 1.5rem/1.125 "Poppins", sans-serif;
+  text-align: center;
+  color: #1d3d23;
+}
+
+.container-login-nutri p {
+  display: inline;
+  /* margin: 10px;
+  padding: 10px; */
+  font: 400 1.07rem "Quicksand", sans-serif;
+  text-align: center;
+  color: #9C9C9C;
+}
+
+.container-login-nutri a {
+  margin: 0;
+  padding: 0px;
+  font: 400 1.07rem "Quicksand", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #859983;
+}
+
+.container-login-nutri a:hover {
+  color: #1d3d23;
+  font-weight: bold;
+}
+
+.img{
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.div .imagem{
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.div form {
+  width: 600px;
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.div form h1 {
+  font: 400 1.5rem/1.125 "Quicksand", sans-serif;
+  position: relative;
+}
+
+.div form p {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  font: 400 1rem/1.125 "Quicksand", sans-serif;
+  color: #9C9C9C;
+}
+
+.div form h1::before {
+  content: "";
+  display: inline-block;
+  width: 101px;
+  height: 2px;
+  background-color: #e2e2e2;
+  position: absolute;
+  left: -54px;
+  top: 20px;
+}
+
+.div form label{
+  font: 400 1rem/1.125 "Poppins", sans-serif;
+  color: #9C9C9C;
+  text-align: left;
+}
+
+
+.div form input{
+  width: 380px;
+  height: 40px;
+  display: block;
+  margin-bottom: 28px;
+  background: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  font: 400 1rem/1.125 "Poppins", sans-serif;
+  padding-left: 10px;
+}
+
+.div form input:hover{
+  border: 1px #0e5a25 solid;
+}
+
+
+
+.div form input:focus{
+  border: 2px solid #0e5a25;
+  outline: none;
+}
+
+.div form label{
+  display: block; 
+  margin-bottom: 5px;
+  
+ }
+
+ .botao-login-nutri {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 5px 40px;
+  margin-bottom: 30px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.botao-login-nutri:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.botao-login-nutri:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.botao-login-nutri:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.botao-voltar{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.botao-voltar img{
+  width: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+

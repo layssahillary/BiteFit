@@ -44,21 +44,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../cssCerto/login-nutri.css">
+    <link rel="stylesheet" type="text/css" href="../cssCerto/login.css">
     <title>Login | BiteFit</title>
 </head>
 <body>
+  
 
 <div class="container-login-nutri">
-        
-  <div class="div">
-  <h1 class="font-1-xl">Login Nutricionista</h1>
 
-  <?php if (isset($erro)): ?>
-    <p><?php echo $erro; ?></p>
-  <?php endif; ?>
+  <div class="div">
+  <a class="botao-voltar" href="index.html">
+  			<img src="../imagens/seta-esquerda.png" alt="Meu botão">
+</a>
+   
+  
 
   <form method = "POST">
+  <img src="../imagens/logoFila.svg" alt="logoBiteFit">
+  <h1></h1>
     <div class="textfield">
       <label for  = "email">Email:</label>
       <input type = "email" name = "email" required>
@@ -67,11 +70,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label for  = "senha">Senha:</label>
       <input type = "password" name = "senha" required>
     </div>
-    <div >
-      <button  class="btn-login" type = "submit">Entrar</button>
-    </div>
-    <p>Não possui cadastro? <a class="link-unico" href="cadastro_nutricionista.php">Cadastar-se</a></p>
-    <a class="link-unico" href="index.html">Voltar</a>
+
+    <?php if (isset($erro)): ?>
+    <p><?php echo $erro; ?></p>
+    <?php endif; ?>
+
+      <button class="botao-login-nutri" type = "submit">Entrar</button>
+    
+    <p class="paragrafo-cadastro">Não possui cadastro? <a href="cadastro_nutricionista.php">Cadastar-se</a></p>
+    
   </form>
 </div>
 

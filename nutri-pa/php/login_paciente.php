@@ -41,27 +41,44 @@
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset = "utf-8">
-    <title>Login do paciente</title>
-  </head>
-  <body>
-    <h1>Login do paciente</h1>
-    <?php if ($erro): ?>
-      <p style = "color: red;"><?php echo $erro; ?></p>
-    <?php endif; ?>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../cssCerto/login.css">
+    <title>Login | BiteFit</title>
+</head>
+<body>
+  <div class="container-login-nutri">
+
+<div class="div">
+    <a class="botao-voltar" href="index.html">
+          <img src="../imagens/seta-esquerda.png" alt="Meu botão">
+    </a>
+    
+
     <form method = "post">
-      <label>
-        Email: 
+    <img src="../imagens/logoFila.svg" alt="logoBiteFit">
+    <h1></h1>
+    <div class="textfield">
+      <label> Email: </label>
         <input type = "email" name = "email" value = "<?php echo $email; ?>">
-      </label><br><br>
-      <label>
-        Senha: 
+    </div>
+
+    <div class="textfield">
+      <label> Senha:</label> 
         <input type = "password" name = "senha">
-      </label><br><br>
-      <button type = "submit">Entrar</button>
+    </div>
+
+    <?php if ($erro): ?>
+      <p><?php echo $erro; ?></p>
+    <?php endif; ?>
+
+    <button class="botao-login-nutri" type = "submit">Entrar</button>
+
     </form>
-    <br>
-    <a href="index.html"><button>Voltar para o Início</button></a>
+  </div>
+    <img class="img" src="../imagens/Login.svg" alt="helth">
+</div>
   </body>
 </html>
