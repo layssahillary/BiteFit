@@ -12,16 +12,9 @@ body {
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* justify-content: center; */
   align-items: center;
   background-color: #f7f7f7;
-  /* 
-  border-radius: 5px;
-  border: #dd3030;
-  
-  min-height: auto;
-  
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  */
+ 
 }
 
 .container-index h1 {
@@ -93,8 +86,16 @@ body {
   transform: scale(1.05);
 }
 
+.card-nutricionista:hover {
+  border: 1px #7a917e solid;
+}
+
+.card-paciente:hover {
+  border: 1px #7a917e solid;
+}
 .card-paciente:not(:disabled):hover {
   transform: scale(1.05);
+  
 }
 
 .botao-card img{

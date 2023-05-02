@@ -44,16 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/cadastro-nutri.css">
+    <link rel="stylesheet" type="text/css" href="../cssCerto/login-nutri.css">
     <title>Login | BiteFit</title>
 </head>
 <body>
-<div class="main-login">
-        <div class="left-login">
-            <img src="../imagens/Nature benefits-amico.svg" class="left-login-image" alt="helth">
-        </div>
-        <div class="right-login">
-            <div class="card-login">
+
+<div class="container-login-nutri">
+        
+  <div class="div">
   <h1 class="font-1-xl">Login Nutricionista</h1>
 
   <?php if (isset($erro)): ?>
@@ -75,6 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p>Não possui cadastro? <a class="link-unico" href="cadastro_nutricionista.php">Cadastar-se</a></p>
     <a class="link-unico" href="index.html">Voltar</a>
   </form>
-  
+</div>
+
+  <img class="img" src="../imagens/Login.svg" alt="helth">
+
+</div>
 </body>
 </html>
