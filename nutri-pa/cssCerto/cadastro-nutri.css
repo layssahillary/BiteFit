@@ -37,6 +37,7 @@ body {
   align-items: center;
   margin: 0;
   padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .form-nutri h2::before {
@@ -50,10 +51,6 @@ body {
   
 }
 
-
-
-
-
 .container-nutri .form-nutri label, .container-nutri .form-nutri input, .container-nutri .form-nutri textarea {
   margin: 0 0 5px 0;
   padding: 0;
@@ -62,6 +59,8 @@ body {
   border: none;
   border-radius: 5px;
 }
+
+
 
 
 
@@ -75,7 +74,8 @@ body {
 .form-nutri label  {
   padding: 0;
   margin: 0;
-  font: 600 1rem/1.5 "Poppins", sans-serif;
+  font: 400 1rem/1.5 "Poppins", sans-serif;
+  color: #868686;
   margin-bottom: 4px;
   
 }
@@ -115,6 +115,15 @@ body {
   cursor: pointer;
 }
 
+.form-nutri input:focus{
+  border: 1px solid #0e5a25;
+  outline: none;
+}
+
+span{
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+  color: #868686;
+}
 .botao-submit{
   display: flex;
   justify-content: center;
@@ -158,6 +167,8 @@ body {
   transform: translateY(0);
   transition-duration: .35s;
 }
+
+
 
 .button-68:active {
   transform: translateY(2px);

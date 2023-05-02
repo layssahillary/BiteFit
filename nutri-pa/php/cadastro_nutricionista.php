@@ -76,7 +76,7 @@ $enderecoErro       = "";
   $stmt->execute([$email]);
 
   if ($stmt->rowCount() > 0) {
-  $emailErro = "Este email já está sendo utilizado por outro nutricionista.";
+  $emailErro = "Este email já está sendo utilizado.";
   } else{
 
   // Se não houver erros de validação, insere o nutricionista no banco de dados
@@ -109,6 +109,12 @@ $enderecoErro       = "";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../cssCerto/cadastro-nutri.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
     
     <title>Cadastro nutricionista | BiteFit</title>
 </head>
