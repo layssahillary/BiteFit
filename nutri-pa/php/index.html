@@ -3,24 +3,38 @@
 <head>
 	<title>Tela Inicial</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../cssCerto/index.css">
 </head>
 <body>
-	<div class="main-login">
-		<div class="left-login">
-				<img src="../imagens/Nature benefits-amico.svg" class="left-login-image" alt="helth">
+	<div class="container-index">
+
+		<div class="div">
+			<img src="../imagens/logoFila.svg" alt="logoBiteFit">
+			<h1>Bem-vindo(a)</h1>
+			<p>Quem você é? Nutricionista ou paciente?</p>
+
+		<div class="cards">
+		<div class="card-nutricionista">
+			<img class="icones" src="../imagens/doutor (1).png" alt="Nutricionista">
+			<h2>Sou Nutricionista</h2>
+			<a class="botao-card" href="login_nutricionista.php">
+  			<img src="../imagens/seta.svg" alt="Meu botão">
+			</a>
+			
 		</div>
-		<div class="right-login">
-				<div class="card-login">
-						<h1 class="font-1-xl">Bem-vindo(a) ao Bitefit</h1>
-
-						<a href="login_nutricionista.php"><button class="btn-login">Sou Nutricionista</button></a>
-						<a href="login_paciente.php"><button class="btn-login">Sou Paciente</button></a>
-						
-				</div>
-				
-
+		<div class="card-paciente">
+			<img class="icones" src="../imagens/adolescente (1).png" alt="Nutricionista">
+			<h2>Sou Paciente</h2>
+			<a class="botao-card" href="login_paciente.php">
+  			<img src="../imagens/seta.svg" alt="Meu botão">
+			</a>
 		</div>
+	</div>
+	
+	</div>
 
+	<img class="img" src="../imagens/Login.svg" alt="helth">
+
+</div>			
 </body>
 </html>

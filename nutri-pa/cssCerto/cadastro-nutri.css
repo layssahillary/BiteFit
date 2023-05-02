@@ -5,8 +5,7 @@ body {
   justify-content: space-around;
   align-items: center;
   height: 100vh;
-  background-color: #d0ddce;
-  
+  background-image: url(../imagens/Login.svg);
 }
 
 
@@ -21,13 +20,13 @@ body {
   min-height: auto;
   margin: 170px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); */
 }
 
 
 .form-nutri h1 {
-  font: 600 2rem/1.125 "Quicksand", sans-serif;
+  font: 600 2.5rem/1.125 "Quicksand", sans-serif;
   text-align: center;
+  color: rgb(20, 75, 27);
 }
 
 .form-nutri h2 {
@@ -168,3 +167,4 @@ body {
 .button-68:hover {
   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
 }
+
