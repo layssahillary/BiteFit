@@ -124,9 +124,9 @@ if (isset($mensagem)) {
   <form id="formulario" class="cadastro container" method="POST" action="cadastro_paciente.php">
 
   <div class="cadastro-dados form">
-  <h2 class="font-1-xs cor-9 col-2">Dados pessoais</h2>
+  <h2 class="col-2">Dados pessoais</h2>
       <div class="col-2">
-        <label for="nome">Nome completo:</label>
+        <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required><br>
     </div>
 
@@ -145,34 +145,41 @@ if (isset($mensagem)) {
       </select><br>
     </div>
 
-    <label for="altura">Altura (cm):</label>
-    <input type="number" id="altura" name="altura" required step="0.01" required><br>
+    <div>
+    <label for="altura">Altura(cm):</label>
+    <input type="number" id="altura" name="altura" required step="0.01" required>
+    </div>
 
-    <label for="peso">Peso (kg):</label>
-    <input type="number" id="peso" name="peso" required step="0.01" required><br>
+    <div>
+    <label for="peso">Peso(kg):</label>
+    <input type="number" id="peso" name="peso" required step="0.01" required>
+    </div>
 
+    <div>
     <label for="objetivo">Qual o seu objetivo:</label>
     <input type="text" id="objetivo" name="objetivo" required><br>
-
+    </div>
     
-    <h2>Informações de usuário</h2>
+    
+    <h2 class="col-2">Informações de usuário</h2>
 
-    <div class="col-1">
+    <div class="col-2">
     <label for="email">E-mail:</label>
     <input type="email" id="email" name="email" required><br>
     </div>
     
-    <div class="col-1">
+    <div >
     <label for="senha">Senha:</label>
     <input type="password" id="senha" name="senha" required><br>
     </div>
 
     <div>
-    <label for="senha">Comfirme a Senha:</label>
+    <label for="senha">Confirme a Senha:</label>
     <input type="password" id="confirmarSenha" name="confirmarSenha" required><br>
     </div>
 
-    <button id="abrir-dialog" class="botao-cadastro col-1 " type="submit">Cadastrar</button>
+
+    <button id="abrir-dialog" class="botao-cadastro col-1" type="submit">Cadastrar</button>
         <dialog id="meu-dialog">
             <a id="fechar-dialog" >
                 <img src="imagens/iconClose.svg" alt="texto-descritivo-da-imagem">
@@ -180,7 +187,7 @@ if (isset($mensagem)) {
             <h2 id="h2-cadastro">Cadastro feito <br>com sucesso! &#10024</h2>
         </dialog>
          
-        <a class="botao-direita" href="home-nutricionista.html">Voltar</a>
+        <a class="botao-direita" href="inicio_nutricionista.php">Voltar</a> 
   </div>
     
     
