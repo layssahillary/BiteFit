@@ -33,3 +33,12 @@ function logout() {
       // exibe mensagem de erro ou faz outra coisa
     });
 }
+
+function trocarDivs() {
+  var infoDiv = document.querySelector(".info-div");
+  var formDiv = document.querySelector(".form-div");
+
+  infoDiv.style.display = "none";
+  formDiv.style.display = "block";
+}
+

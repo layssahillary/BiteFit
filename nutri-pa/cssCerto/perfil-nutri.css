@@ -80,6 +80,7 @@ img[src$=".jpg"]{
 .container-conteudo-img h2{
   font: 600 1.5rem/1.125 "Quicksand", sans-serif;
   color: #132c16;
+  padding-bottom: 10px;
 }
 
 
@@ -423,4 +424,8 @@ li button{
 
 .btn-editar:hover{
   background-color: #3a5c2d;
+}
+
+.hide {
+  display: none;
 }
