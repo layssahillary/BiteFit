@@ -1,13 +1,13 @@
-<?php
+<!-- <?php
 require_once "conexao.php";
 
-// Verifica se o usuário está logado como nutricionista
+ //Verifica se o usuário está logado como nutricionista
 session_start();
 if (!isset($_SESSION['nutricionista_id'])) {
   header("Location: login_nutricionista.php");
   exit();
 }
-?>
+?> -->
 
 
 <!DOCTYPE html>
@@ -26,6 +26,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+      
 
        
     </head>
@@ -52,7 +53,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><a href="./logout_nutricionista.html">Sair</a></li>
+<li><button class="deslogar" onclick="showOverlay()">Deslogar</button>
 
 
 </nav>
@@ -119,6 +120,18 @@ if (!isset($_SESSION['nutricionista_id'])) {
 
         
     
+    
+    <div id="overlay" style="display: none;">
+      <div id="overlay-content">
+        <p>Você está prestes a deslogar da sua conta de nutricionista. Deseja continuar?</p>
+        <div id="botoes-overlay">
+        <button onclick="hideOverlay()">Não, voltar para a página anterior</button>
+        <button onclick="logout()">Sim, deslogar</button>
+        
+        </div>
+      </div>
+    </div>
+    
 
 </main>
 
@@ -159,7 +172,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
 </footer>
     
 <script src="js.js"></script>
-<script src="javascript/carousel.js"></script>
+<script src="logout.js"></script>
     
         </body>
     </html>
