@@ -32,6 +32,9 @@ $nutricionista = $stmt->fetch();
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
       
 
        
@@ -67,8 +70,16 @@ $nutricionista = $stmt->fetch();
 
 <main>
 
+<div class="container container-conteudo">
+  <div class="container-conteudo-img">
+  <img src="../imagens/editar-informacao.png" alt="">
+  <h2>Nutricionista</h2>
+  <p><strong>Nome:</strong> <?php echo $nutricionista['nome']; ?></p>
+  <p><strong>CRN:</strong> <?php echo $nutricionista['crn']; ?></p>
+  </div>
+  
 <div class="container container-pefil-nutri">
-  <h1>Bem vindo ao seu perfil, Nutricionista!</h1>
+  <h1>Bem vindo ao seu perfil!</h1>
   <div class="container-pequeno">
     <h2>Perfil</h2>
   <p><strong>Nome completo:</strong> <?php echo $nutricionista['nome']; ?></p>
@@ -80,8 +91,13 @@ $nutricionista = $stmt->fetch();
   <p><strong>Telefone:</strong> <?php echo $nutricionista['telefone']; ?></p>
   <p><strong>Celular:</strong> <?php echo $nutricionista['celular']; ?></p>
   <p><strong>Endereço:</strong> <?php echo $nutricionista['endereco']; ?></p>
-  <a href="editar_nutricionista.php?id=<?php echo $nutricionista['id']; ?>">Editar</a>
+  
+<div class="botao-editar">
+  <button class="btn-editar"><a href="editar_nutricionista.php?id=<?php echo $nutricionista['id']; ?>">Editar</a><i class="fas fa-paint-brush"></i></button>
+</div>
+
   </div>
+</div>
 </div>
 
 

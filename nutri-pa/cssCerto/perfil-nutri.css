@@ -49,28 +49,77 @@ img[src$=".jpg"]{
   flex-direction: column;
   gap: 40px;
   padding: 90px;
+  margin: 0;
   background-color: #f7f7f7;
 }
 
+.container-conteudo{
+  display: grid;
+  grid-template-columns: 1fr 3fr ;
+
+}
+.container-conteudo-img{
+  display: flex;
+  flex-direction: column;
+ }
+
+.container-conteudo-img img{
+  width: 200px;
+  height: 200px;
+  padding-top: 60px;
+  padding-bottom: 10px;
+  align-self: center;
+}
+
+.container-conteudo-img p{
+  font:  400 1rem/1.7 "Roboto", sans-serif;
+  color: #717171;
+  text-align: start;
+}
+
+.container-conteudo-img h2{
+  font: 600 1.5rem/1.125 "Quicksand", sans-serif;
+  color: #132c16;
+}
+
+
+
 .container-pefil-nutri h1{
   font:600 2rem/1.125 "Quicksand", sans-serif;
+  text-align: center;
 }
+
+
 
 .container-pequeno{
   border: 1px solid #DEDEDE;
   border-radius: 10px;
   padding: 20px;
   background-color: #ffffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .container-pequeno p{
   font: 400 1rem/1.7 "Roboto", sans-serif;
+  color: #595959;
 }
 
 .container-pequeno h2{
   font: 600 1.5rem/1.125 "Quicksand", sans-serif;
   padding-bottom: 20px;
+  color: #285430;
 }
+
+.container-pequeno h2::after {
+  content: "";
+  display: inline-block;
+  width: 500px;
+  height: 2px;
+  background-color: #CCCCCC;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
 .header-bg {
   background:#285430;  
 }
@@ -341,4 +390,37 @@ li button{
   position: relative;
   font:400 1.5rem/1.125 "Poppins", sans-serif;
   color: #ffffff;
+}
+
+.btn-editar {
+  background-color: #5F8D4E;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.btn-editar a{
+  font:400 1rem/1.125 "Poppins", sans-serif;
+}
+
+.fa-paint-brush {
+  margin-left: 4px;
+}
+
+.botao-editar{
+  display: flex;
+  align-content: end;
+  justify-content: flex-end;
+}
+
+.btn-editar:hover{
+  background-color: #3a5c2d;
 }
