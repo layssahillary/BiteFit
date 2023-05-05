@@ -35,7 +35,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
 
 <header class="header-bg">
     <div class="header container">
-        <a href="home-nutricionista.html">
+        <a href="./inicio_nutricionista.php">
             <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
         </a>
         
@@ -143,31 +143,31 @@ if (!isset($_SESSION['nutricionista_id'])) {
             <ul class="font-2-m cor-5">
                 <li><a href="tel:+5521999999999">+55 21 99999-9999</a></li>
                 <li><a href="mailto:contato@bikcraft.com">contato@bikcraft.com</a></li>
-                <li>Rua Ali Perto, 42 - Botafogo</li>
-                <li>Rio de Janeiro - RJ</li>
             </ul>
 
             <div class="footer-redes">
                 <a href="./">
-                <img src="img/redes/instagram.svg" alt="Instagram"></a>
+                <img src="../imagens/instagram.png" alt="Instagram"></a>
                 <a href="./">
-                    <img src="img/redes/facebook.svg" alt="facebook"></a>
-                    <a href="./">
-                        <img src="img/redes/youtube.svg" alt="youtube"></a>
+                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
             </div>
         </div>
         <div class="footer-informacoes">
             <h3 class="font-2-l-b cor-0">Informações</h3>
             <nav>
                 <ul class="font-1-m cor-5">
-                    <li><a href="./bicicletas.html">Inicio</a></li>
-                    <li><a href="./seguros.html">Perfil</a></li>
-                    <li><a href="./contato.html">Receitas</a></li>
-                    <li><a href="./termos.html">Contato</a></li>
+                    <li><a href="./perfil_nutricionista.php">Perfil</a></li>
+                    <li><a href="./cadastro_paciente.php">Cadastrar Paciente</a></li>
+                    <li><a href="./pacientes.php">Lista de Pacientes</a></li>
+                    <li><a href="./consultas_nutri.php">Consultas</a></li>
+                    <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
+                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
+                    
+                    <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>
             </nav>
         </div>
-        <p class="footer-copy font-2-m cor-6"> BiteFit Alguns direitos reservados.</p>
+        <p class="footer-copy font-2-m cor-6"> Copyright © 2023 BiteFit. Todos os direitos reservados.</p>
     </div>
 </footer>
     
