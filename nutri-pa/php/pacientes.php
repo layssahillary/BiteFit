@@ -95,7 +95,16 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
   </div>
 
-
+  <div id="overlay" style="display: none;">
+      <div id="overlay-content">
+        <p>Você está prestes a deslogar da sua conta de nutricionista. Deseja continuar?</p>
+        <div id="botoes-overlay">
+        <button onclick="hideOverlay()">Não, voltar para a página anterior</button>
+        <button onclick="logout()">Sim, deslogar</button>
+        
+        </div>
+      </div>
+    </div>
 
 
 
@@ -135,6 +144,6 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </footer>
     
-<script src="js.js"></script>
+<script src="./js.js"></script>
 </body>
 </html>
