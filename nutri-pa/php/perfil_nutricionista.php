@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <p><strong>Endereço:</strong> <?php echo $nutricionista['endereco']; ?></p>
   
 <div class="botao-editar">
-<button onclick="trocarDivs()" class="btn-editar">Editar informações</button>
+<button onclick="trocarDivs()" class="button-68">Editar</button>
 </div>
   </div>
 </div>
@@ -147,9 +147,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		<label for="endereco">Endereço:</label>
 		<input type="text" id="endereco" name="endereco" value="<?php echo $nutricionista['endereco']; ?>">
 		<br>
-		<input type="submit" value="Salvar">
+    <div class="btn-voltar">
+		<input class="button-68" type="submit" value="Salvar">
+    <a href="perfil_nutricionista.php"><button class="button-68">Voltar</button></a>
+    </div>
 	</form>
-    <a href="perfil_nutricionista.php"><button>Voltar</button></a>
+    
 </div>
 </div>
 
@@ -171,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
 
-<footer class="footer-bg">
+    <footer class="footer-bg">
     <div class="footer container">
         <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
         <div class="footer-contato">
@@ -208,7 +211,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </footer>
     
 <script src="js.js"></script>
-<script src="logout.js"></script>
     
         </body>
     </html>

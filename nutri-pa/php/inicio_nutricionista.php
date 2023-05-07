@@ -172,7 +172,6 @@ if (!isset($_SESSION['nutricionista_id'])) {
 </footer>
     
 <script src="js.js"></script>
-<script src="logout.js"></script>
     
         </body>
     </html>
