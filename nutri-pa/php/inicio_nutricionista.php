@@ -65,7 +65,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
         <div class="card-titulo">
             <h1>Registre <br> seus <br> pacientes</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe tenetur omnis, laboriosam possimus vero commodi sequi excepturi exercitationem optio obcaecati dolor nobis. Autem doloremque cumque, natus rem quasi vel porro.</p>
-            <a class="button-68" href="./bicicletas/nimbus.html">Registrar</a>
+            <a class="button-68" href="./cadastro_paciente.php">Registrar</a>
         </div>
         <div class="card-imagem">
             <img class="imagem-card" src="../imagens/inicio-nutri-img.svg" alt="">
@@ -173,5 +173,37 @@ if (!isset($_SESSION['nutricionista_id'])) {
     
 <script src="js.js"></script>
     
+
+<script>
+  // Seleciona o botão "Excluir"
+  const btnExcluir = document.getElementById('btn-excluir');
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Exclui o paciente do banco de dados
+  $sql  = "DELETE FROM paciente WHERE id = ?";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([$id_paciente]);
+
+  // Retorna a resposta do servidor como HTML
+  echo '<p>O paciente ' . $paciente['nome'] . ' foi excluído.</p>';
+  echo '<a href="perfilpaciente_nutri.php"><button>Não</button></a>';
+  exit();
+}
+
+  btnExcluir.addEventListener('click', (event) => {
+    // Previne o comportamento padrão de seguir o link
+    event.preventDefault();
+
+    // Envia a solicitação AJAX
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '<?php echo $_SERVER['PHP_SELF']; ?>');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = () => {
+      // Atualiza o conteúdo da página com a resposta do servidor
+      document.documentElement.innerHTML = xhr.responseText;
+    };
+    xhr.send(new FormData());
+  });
+</script>
         </body>
     </html>
