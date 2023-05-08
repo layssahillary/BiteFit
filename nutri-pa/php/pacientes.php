@@ -70,27 +70,34 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </header>
 <div class="titulo-bg">
         <div class="titulo container">
-        <h1>Pacientes cadastrados</h1></h1>
+        <h1>Pacientes cadastrados<span>.</span></h1>
         </div>        
     </div>
   
 
   <div class="container">
     <div class="container-pacientes">
-      <h2>Pacientes:</h2>
-  <table>
-    <tbody>
-      <?php foreach ($pacientes as $paciente): ?>
-        <tr>
-          <td><?php echo $paciente['nome'], "<br>", $paciente['email']; ?></td>
-          <td><a href="perfilpaciente_nutri.php?id=<?php echo $paciente['id']; ?>">Ver Perfil</a></td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
+      <table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Perfil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($pacientes as $paciente): ?>
+      <tr>
+        <td><?php echo $paciente['nome']; ?></td>
+        <td><?php echo $paciente['email']; ?></td>
+        <td><a class="button-4" href="perfilpaciente_nutri.php?id=<?php echo $paciente['id']; ?>">Ver Perfil</a></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
   <div class="botoes">
-  <a class="button-68" href="cadastro_paciente.php">Cadastrar paciente</a>
-  <a class="button-68" href="inicio_nutricionista.php">Voltar</a>
+  <a id="button-68"  href="cadastro_paciente.php">Cadastrar paciente</a>
+  <a id="button-68"  href="inicio_nutricionista.php">Voltar</a>
   </div>
   </div>
   </div>

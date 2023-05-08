@@ -88,21 +88,30 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="titulo-bg">
         <div class="titulo container">
-        <h1>Perfil paciente</h1></h1>
+        <h1>Perfil paciente <span>.</span></h1>
         </div>        
 </div>
 
 <div class="container">
 <div class="container-pefil-paciente">
   <div class="container-pequeno">
+
+  
+  <div class="container-campos-img">
+  <div class="container-campos">
   <h2>Dados do paciente</h2>
-  <p><strong>Nome completo:</strong> <br> <?php echo $paciente['nome']; ?></p>
-  <p><strong>Sexo:</strong> <br> <?php echo $paciente['sexo']; ?></p>
-  <p><strong>Data de Nascimento:</strong> <br> <?php echo $paciente['data_nascimento']; ?></p>
-  <p><strong>Idade:</strong> <br> <?php echo $paciente['idade'] . " anos"; ?></p>
-  <p><strong>Altura:</strong> <br> <?php echo $paciente['altura']; ?> cm</p>
-  <p><strong>Peso:</strong> <br> <?php echo $paciente['peso']; ?> kg</p>
-  <p><strong>Objetivo do paciente:</strong> <br> <?php echo $paciente['objetivo']; ?></p>
+  <p><strong>Nome completo:</strong>  <?php echo $paciente['nome']; ?></p>
+  <p><strong>Sexo:</strong>  <?php echo $paciente['sexo']; ?></p>
+  <p><strong>Data de Nascimento:</strong>  <?php echo $paciente['data_nascimento']; ?></p>
+  
+  <p><strong>Idade:</strong>  <?php echo $paciente['idade'] . " anos"; ?></p>
+  <p><strong>Altura:</strong>  <?php echo $paciente['altura']; ?> cm</p>
+  <p><strong>Peso:</strong>  <?php echo $paciente['peso']; ?> kg</p>
+  <p><strong>Objetivo do paciente:</strong>  <?php echo $paciente['objetivo']; ?></p>
+
+  </div>
+  <img src="../imagens/profile.gif" alt="profile">
+  </div>
   <div class="botoes">
   <a href="editar_paciente.php?id=<?php echo $paciente['id']; ?>"><img src="../imagens/editar.png" alt="Editar"></a>
 
@@ -110,8 +119,9 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
   </div>
 
+
   <div class="container-pequeno">
-  <h2>Histórico das Informações nutricionais do paciente:</h2>
+  <h2>Informações nutricionais</h2>
     <table>
         <thead>
             <tr>

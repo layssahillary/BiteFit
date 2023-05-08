@@ -42,3 +42,6 @@ function trocarDivs() {
   formDiv.style.display = "block";
 }
 
+function confirmSubmit() {
+  return confirm("Tem certeza que deseja salvar as informações para o paciente selecionado?");
+}
