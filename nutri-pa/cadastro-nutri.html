@@ -1,0 +1,129 @@
+<!-- <?php
+    // Inclui o arquivo de conexão com o banco de dados
+require_once "conexao.php";
+
+    // Inicia a sessão
+session_start();
+
+    // Verifica se o usuário já está logado e redireciona para a página de pacientes
+if (isset($_SESSION['nutricionista_id'])) {
+  header("Location: pacientes.php");
+  exit();
+}
+
+    // Define as variáveis que serão usadas no formulário de cadastro
+$nome           = "";
+$email          = "";
+$senha          = "";
+$confirmarSenha = "";
+
+    // Define as variáveis que serão usadas para exibir mensagens de erro
+$nomeErro           = "";
+$emailErro          = "";
+$senhaErro          = "";
+$confirmarSenhaErro = "";
+
+    // Verifica se o formulário foi submetido
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      // Define as variáveis com os dados enviados pelo formulário
+  $nome           = trim($_POST["nome"]);
+  $email          = trim($_POST["email"]);
+  $senha          = $_POST["senha"];
+  $confirmarSenha = $_POST["confirmarSenha"];
+
+      // Verifica se o nome foi preenchido
+  if (empty($nome)) {
+    $nomeErro = "Por favor, informe seu nome.";
+  }
+
+      // Verifica se o email foi preenchido e se é válido
+  if (empty($email)) {
+    $emailErro = "Por favor, informe seu email.";
+  } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErro = "Por favor, informe um email válido.";
+  }
+
+      // Verifica se a senha foi preenchida e se tem pelo menos 8 caracteres
+  if (empty($senha)) {
+    $senhaErro = "Por favor, informe uma senha.";
+  } elseif (strlen($senha) < 8) {
+    $senhaErro = "Sua senha deve ter pelo menos 8 caracteres.";
+  }
+
+      // Verifica se a confirmação de senha foi preenchida e se é igual à senha informada
+  if (empty($confirmarSenha)) {
+    $confirmarSenhaErro = "Por favor, confirme sua senha.";
+  } elseif ($senha !== $confirmarSenha) {
+    $confirmarSenhaErro = "As senhas não são iguais.";
+  }
+
+      // Se não houver erros de validação, insere o nutricionista no banco de dados
+  if (empty($nomeErro) && empty($emailErro) && empty($senhaErro) && empty($confirmarSenhaErro)) {
+        // Cria uma consulta SQL para inserir o nutricionista no banco de dados
+    $sql = "INSERT INTO nutricionista (nome, email, senha) VALUES (?, ?, ?)";
+
+        // Prepara a consulta SQL
+    $stmt = $pdo->prepare($sql);
+
+        // Executa a consulta SQL, passando os valores informados pelo usuário como parâmetros
+    $stmt->execute([$nome, $email, password_hash($senha, PASSWORD_DEFAULT)]);
+
+        // Armazena o ID do nutricionista recém-cadastrado na sessão
+    $_SESSION["nutricionista_id"] = $pdo->lastInsertId();
+
+        // Redireciona para a página de pacientes
+    header("Location: pacientes.php");
+    exit();
+  }
+}
+?> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Cadastro-nutri | BiteFit</title>
+</head>
+
+<body>
+    <form method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+    <div class="main-login-nutri">
+        <div class="left-login-nutri">
+            <img src="./imagens/Nature benefits-amico.svg" class="left-login-image-nutri" alt="helth">
+        </div>
+        <div class="right-login-nutri">
+            <div class="card-login-nutri">
+                <h1 class="font-1-m-b cor-8">Cadastro de Nutricionista</h1>
+                
+                <div class="textfield">
+                    <label for = "email">Nome: </label>
+                    <input type   = "text" name   = "nome" id = "nome" placeholder="Nome" "nome" value = "<?php echo $nome; ?>">
+		<span><?php echo $nomeErro; ?></span>
+                </div>
+                <div class="textfield">
+                    <label for = "email">E-mail:</label>
+		            <input type = "email" name = "email" id = "email" placeholder="E-mail" value = "<?php echo $email; ?>"> 
+		            <span><?php echo $emailErro; ?></span>
+                </div>
+                <div class="textfield">
+                    <label for = "email">Senha:</label>
+                    <input type = "password" name = "senha" id = "senha" placeholder="Password">
+		            <span><?php echo $senhaErro; ?></span>
+                </div>
+                <div class="textfield">
+                    <label for= "confirmarSenha">Confirme sua senha:</label>
+                    <input type = "password" name = "confirmarSenha" id = "confirmarSenha" placeholder="Password">
+		            <span><?php echo $confirmarSenhaErro; ?></span>
+                </div>
+                <input class="btn-login" type = "submit" value = "Cadastrar">
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

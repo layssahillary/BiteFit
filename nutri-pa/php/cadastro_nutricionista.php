@@ -1,0 +1,196 @@
+<?php
+// Inclui o arquivo de conexão com o banco de dados
+require_once "conexao.php";
+
+// Inicia a sessão
+session_start();
+
+// Verifica se o usuário já está logado e redireciona para a página de pacientes
+if (isset($_SESSION['nutricionista_id'])) {
+  header("Location: inicio_nutricionista.php");
+  exit();
+}
+
+// Define as variáveis que serão usadas no formulário de cadastro
+$nome           = "";
+$email          = "";
+$senha          = "";
+$confirmarSenha = "";
+$telefone       = "";
+$celular        = "";
+$crn            = "";
+$endereco       = "";
+
+// Define as variáveis que serão usadas para exibir mensagens de erro
+$nomeErro           = "";
+$emailErro          = "";
+$senhaErro          = "";
+$confirmarSenhaErro = "";
+$telefoneErro       = "";
+$celularErro        = "";
+$crnErro            = "";
+$enderecoErro       = "";
+
+  // Verifica se o formulário foi submetido
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  // Define as variáveis com os dados enviados pelo formulário
+  $nome = trim($_POST["nome"]);
+  $email = trim($_POST["email"]);
+  $telefone = trim($_POST["telefone"]);
+  $celular = trim($_POST["celular"]);
+  $crn = trim($_POST["crn"]);
+  $endereco = trim($_POST["endereco"]);
+  $senha = $_POST["senha"];
+  $confirmarSenha = $_POST["confirmarSenha"];
+
+  // Verifica se o nome foi preenchido
+  if (empty($nome)) {
+    $nomeErro = "Por favor, informe seu nome.";
+  }
+
+  // Verifica se o email foi preenchido e se é válido
+  if (empty($email)) {
+    $emailErro = "Por favor, informe seu email.";
+  } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErro = "Por favor, informe um email válido.";
+  }
+
+  // Verifica se a senha foi preenchida e se tem pelo menos 8 caracteres
+  if (empty($senha)) {
+    $senhaErro = "Por favor, informe uma senha.";
+  } elseif (strlen($senha) < 8) {
+    $senhaErro = "Sua senha deve ter pelo menos 8 caracteres.";
+  }
+
+  // Verifica se a confirmação de senha foi preenchida e se é igual à senha informada
+  if (empty($confirmarSenha)) {
+    $confirmarSenhaErro = "Por favor, confirme sua senha.";
+  } elseif ($senha !== $confirmarSenha) {
+    $confirmarSenhaErro = "As senhas não são iguais.";
+  }
+
+  // Verifica se o email já existe no banco de dados
+  $sql_verificar_email = "SELECT id FROM nutricionista WHERE email = ?";
+  $stmt = $pdo->prepare($sql_verificar_email);
+  $stmt->execute([$email]);
+
+  if ($stmt->rowCount() > 0) {
+  $emailErro = "Este email já está sendo utilizado.";
+  } else{
+
+  // Se não houver erros de validação, insere o nutricionista no banco de dados
+  if (empty($nomeErro) && empty($emailErro) && empty($senhaErro) && empty($confirmarSenhaErro)) {
+    // Cria uma consulta SQL para inserir o nutricionista no banco de dados
+    $sql = "INSERT INTO nutricionista (nome, email, telefone, celular, crn, endereco, senha) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    // Prepara a consulta SQL
+    $stmt = $pdo->prepare($sql);
+      
+    // Executa a consulta SQL, passando os valores informados pelo usuário como parâmetros
+  $stmt->execute([$nome, $email, $telefone, $celular, $crn, $endereco, password_hash($senha, PASSWORD_DEFAULT)]);
+
+  // Armazena o ID do nutricionista recém-cadastrado na sessão
+  $_SESSION["nutricionista_id"] = $pdo->lastInsertId();
+
+  // Redireciona para a página de pacientes
+  header("Location: inicio_nutricionista.php");
+  exit();
+  }
+  }
+  
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../cssCerto/cadastro-nutri.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <title>Cadastro nutricionista | BiteFit</title>
+</head>
+<body>
+	
+<div class= "container-nutri">
+
+  <img src="./cadastro-nutricionista.svg" alt="ilustracao">
+
+
+  <form class= "form-nutri"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+  
+  <h1 class= " col-2" >Cadastro de Nutricionista</h1>
+  <h2 class= " col-2">Dados Pessoais</h2>
+
+  <div class= "col-2" >
+  <label for="nome">Nome completo:</label>
+  <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>">
+	<span><?php echo $nomeErro; ?></span><br>
+  </div>
+
+  <div class= "col-1">
+  <label  for="telefone">Telefone:</label>
+	<input type = "text" name = "telefone" id = "telefone" value = "<?php echo $telefone; ?>">
+	<span><?php echo $telefoneErro; ?></span><br>
+  </div>
+
+  <div class= "col-1">
+	<label   = "celular">Celular:</label>
+	<input type = "text" name = "celular" id = "celular" value = "<?php echo $celular; ?>">
+	<span><?php echo $celularErro; ?></span><br>
+  </div>
+
+  <div class= "col-2">
+	<label for  = "crn">CRN:</label>
+	<input type = "text" name = "crn" id = "crn" value = "<?php echo $crn; ?>">
+	<span><?php echo $crnErro; ?></span><br>
+  </div>
+
+
+  <div class= "col-2">
+	<label for  = "endereco">Endereço:</label>
+	<input type = "text" name = "endereco" id = "endereco" value = "<?php echo $endereco; ?>">
+	<span><?php echo $enderecoErro; ?></span><br>
+  </div>
+
+  <h2>Informações de usuário</h2>
+
+  <div class= "col-2">
+  <label for  = "email">E-mail:</label>
+	<input type = "email" name = "email" id = "email" value = "<?php echo $email; ?>">
+	<span><?php echo $emailErro; ?></span><br>
+  </div>
+
+  <div class= "col-1"> 
+	<label for  = "senha">Senha: </label>
+	<input type = "password" name = "senha" id = "senha" >
+	<span><?php echo $senhaErro; ?></span><br>
+  </div>
+  
+  <div class= "col-1">
+	<label for  = "confirmarSenha">Confirme sua senha:</label>
+	<input type = "password" name = "confirmarSenha" id = "confirmarSenha">
+  
+	<span><?php echo $confirmarSenhaErro; ?></span><br>
+  <br>
+  </div>
+
+  <div class= "botao-submit col-2">
+	<button class= "button-68" type="submit" > Cadastrar </button>
+  </div>
+  
+</form>
+
+
+</div>
+
+</body>
+</html>

@@ -16,6 +16,10 @@
 
 .form input[type="text"],
 .form input[type="email"],
+.form input[type="date"],
+.form input[type="password"],
+.form input[type="number"],
+.form input , select,
 .form textarea{
     font: 400 1rem/1.5 "Roboto", sans-serif;
     background: var(--cor-1);
@@ -29,11 +33,15 @@
 
 .form input[type="text"]:focus,
 .form input[type="email"]:focus,
-.form textarea:focus{
+.form input[type="password"]:focus,
+.form input[type="date"]:focus,
+.form input[type="number"]:focus,
+.form textarea:focus,
+.form select:focus{
     outline: none;
-    border-color: var(--cor-p1);
+    border-color: var(--cor-p3);
     background: var(--cor-0);
-    box-shadow: 0 0 0 2px #fea ;
+    box-shadow: 0 0 0 2px var(--cor-p2) ;
 }
 
 @media (max-width: 600px){

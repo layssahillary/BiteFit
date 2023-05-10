@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-image: url(../imagens/Login.svg);
+}
+
+
+.container-nutri {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  max-width: 80%;
+  min-height: auto;
+  margin: 170px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.form-nutri h1 {
+  font: 600 2.5rem/1.125 "Quicksand", sans-serif;
+  text-align: center;
+  color: rgb(20, 75, 27);
+}
+
+.form-nutri h2 {
+  font: 400 0.75rem/1.35 "Quicksand", sans-serif;
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.form-nutri h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 8px;
+  background-color: rgb(20, 75, 27);
+  position: absolute;
+  left: -12px;
+  
+}
+
+.container-nutri .form-nutri label, .container-nutri .form-nutri input, .container-nutri .form-nutri textarea {
+  margin: 0 0 5px 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+}
+
+
+
+
+
+.form-nutri{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 70px 20px 70px;
+  gap: 10px;
+  
+}
+.form-nutri label  {
+  padding: 0;
+  margin: 0;
+  font: 400 1rem/1.5 "Poppins", sans-serif;
+  color: #868686;
+  margin-bottom: 4px;
+  
+}
+
+.form-nutri .col-2 {
+  grid-column: span 2;
+}
+
+.form-nutri .col-1 {
+  grid-column: span 1;
+}
+
+
+
+.container-nutri form label, .container-nutri form input, .container-nutri form textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+}
+
+.container-nutri form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.form-nutri input[type="text"], .form-nutri input[type="email"], .form-nutri input[type="date"], .form-nutri input[type="password"], .form-nutri input[type="number"], .form-nutri input, select, .form-nutri textarea {
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+  background: #f7f7f7;
+  border: 1px solid #EDEDED;
+  padding: 8px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.form-nutri input:focus{
+  border: 1px solid #0e5a25;
+  outline: none;
+}
+
+span{
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+  color: #868686;
+}
+.botao-submit{
+  display: flex;
+  justify-content: center;
+}
+
+
+.button-68 {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.button-68:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+
+
+.button-68:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.button-68:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
