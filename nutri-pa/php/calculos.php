@@ -15,7 +15,7 @@ $nutricionista_id = $_SESSION['nutricionista_id'];
 // Obtém os pacientes do nutricionista
 $stmt_pacientes = $pdo->prepare('SELECT * FROM paciente WHERE nutricionista_id = ?');
 $stmt_pacientes->execute([$nutricionista_id]);
-$pacientes = $stmt_pacientes->fetchAll();
+$pacientes = $stmt_pacientes->fetchAll(); 
 
 ?>
 <!DOCTYPE html>
@@ -72,6 +72,8 @@ $pacientes = $stmt_pacientes->fetchAll();
         <h1>Calculos nutricionais<span>.</span></h1></h1>
         </div>        
     </div>
+
+    
     <?php
         require_once 'conexao.php';
 
@@ -97,7 +99,172 @@ $pacientes = $stmt_pacientes->fetchAll();
 
 <div class="container">
 <div class="container-calculos">
+
+<?php
+$imc = null;
+$gcd = null;
+$peso = null;
+$genero = null;
+$altura = null;
+$idade = null;
+$nivel_atividade = null;
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_paciente'])) {
+    $id_paciente = $_POST['id_paciente'];
+    $peso = $_POST["peso"];
+    $altura = $_POST["altura"];
+    $idade = $_POST["idade"];
+    $genero = $_POST["sexo"];
+    $imc = $peso / ($altura * $altura);
+    $nivel_atividade = $_POST["atividade"];
+
+    if ($genero == "Masculino") {
+        $taxa_metabolica = 88.36 + (13.4 * $peso) + (4.8 * $altura * 100) - (5.7 * $idade);
+    } else {
+        $taxa_metabolica = 447.6 + (9.2 * $peso) + (3.1 * $altura * 100) - (4.3 * $idade);
+    }
+
+    $gcd = $taxa_metabolica * $nivel_atividade;
+    $proteinas = $peso * 2.2;
+    $gorduras = $taxa_metabolica * 0.25 / 9;
+    $carboidratos = ($gcd - ($proteinas * 4) - ($gorduras * 9)) / 4;
+
+    echo "<div class='container-resultado'>";
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>Taxa Metabólica Basal(cal)</th>";
+    echo "<th>O seu Gasto Calórico Diário é de(cal)</th>";
+    echo "<th>Proteínas(g)</th>";
+    echo "<th>Gorduras(g)</th>";
+    echo "<th>Carboidratos(g)</th>";
+    echo "<th>Seu IMC é:</th>";
+    echo "</tr>";
+    
+    echo "<tr>";
+    echo "<td>" . number_format($taxa_metabolica, 2) . "</td>";
+    echo "<td>" . number_format($gcd, 2) . "</td>";
+    echo "<td>" . number_format($proteinas, 2) . "</td>";
+    echo "<td>" . number_format($gorduras, 2) . "</td>";
+    echo "<td>" . number_format($carboidratos, 2) . "</td>";
+    echo "<td>" . number_format($imc, 2) . "</td>";
+    echo "</tr>";
+    echo "</table>";
+    
+    
+    
+    
+    echo "<div class='resultados'>";
+    if($imc < 18.5){
+        $resultado = "Paciente abaixo do peso.";
+        echo "<p 
+        style='color: #161616;   
+        background-color: #caeefa;
+        display: flex;
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 10px;
+        justify-content: center;
+        border: 1px solid #2e76a3;
+        text-align: justify;
+        '>Paciente abaixo do peso. </p> ";
+
+    }if($imc >= 18.5 && $imc <= 24.9){
+        $resultado = "Paciente com IMC normal.";
+        echo "<p 
+        style='color: #161616;   
+        background-color:  #bbf5b0;
+        display: flex;
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 10px;
+        justify-content: center;
+        border: 1px solid #316328;
+        text-align: justify;
+         '>Paciente com IMC normal.</p>";
+    }if($imc >= 25 && $imc <= 29.9){
+        $resultado = "Paciente com sobrepeso.";
+        echo "<p
+        style='color: #161616;   
+        background-color: #f5f0b0;
+        display: flex;
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 10px;
+        justify-content: center;
+        border: 1px solid #9e9628;
+        text-align: justify;
+        '>Paciente com sobrepeso.</p>";
+    }if($imc >= 30 && $imc <= 34.9){
+        $resultado = "Paciente com obesidade grau I.";
+        echo "<p 
+        style='color: #161616;   
+        background-color: #f5cdb0;
+        display: flex;
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 10px;
+        justify-content: center;
+        border: 1px solid #965627;
+        text-align: justify;
+        '>Paciente com obesidade grau I.</p>";
+    }if($imc >= 35 && $imc <= 39.9){
+        $resultado = "Paciente com besidade grau II.";
+        echo "<p 
+        style='color: #161616;   
+        background-color: #f5b0b0;
+        display: flex;
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 10px;
+        justify-content: center;
+        border: 1px solid #8f3838;
+        text-align: justify;
+        '>Paciente com besidade grau II.</p>";
+    }if($imc >39.9){
+        $resultado = "Paciente com obesidade grau III.";
+        echo "<p 
+        style='color: #161616;   
+        background-color: #60aae6;
+        display: flex;
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 10px;
+        justify-content: center;
+        border: 1px solid #cfb0f5;
+        text-align: justify;
+        '>Paciente com obesidade grau III.</p>";
+    }
+    echo "</div>";
+    echo "</div>";
+
+    // Defina a data atual
+    $data = date('Y-m-d');
+
+    $stmt = $pdo->prepare("INSERT INTO info_nutri (IMC, proteinas, carboidratos, gorduras, taxa_metabolica, GCD, resultado, paciente_id, data) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $params = array(
+        $imc,
+        $proteinas,
+        $carboidratos,
+        $gorduras,
+        $taxa_metabolica,
+        $gcd,
+        $resultado,
+        $id_paciente,
+        $data
+    );
+
+    // Executando a consulta SQL
+    $stmt->execute($params);
+}
+
+?>
+
+    
     <form class="container form" method="post" onsubmit="return confirmSubmit()">
+    <h2>Calcule os valores nutricionais</h2>
     <div class="col-2">
         <label for="id_paciente">Paciente:</label>
         <select name="id_paciente" id="id_paciente">
@@ -108,22 +275,22 @@ $pacientes = $stmt_pacientes->fetchAll();
         </select>
     </div>
 
-    <div class="col-2">
+    <div class="col-1">
         <label for="peso">Peso (kg):</label>
         <input type="number" name="peso" id="peso" value="">
     </div>
 
-    <div class="col-2">
+    <div class="col-1">
         <label for="altura">Altura (cm):</label>
         <input type="number" name="altura" id="altura" required>
     </div>
 
-    <div class="col-2">
+    <div class="col-1">
         <label for="idade">Idade:</label>
         <input type="number" name="idade" id="idade" required>
     </div>
 
-    <div class="col-2">
+    <div class="col-1">
         <label for="sexo">Gênero:</label>
             <select name="sexo" id="sexo" required>
                 <option value="Feminino">Feminino</option>
@@ -171,86 +338,7 @@ $pacientes = $stmt_pacientes->fetchAll();
     </form>
 
     
-<?php
-$imc = null;
-$gcd = null;
-$peso = null;
-$genero = null;
-$altura = null;
-$idade = null;
-$nivel_atividade = null;
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_paciente'])) {
-    $id_paciente = $_POST['id_paciente'];
-    $peso = $_POST["peso"];
-    $altura = $_POST["altura"];
-    $idade = $_POST["idade"];
-    $genero = $_POST["sexo"];
-    $imc = $peso / ($altura * $altura);
-    $nivel_atividade = $_POST["atividade"];
-
-    if ($genero == "Masculino") {
-        $taxa_metabolica = 88.36 + (13.4 * $peso) + (4.8 * $altura * 100) - (5.7 * $idade);
-    } else {
-        $taxa_metabolica = 447.6 + (9.2 * $peso) + (3.1 * $altura * 100) - (4.3 * $idade);
-    }
-
-    $gcd = $taxa_metabolica * $nivel_atividade;
-    $proteinas = $peso * 2.2;
-    $gorduras = $taxa_metabolica * 0.25 / 9;
-    $carboidratos = ($gcd - ($proteinas * 4) - ($gorduras * 9)) / 4;
-
-    echo "<br>";
-    echo "Taxa Metabólica Basal: " . number_format($taxa_metabolica, 2) . " calorias<br>";
-    echo "<p>O seu Gasto Calórico Diário é de: " . number_format($gcd, 2) . " calorias por dia.</p>";
-    echo "Proteínas: " . number_format($proteinas, 2) . " gramas<br>";
-    echo "Gorduras: " . number_format($gorduras, 2) . " gramas<br>";
-    echo "Carboidratos: " . number_format($carboidratos, 2) . " gramas";
-    echo "<p>Seu IMC é: " . number_format($imc, 2) . "</p>";
-    if($imc < 18.5){
-        $resultado = "Paciente abaixo do peso.";
-        echo "<p>Paciente abaixo do peso.</p>";
-    }if($imc >= 18.5 && $imc <= 24.9){
-        $resultado = "Paciente com IMC normal.";
-        echo "<p>Paciente com IMC normal.</p>";
-    }if($imc >= 25 && $imc <= 29.9){
-        $resultado = "Paciente com sobrepeso.";
-        echo "<p>Paciente com sobrepeso.</p>";
-    }if($imc >= 30 && $imc <= 34.9){
-        $resultado = "Paciente com obesidade grau I.";
-        echo "<p>Paciente com obesidade grau I.</p>";
-    }if($imc >= 35 && $imc <= 39.9){
-        $resultado = "Paciente com besidade grau II.";
-        echo "<p>Paciente com besidade grau II.</p>";
-    }if($imc >39.9){
-        $resultado = "Paciente com obesidade grau III.";
-        echo "<p>Paciente com obesidade grau III.</p>";
-    }
-
-    // Defina a data atual
-    $data = date('Y-m-d');
-
-    $stmt = $pdo->prepare("INSERT INTO info_nutri (IMC, proteinas, carboidratos, gorduras, taxa_metabolica, GCD, resultado, paciente_id, data) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-    $params = array(
-        $imc,
-        $proteinas,
-        $carboidratos,
-        $gorduras,
-        $taxa_metabolica,
-        $gcd,
-        $resultado,
-        $id_paciente,
-        $data
-    );
-
-    // Executando a consulta SQL
-    $stmt->execute($params);
-}
-
-?>
     </div>
     </div>
 
