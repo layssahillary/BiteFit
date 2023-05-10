@@ -88,13 +88,13 @@ if (isset($mensagem)) {
 
 <header class="header-bg">
     <div class="header container">
-        <a href="home-nutricionista.html">
+        <a href="./inicio_nutricionista.php">
             <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
         </a>
         
         <nav class="links header-menu" aria-label="primaria">
 
-						<a href="#" onmouseover="showMenu()">Pacientes</a>
+	<a href="#" onmouseover="showMenu()">Pacientes</a>
 <div id="menu" onmouseout="hideMenu()" onmouseover="keepMenu()">
   <ul class="header-menu  font-2-l cor-0">
 		<li><a class="link-cadastro" href="./cadastro_paciente.php">Cadastrar Paciente</a></li>
@@ -106,11 +106,10 @@ if (isset($mensagem)) {
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><a href="./logout_nutricionista.html">Sair</a></li>
-
-
+<li><button class="deslogar" onclick="showOverlay()">Deslogar</button>
 </nav>
 </div>
+
 </header>
   
 
@@ -121,21 +120,23 @@ if (isset($mensagem)) {
         </div>        
     </div>
 
-  <form id="formulario" class="cadastro container" method="POST" action="cadastro_paciente.php">
-
-  <div class="cadastro-dados form">
-  <h2 class="font-1-xs cor-9 col-2">Dados pessoais</h2>
-      <div class="col-2">
-        <label for="nome">Nome completo:</label>
-        <input type="text" id="nome" name="nome" required><br>
+    <form class="container form" method="POST" action="cadastro_paciente.php">
+    
+    <div class="col-2">
+    <h2>Dados pessoais</h2>
     </div>
 
     <div class="col-2">
-    <label for="data_nascimento">Data de Nascimento:</label>
-    <input type="date" id="data_nascimento" name="data_nascimento" required><br>
+    <label  for="nome">Nome completo:</label>
+    <input  type="text" id="nome" name="nome" required><br>
     </div>
 
-    <div>
+    <div class="col-1">
+    <label  for="data_nascimento">Data de Nascimento:</label>
+    <input  type="date" id="data_nascimento" name="data_nascimento" required><br>
+    </div>
+
+    <div class="col-1">
     <label for="sexo">Sexo:</label>
       <select id="sexo" name="sexo">
         <option value="">Selecione</option>
@@ -143,52 +144,61 @@ if (isset($mensagem)) {
         <option value="Feminino">Feminino</option>
         <option value="Outro">Outro</option>
       </select><br>
-    </div>
-
-    <label for="altura">Altura (cm):</label>
-    <input type="number" id="altura" name="altura" required step="0.01" required><br>
-
-    <label for="peso">Peso (kg):</label>
-    <input type="number" id="peso" name="peso" required step="0.01" required><br>
-
-    <label for="objetivo">Qual o seu objetivo:</label>
-    <input type="text" id="objetivo" name="objetivo" required><br>
-
-    
-    <h2>Informações de usuário</h2>
+      </div>
 
     <div class="col-1">
+    <label for="altura">Altura(cm):</label>
+    <input type="number" id="altura" name="altura" required><br>
+    </div>
+
+    <div class="col-1">
+    <label for="peso">Peso(kg):</label>
+    <input type="number" id="peso" name="peso" required><br>
+    </div>
+
+    <div class="col-2">
+    <label for="objetivo">Qual o objetivo do paciente?:</label>
+    <input type="text" id="objetivo" name="objetivo" required><br>
+    </div>
+
+    <div class="col-2">
+    <h2>Informações de usuário</h2>
+    </div>
+
+    <div class="col-2">
     <label for="email">E-mail:</label>
     <input type="email" id="email" name="email" required><br>
     </div>
+    
     
     <div class="col-1">
     <label for="senha">Senha:</label>
     <input type="password" id="senha" name="senha" required><br>
     </div>
 
-    <div>
-    <label for="senha">Comfirme a Senha:</label>
+    <div class="col-1">
+    <label for="senha">Confirme a Senha:</label>
     <input type="password" id="confirmarSenha" name="confirmarSenha" required><br>
     </div>
 
-    <button id="abrir-dialog" class="botao-cadastro col-1 " type="submit">Cadastrar</button>
-        <dialog id="meu-dialog">
-            <a id="fechar-dialog" >
-                <img src="imagens/iconClose.svg" alt="texto-descritivo-da-imagem">
-            </a>
-            <h2 id="h2-cadastro">Cadastro feito <br>com sucesso! &#10024</h2>
-        </dialog>
-         
-        <a class="botao-direita" href="home-nutricionista.html">Voltar</a>
-  </div>
-    
-    
-
-    
+    <div class="botoes-cadastro col-2">
+    <button class="button-68" type="submit">Cadastrar</button>
+    <button class="button-68" type="button" onclick="window.history.back()">Voltar</button>
+    </div>
   </form>
 
-  <footer class="footer-bg">
+  <div id="overlay" style="display: none;">
+      <div id="overlay-content">
+        <p>Você está prestes a deslogar da sua conta de nutricionista. Deseja continuar?</p>
+        <div id="botoes-overlay">
+        <button onclick="hideOverlay()">Não, voltar para a página anterior</button>
+        <button onclick="logout()">Sim, deslogar</button>
+        
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-bg">
     <div class="footer container">
         <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
         <div class="footer-contato">
@@ -196,36 +206,35 @@ if (isset($mensagem)) {
             <ul class="font-2-m cor-5">
                 <li><a href="tel:+5521999999999">+55 21 99999-9999</a></li>
                 <li><a href="mailto:contato@bikcraft.com">contato@bikcraft.com</a></li>
-                <li>Rua Ali Perto, 42 - Botafogo</li>
-                <li>Rio de Janeiro - RJ</li>
             </ul>
 
             <div class="footer-redes">
                 <a href="./">
-                <img src="img/redes/instagram.svg" alt="Instagram"></a>
+                <img src="../imagens/instagram.png" alt="Instagram"></a>
                 <a href="./">
-                    <img src="img/redes/facebook.svg" alt="facebook"></a>
-                    <a href="./">
-                        <img src="img/redes/youtube.svg" alt="youtube"></a>
+                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
             </div>
         </div>
         <div class="footer-informacoes">
             <h3 class="font-2-l-b cor-0">Informações</h3>
             <nav>
                 <ul class="font-1-m cor-5">
-                    <li><a href="./bicicletas.html">Inicio</a></li>
-                    <li><a href="./seguros.html">Perfil</a></li>
-                    <li><a href="./contato.html">Receitas</a></li>
-                    <li><a href="./termos.html">Contato</a></li>
+                    <li><a href="./perfil_nutricionista.php">Perfil</a></li>
+                    <li><a href="./cadastro_paciente.php">Cadastrar Paciente</a></li>
+                    <li><a href="./pacientes.php">Lista de Pacientes</a></li>
+                    <li><a href="./consultas_nutri.php">Consultas</a></li>
+                    <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
+                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
+                    
+                    <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>
             </nav>
         </div>
-        <p class="footer-copy font-2-m cor-6"> BiteFit Alguns direitos reservados.</p>
+        <p class="footer-copy font-2-m cor-6"> Copyright © 2023 BiteFit. Todos os direitos reservados.</p>
     </div>
 </footer>
 
-<script src="./js.js"></script>
-<script src="../javascript/modal.js"></script>
+<script src="js.js"></script>
 
 </body>
 </html>
