@@ -117,10 +117,22 @@ nav a {
   position: absolute;
   background-color: #ffffff;
   border: 1px solid #ccc;
-  padding: 27px;
+  padding: 31px;
   margin-left: 0;
-  margin-top: 45px;
+  margin-top: 53px;
   border-radius: 10px;
+}
+
+#menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 17px 10px;
+  border-color: transparent transparent #fff transparent;
 }
 
 #menu ul {
@@ -235,6 +247,65 @@ nav a {
   border: 1px solid #ddd;
   text-align: left;
   padding: 20px;
+}
+
+.form-div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 30px;
+}
+
+.form-div input[type="text"], .form-div input[type="email"], .form-div input[type="date"], .form-div input[type="password"], .form-div input[type="number"], select, .form-div textarea {
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+  background:#f7f7f7;
+  border: 1px solid #EDEDED;
+  padding: 10px ;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.form-div input[type="text"]:focus,
+.form-div input[type="email"]:focus,
+.form-div input[type="date"]:focus,
+.form-div input[type="number"]:focus,
+.form-div textarea:focus,
+.form-div select:focus{
+  outline: none;
+  border-color: #A4BE7B;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #5F8D4E ;
+}
+
+.form-div label {
+  display: block;
+  font: 600 1rem/1.5 "Poppins", sans-serif;
+  margin-bottom: 4px;
+}
+
+.form-div h2 {
+  font: 400 1.2rem/1.35 "Quicksand", sans-serif;
+  padding: 0;
+  color: #404040;
+}
+
+.form-div h2::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 13px;
+  background-color: #285430;
+  margin-right: 6px;
+}
+
+.form-div .col-2{
+  grid-column: span 2;
+}
+
+.form-div .col-1 {
+  grid-column: span 1;
 }
 
 
@@ -475,6 +546,10 @@ li button{
   justify-content: flex-end;
 }
 
+.botoes-editar{
+  display: flex;
+  justify-content: space-between;
+}
 
 
 

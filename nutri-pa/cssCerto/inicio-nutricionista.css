@@ -113,9 +113,9 @@ nav a {
   position: absolute;
   background-color: #ffffff;
   border: 1px solid #ccc;
-  padding: 27px;
+  padding: 31px;
   margin-left: 0;
-  margin-top: 45px;
+  margin-top: 53px;
   border-radius: 10px;
 }
 
@@ -136,6 +136,22 @@ nav a {
   text-decoration: none;
   font:400 1rem/1.125 "Poppins", sans-serif;
   color: #122c17;
+}
+
+#menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 17px 10px;
+  border-color: transparent transparent #fff transparent;
+}
+
+.deslogar  img {
+  width: 30px;
 }
 
 

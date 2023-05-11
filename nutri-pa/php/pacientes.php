@@ -62,7 +62,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><button class="deslogar" onclick="showOverlay()">Deslogar</button>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
 
 
 </nav>
@@ -96,7 +96,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </tbody>
 </table>
   <div class="botoes">
-  <a id="button-68"  href="cadastro_paciente.php">Cadastrar paciente</a>
+  <a id="button-68"  href="cadastro_paciente.php"><img src="../imagens/cadastro-icon.svg" alt="descrição da imagem">Cadastrar paciente</a>
   <a id="button-68"  href="inicio_nutricionista.php">Voltar</a>
   </div>
   </div>

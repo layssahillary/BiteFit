@@ -83,6 +83,7 @@ if (isset($mensagem)) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body >
 
@@ -106,7 +107,7 @@ if (isset($mensagem)) {
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><button class="deslogar" onclick="showOverlay()">Deslogar</button>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
 </nav>
 </div>
 
@@ -123,7 +124,7 @@ if (isset($mensagem)) {
     <form class="container form" method="POST" action="cadastro_paciente.php">
     
     <div class="col-2">
-    <h2>Dados pessoais</h2>
+    <h2> Dados pessoais </h2>
     </div>
 
     <div class="col-2">
@@ -170,19 +171,27 @@ if (isset($mensagem)) {
     <input type="email" id="email" name="email" required><br>
     </div>
     
-    
+
     <div class="col-1">
     <label for="senha">Senha:</label>
-    <input type="password" id="senha" name="senha" required><br>
+    <div class="password-toggle">
+        <input type="password" id="senha" name="senha" required>
+        <i class="toggle-icon fas fa-eye" onclick="toggleSenha('senha')"></i>
     </div>
+</div>
 
-    <div class="col-1">
+<div class="col-1">
     <label for="senha">Confirme a Senha:</label>
-    <input type="password" id="confirmarSenha" name="confirmarSenha" required><br>
+    <div class="password-toggle">
+        <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+        <i class="toggle-icon fas fa-eye" onclick="toggleSenha('confirmarSenha')"></i>
     </div>
+</div>
+
+
 
     <div class="botoes-cadastro col-2">
-    <button class="button-68" type="submit">Cadastrar</button>
+    <button class="button-68" type="submit"><img src="../imagens/cadastro-icon.svg" alt="descrição da imagem">Cadastrar</button>
     <button class="button-68" type="button" onclick="window.history.back()">Voltar</button>
     </div>
   </form>

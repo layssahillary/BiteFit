@@ -169,15 +169,21 @@ $enderecoErro       = "";
 	<span><?php echo $emailErro; ?></span><br>
   </div>
 
-  <div class= "col-1"> 
-	<label for  = "senha">Senha: </label>
-	<input type = "password" name = "senha" id = "senha" >
-	<span><?php echo $senhaErro; ?></span><br>
-  </div>
-  
-  <div class= "col-1">
-	<label for  = "confirmarSenha">Confirme sua senha:</label>
-	<input type = "password" name = "confirmarSenha" id = "confirmarSenha">
+    <div class="col-1">
+    <label for="senha">Senha:</label>
+    <div class="password-toggle">
+        <input type="password" id="senha" name="senha" required>
+        <i class="toggle-icon fas fa-eye" onclick="toggleSenha('senha')"></i>
+    </div>
+</div>
+
+<div class="col-1">
+    <label for="senha">Confirme a Senha:</label>
+    <div class="password-toggle">
+        <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+        <i class="toggle-icon fas fa-eye" onclick="toggleSenha('confirmarSenha')"></i>
+    </div>
+</div>
   
 	<span><?php echo $confirmarSenhaErro; ?></span><br>
   <br>

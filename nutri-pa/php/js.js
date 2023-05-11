@@ -42,6 +42,29 @@ function trocarDivs() {
   formDiv.style.display = "block";
 }
 
-function confirmSubmit() {
-  return confirm("Tem certeza que deseja salvar as informações para o paciente selecionado?");
+function trocarDiv() {
+  var div1 = document.getElementById("conteudo1");
+  var div2 = document.getElementById("conteudo2");
+  if (div1.style.display !== "none") {
+    div1.style.display = "none";
+    div2.style.display = "block";
+  } else {
+    div1.style.display = "block";
+    div2.style.display = "none";
+  }
+}
+
+function toggleSenha(inputId) {
+  var senhaInput = document.getElementById(inputId);
+  var toggleIcon = senhaInput.nextElementSibling;
+
+  if (senhaInput.type === "password") {
+      senhaInput.type = "text";
+      toggleIcon.classList.remove("fa-eye");
+      toggleIcon.classList.add("fa-eye-slash");
+  } else {
+      senhaInput.type = "password";
+      toggleIcon.classList.remove("fa-eye-slash");
+      toggleIcon.classList.add("fa-eye");
+  }
 }
