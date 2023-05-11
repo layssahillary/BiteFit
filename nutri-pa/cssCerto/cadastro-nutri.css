@@ -179,3 +179,19 @@ span{
   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
 }
 
+.password-toggle {
+  position: relative;
+}
+
+.password-toggle input[type="password"] {
+  padding-right: 40px;
+}
+
+.password-toggle .toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
