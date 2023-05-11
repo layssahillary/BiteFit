@@ -115,10 +115,22 @@ nav a {
   position: absolute;
   background-color: #ffffff;
   border: 1px solid #ccc;
-  padding: 27px;
+  padding: 31px;
   margin-left: 0;
-  margin-top: 45px;
+  margin-top: 53px;
   border-radius: 10px;
+}
+
+#menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 17px 10px;
+  border-color: transparent transparent #fff transparent;
 }
 
 #menu ul {
@@ -317,6 +329,16 @@ nav a {
 
 }
 
+#button-68 > img {
+  width: 25px;
+  display: inline;
+  padding-right: 10px;
+  vertical-align: bottom;
+}
+
+.deslogar  img {
+  width: 30px;
+}
 
 
 @media (max-width: 800px){
