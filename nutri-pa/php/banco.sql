@@ -6,8 +6,12 @@ CREATE TABLE nutricionista (
   celular VARCHAR(20),
   crn VARCHAR(10),
   endereco VARCHAR(150),
-  senha VARCHAR(255) NOT NULL
+  senha VARCHAR(255) NOT NULL,
+  horario_inicio TIME,
+  horario_fim TIME,
+  dias_semana VARCHAR(100)
 );
+
 
 CREATE TABLE paciente (
   id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -31,6 +35,7 @@ CREATE TABLE consulta (
   paciente_id INT(11) UNSIGNED NOT NULL,
   nutricionista_id INT(11) UNSIGNED NOT NULL,
   realizada BOOLEAN NOT NULL DEFAULT false,
+  descricao VARCHAR(100) NOT NULL,
   FOREIGN KEY (paciente_id) REFERENCES paciente(id) ON DELETE CASCADE,
   FOREIGN KEY (nutricionista_id) REFERENCES nutricionista(id) ON DELETE CASCADE
 );
@@ -48,4 +53,3 @@ CREATE TABLE info_nutri (
     FOREIGN KEY (paciente_id) REFERENCES paciente(id) ON DELETE CASCADE,
     data DATE NOT NULL DEFAULT CURRENT_DATE
 );
-
