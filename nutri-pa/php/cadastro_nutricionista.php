@@ -19,7 +19,9 @@ $confirmarSenha = "";
 $telefone       = "";
 $celular        = "";
 $crn            = "";
-$endereco       = "";
+$horario_inicio = "";
+$horario_fim    = "";
+$dias_semana    = [];
 
 // Define as variáveis que serão usadas para exibir mensagens de erro
 $nomeErro           = "";
@@ -29,7 +31,9 @@ $confirmarSenhaErro = "";
 $telefoneErro       = "";
 $celularErro        = "";
 $crnErro            = "";
-$enderecoErro       = "";
+$horarioInicioErro  = "";
+$horarioFimErro     = "";
+$diasSemanaErro     = "";
 
   // Verifica se o formulário foi submetido
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,9 +44,11 @@ $enderecoErro       = "";
   $telefone = trim($_POST["telefone"]);
   $celular = trim($_POST["celular"]);
   $crn = trim($_POST["crn"]);
-  $endereco = trim($_POST["endereco"]);
   $senha = $_POST["senha"];
   $confirmarSenha = $_POST["confirmarSenha"];
+  $horario_inicio = $_POST["horario_inicio"];
+  $horario_fim = $_POST["horario_fim"];
+  $dias_semana = $_POST["dias_semana"];
 
   // Verifica se o nome foi preenchido
   if (empty($nome)) {
@@ -79,26 +85,44 @@ $enderecoErro       = "";
   $emailErro = "Este email já está sendo utilizado.";
   } else{
 
-  // Se não houver erros de validação, insere o nutricionista no banco de dados
-  if (empty($nomeErro) && empty($emailErro) && empty($senhaErro) && empty($confirmarSenhaErro)) {
-    // Cria uma consulta SQL para inserir o nutricionista no banco de dados
-    $sql = "INSERT INTO nutricionista (nome, email, telefone, celular, crn, endereco, senha) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-    // Prepara a consulta SQL
-    $stmt = $pdo->prepare($sql);
-      
-    // Executa a consulta SQL, passando os valores informados pelo usuário como parâmetros
-  $stmt->execute([$nome, $email, $telefone, $celular, $crn, $endereco, password_hash($senha, PASSWORD_DEFAULT)]);
-
-  // Armazena o ID do nutricionista recém-cadastrado na sessão
-  $_SESSION["nutricionista_id"] = $pdo->lastInsertId();
-
-  // Redireciona para a página de pacientes
-  header("Location: inicio_nutricionista.php");
-  exit();
+ 
+  // Verifica se o CRN foi preenchido
+  if (empty($crn)) {
+    $crnErro = "Por favor, informe seu CRN.";
   }
+
+
+
+  // Verifica se o horário de início e fim foram preenchidos
+  if (empty($horario_inicio)) {
+    $horarioInicioErro = "Por favor, informe o horário de início.";
   }
-  
+
+  if (empty($horario_fim)) {
+    $horarioFimErro = "Por favor, informe o horário de fim.";
+  }
+
+  // Verifica se os dias da semana foram selecionados
+  if (empty($dias_semana)) {
+    $diasSemanaErro = "Por favor, selecione pelo menos um dia da semana.";
+  }
+
+  // Se não houver erros, insere o nutricionista no banco de dados
+  if (empty($nomeErro) && empty($emailErro) && empty($senhaErro) && empty($confirmarSenhaErro) && empty($crnErro)  && empty($horarioInicioErro) && empty($horarioFimErro) && empty($diasSemanaErro)) {
+
+    // Criptografa a senha
+    $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+
+    // Insere o nutricionista no banco de dados
+    $sql_inserir_nutricionista = "INSERT INTO nutricionista (nome, email, senha, telefone, celular, crn, horario_inicio, horario_fim, dias_semana) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $pdo->prepare($sql_inserir_nutricionista);
+    $stmt->execute([$nome, $email, $senhaCriptografada, $telefone, $celular, $crn, $horario_inicio, $horario_fim, implode(',', $dias_semana)]);
+
+    // Redireciona o nutricionista para a página de login
+    header("Location: login_nutricionista.php");
+    exit();
+  }
+}
 }
 ?>
 
@@ -133,40 +157,34 @@ $enderecoErro       = "";
   <div class= "col-2" >
   <label for="nome">Nome completo:</label>
   <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>">
-	<span><?php echo $nomeErro; ?></span><br>
+	<span><?php echo $nomeErro; ?></span>
   </div>
 
   <div class= "col-1">
   <label  for="telefone">Telefone:</label>
 	<input type = "text" name = "telefone" id = "telefone" value = "<?php echo $telefone; ?>">
-	<span><?php echo $telefoneErro; ?></span><br>
+	<span><?php echo $telefoneErro; ?></span>
   </div>
 
   <div class= "col-1">
 	<label   = "celular">Celular:</label>
 	<input type = "text" name = "celular" id = "celular" value = "<?php echo $celular; ?>">
-	<span><?php echo $celularErro; ?></span><br>
+	<span><?php echo $celularErro; ?></span>
   </div>
 
   <div class= "col-2">
 	<label for  = "crn">CRN:</label>
 	<input type = "text" name = "crn" id = "crn" value = "<?php echo $crn; ?>">
-	<span><?php echo $crnErro; ?></span><br>
+	<span><?php echo $crnErro; ?></span>
   </div>
 
-
-  <div class= "col-2">
-	<label for  = "endereco">Endereço:</label>
-	<input type = "text" name = "endereco" id = "endereco" value = "<?php echo $endereco; ?>">
-	<span><?php echo $enderecoErro; ?></span><br>
-  </div>
 
   <h2>Informações de usuário</h2>
 
   <div class= "col-2">
   <label for  = "email">E-mail:</label>
 	<input type = "email" name = "email" id = "email" value = "<?php echo $email; ?>">
-	<span><?php echo $emailErro; ?></span><br>
+	<span><?php echo $emailErro; ?></span>
   </div>
 
     <div class="col-1">
@@ -182,16 +200,59 @@ $enderecoErro       = "";
     <div class="password-toggle">
         <input type="password" id="confirmarSenha" name="confirmarSenha" required>
         <i class="toggle-icon fas fa-eye" onclick="toggleSenha('confirmarSenha')"></i>
+        <span><?php echo $confirmarSenhaErro;?></span>
     </div>
 </div>
   
-	<span><?php echo $confirmarSenhaErro; ?></span><br>
-  <br>
-  </div>
+	
 
+  <h2 class="col-2">Informações sobre as consultas</h2>
+
+  <div class="col-1">
+  <label for="horario_inicio">Horário de início:</label>
+  <input type="time" id="horario_inicio" name="horario_inicio" value="<?php echo $horario_inicio; ?>">
+  <span class="erro"><?php echo $horarioInicioErro; ?></span>
+  </div>
+  
+  <div class="col-1">
+  <label for="horario_fim">Horário de fim:</label>
+  <input type="time" id="horario_fim" name="horario_fim" value="<?php echo $horario_fim; ?>">
+  <span class="erro"><?php echo $horarioFimErro; ?></span>
+  </div>
+  
+  
+  <h2 class="col-2">Selecione os dias de atendimento</h2>
+  <div class="checkbox col-2">
+  <input type="checkbox" id="segunda" name="dias_semana[]" value="Segunda" <?php if(in_array('segunda', $dias_semana)) echo "checked"; ?>>
+
+  <label for="segunda">Seg</label>
+
+  <input type="checkbox" id="terca" name="dias_semana[]" value="Terça" <?php if(in_array('terca', $dias_semana)) echo "checked"; ?>>
+  <label for="terca">Ter</label>
+
+  <input type="checkbox" id="quarta" name="dias_semana[]" value="Quarta" <?php if(in_array('quarta', $dias_semana)) echo "checked"; ?>>
+  <label for="quarta">Qua</label>
+
+  <input type="checkbox" id="quinta" name="dias_semana[]" value="Quinta" <?php if(in_array('quinta', $dias_semana)) echo "checked"; ?>>
+  <label for="quinta">Qui</label>
+
+  <input type="checkbox" id="sexta" name="dias_semana[]" value="Sexta" <?php if(in_array('sexta', $dias_semana)) echo "checked"; ?>>
+  <label for="sexta">Sex</label>
+
+  <input type="checkbox" id="sabado" name="dias_semana[]" value="Sábado" <?php if(in_array('sabado', $dias_semana)) echo "checked"; ?>>
+  <label for="sabado">Sáb</label>
+
+  <input type="checkbox" id="domingo" name="dias_semana[]" value="Domingo" <?php if(in_array('domingo', $dias_semana)) echo "checked"; ?>>
+  <label for="domingo">Dom</label>
+  </div>
+  
   <div class= "botao-submit col-2">
 	<button class= "button-68" type="submit" > Cadastrar </button>
   </div>
+  </div>
+
+  
+
   
 </form>
 
