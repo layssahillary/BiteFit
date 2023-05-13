@@ -64,15 +64,106 @@ if (isset($_POST['marcar_realizada'])) {
   exit();
 }
 
+
+// Verifica se o nutricionista já está logado e redireciona para a página de início do nutricionista
+if (!isset($_SESSION['nutricionista_id'])) {
+  header("Location: login_nutricionista.php");
+  exit();
+}
+
+
+// Obtém os dados do nutricionista
+$stmt = $pdo->prepare('SELECT * FROM nutricionista WHERE id = ?');
+$stmt->execute([$nutricionista_id]);
+$nutricionista = $stmt->fetch();
+
+// Verifica se o formulário de agendamento de consulta foi submetido
+if (isset($_POST['agendar_consulta'])) {
+  $data = $_POST['data'];
+  $horario = $_POST['horario'];
+  $paciente_id = $_POST['paciente_id'];
+
+  // Verifica se já existe uma consulta agendada para o mesmo horário e dia
+  $stmt = $pdo->prepare('SELECT COUNT(*) FROM consulta WHERE data = ? AND horario = ? AND nutricionista_id = ?');
+  $stmt->execute([$data, $horario, $nutricionista_id]);
+  $count = $stmt->fetchColumn();
+
+  if ($count > 0) {
+    // Consulta já agendada para o mesmo horário e dia
+    $erro = "Já existe uma consulta agendada para o mesmo horário e dia.";
+  } else {
+    // Insere a consulta no banco de dados
+    $stmt = $pdo->prepare('INSERT INTO consulta (data, horario, paciente_id, nutricionista_id) VALUES (?, ?, ?, ?)');
+    $stmt->execute([$data, $horario, $paciente_id, $nutricionista_id]);
+    
+    // Redireciona para a página de consultas
+    header('Location: consultas_nutri.php');
+    exit();
+  }
+}
+
+// Obtém os pacientes do nutricionista
+$stmt = $pdo->prepare('SELECT * FROM paciente WHERE nutricionista_id = ?');
+$stmt->execute([$nutricionista_id]);
+$pacientes = $stmt->fetchAll();
+
+
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Consultas - Nutricionista</title>
-</head>
-<body>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Nutrição | BiteFit</title>
+        <meta name="description" content="Home">
+        <link rel="preload" href="../cssCerto/consultas_nutri.css" as="style">
+        <link rel="stylesheet" href="../cssCerto/consultas_nutri.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+      
+
+       
+    </head>
+
+<body id="bicicletas">
+
+<header class="header-bg">
+    <div class="header container">
+        <a href="./inicio_nutricionista.php">
+            <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+        </a>
+        
+        <nav class="links header-menu" aria-label="primaria">
+
+	<a href="#" onmouseover="showMenu()">Pacientes</a>
+<div id="menu" onmouseout="hideMenu()" onmouseover="keepMenu()">
+  <ul class="header-menu  font-2-l cor-0">
+		<li><a class="link-cadastro" href="./cadastro_paciente.php">Cadastrar Paciente</a></li>
+		<li><a href="./pacientes.php">Lista de Pacientes</a></li>
+		<li><a href="./consultas_nutri.php">Consultas</a></li>
+		<li><a href="./calculos.php">Cáculos Nutricionais</a></li>
+		<li><a href="./dietas.php">Dietas e Receitas</a></li>
+  </ul>
+</div>
+<li><a href="./perfil_nutricionista.php">Perfil</a></li>
+<li><a href="./sobre-nutricionista.html">Sobre</a></li>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
+</nav>
+</div>
+</header>
+
+<div class="conteudo container">
+
+<div class="consultas">
   <h1>Consultas - Nutricionista</h1>
   <form method="post">
     <label for="paciente_id">Filtrar por paciente:</label>
@@ -90,7 +181,6 @@ if (isset($_POST['marcar_realizada'])) {
       <table>
   <thead>
     <tr>
-      <th>ID</th>
       <th>Data</th>
       <th>Horário</th>
       <th>Paciente</th>
@@ -101,7 +191,6 @@ if (isset($_POST['marcar_realizada'])) {
   <tbody>
     <?php foreach ($consultas as $consulta): ?>
       <tr>
-        <td><?php echo $consulta['id'] ?></td>
         <td><?php echo date('d/m/Y', strtotime($consulta['data'])) ?></td>
         <td><?php echo date('H:i', strtotime($consulta['horario'])) ?></td>
         <td><?php echo $consulta['paciente_nome'] ?></td>
@@ -127,5 +216,85 @@ if (isset($_POST['marcar_realizada'])) {
   <a href="agendarconsulta.php">Agendar novas consultas</a>
   <br>
   <a href="inicio_nutricionista.php">Voltar para o início</a>
-</body>
-</html>
+  </div>
+
+  <div class="cadastrar-consulta">
+  <h1>Agendar Consulta</h1>
+  <?php if (isset($erro)): ?>
+  <p style="color: red;"><?php echo $erro; ?></p>
+  <?php endif; ?>
+  <form method="post">
+    <label>Paciente:</label>
+    <select name="paciente_id" required>
+      <option value="">Selecione um paciente</option>
+      <?php foreach ($pacientes as $paciente): ?>
+      <option value="<?php echo $paciente['id']; ?>"><?php echo $paciente['nome']; ?></option>
+      <?php endforeach; ?>
+    </select><br><br>
+    <label>Data:</label>
+    <input type="date" name="data" required>
+    <label>Horário:</label>
+    <input type="time" name="horario" required><br><br>
+    <input type="submit" name="agendar_consulta" value="Agendar Consulta">
+  </form>
+  <br>
+  <a href="consultas_nutri.php">Voltar para a lista de consultas</a>
+  </div>
+</div>
+
+
+
+
+  <div id="overlay" style="display: none;">
+      <div id="overlay-content">
+        <p>Você está prestes a deslogar da sua conta de nutricionista. Deseja continuar?</p>
+        <div id="botoes-overlay">
+        <button onclick="hideOverlay()">Não, voltar para a página anterior</button>
+        <button onclick="logout()">Sim, deslogar</button>
+        
+        </div>
+      </div>
+    </div>
+   
+
+
+    <footer class="footer-bg">
+    <div class="footer container">
+        <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+        <div class="footer-contato">
+            <h3 class="font-2-l-b cor-0">Contato</h3>
+            <ul class="font-2-m cor-5">
+                <li><a href="tel:+5521999999999">+55 21 99999-9999</a></li>
+                <li><a href="mailto:contato@bikcraft.com">contato@bikcraft.com</a></li>
+            </ul>
+
+            <div class="footer-redes">
+                <a href="./">
+                <img src="../imagens/instagram.png" alt="Instagram"></a>
+                <a href="./">
+                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
+            </div>
+        </div>
+        <div class="footer-informacoes">
+            <h3 class="font-2-l-b cor-0">Informações</h3>
+            <nav>
+                <ul class="font-1-m cor-5">
+                    <li><a href="./perfil_nutricionista.php">Perfil</a></li>
+                    <li><a href="./cadastro_paciente.php">Cadastrar Paciente</a></li>
+                    <li><a href="./pacientes.php">Lista de Pacientes</a></li>
+                    <li><a href="./consultas_nutri.php">Consultas</a></li>
+                    <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
+                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
+                    
+                    <li><a href="./sobre-nutricionista.html">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+        <p class="footer-copy font-2-m cor-6"> Copyright © 2023 BiteFit. Todos os direitos reservados.</p>
+    </div>
+</footer>
+    
+<script src="js.js"></script>
+    
+        </body>
+    </html>
