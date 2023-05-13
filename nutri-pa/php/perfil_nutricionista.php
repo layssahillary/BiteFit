@@ -217,7 +217,7 @@ foreach($semana as $dia) {
             <h3 class="font-2-l-b cor-0">Contato</h3>
             <ul class="font-2-m cor-5">
                 <li><a href="tel:+5521999999999">+55 21 99999-9999</a></li>
-                <li><a href="mailto:contato@bikcraft.com">contato@bikcraft.com</a></li>
+                <li><a href="mailto:contato@bitefit.com">contato@bitefit.com</a></li>
             </ul>
 
             <div class="footer-redes">
