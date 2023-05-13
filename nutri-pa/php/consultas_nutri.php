@@ -74,54 +74,58 @@ if (isset($_POST['marcar_realizada'])) {
 </head>
 <body>
   <h1>Consultas - Nutricionista</h1>
-
   <form method="post">
     <label for="paciente_id">Filtrar por paciente:</label>
     <select name="paciente_id" id="paciente_id">
       <option value="">Todos</option>
-      <?php foreach ($pacientes as$paciente): ?>
-<option value="<?php echo $paciente['id'] ?>" <?php if ($paciente_id == $paciente['id']) echo 'selected' ?>><?php echo $paciente['nome'] ?></option>
-<?php endforeach; ?>
-</select>
-<button type="submit" name="filtro_pacientes">Filtrar</button>
-
+      <?php foreach ($pacientes as $paciente): ?>
+        <option value="<?php echo $paciente['id'] ?>" <?php if ($paciente_id == $paciente['id']) echo 'selected' ?>><?php echo $paciente['nome'] ?></option>
+      <?php endforeach; ?>
+    </select>
+    <button type="submit" name="filtro_pacientes">Filtrar</button>
   </form>
-  <table>
-    <thead>
+  <?php if (empty($consultas)): ?>
+    <p>Não há consultas agendadas.</p>
+    <?php else: ?>
+      <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Data</th>
+      <th>Horário</th>
+      <th>Paciente</th>
+      <th>Realizada?</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($consultas as $consulta): ?>
       <tr>
-        <th>ID</th>
-        <th>Data</th>
-        <th>Horário</th>
-        <th>Paciente</th>
-        <th>Realizada?</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($consultas as $consulta): ?>
-        <tr>
-          <td><?php echo $consulta['id'] ?></td>
-          <td><?php echo date('d/m/Y', strtotime($consulta['data'])) ?></td>
-          <td><?php echo date('H:i', strtotime($consulta['horario'])) ?></td>
-          <td><?php echo $consulta['paciente_nome'] ?></td>
-          <td><?php echo $consulta['realizada'] ? 'Sim' : 'Não' ?></td>
-          <td>
+        <td><?php echo $consulta['id'] ?></td>
+        <td><?php echo date('d/m/Y', strtotime($consulta['data'])) ?></td>
+        <td><?php echo date('H:i', strtotime($consulta['horario'])) ?></td>
+        <td><?php echo $consulta['paciente_nome'] ?></td>
+        <td><?php echo $consulta['realizada'] ? 'Sim' : 'Não' ?></td>
+        <td>
+          <form method="post" style="display: inline-block;">
+            <input type="hidden" name="consulta_id" value="<?php echo $consulta['id'] ?>">
+            <button type="submit" name="excluir_consulta" onclick="return confirm('Tem certeza que deseja excluir esta consulta?')">Excluir</button>
+          </form>
+          <?php if (!$consulta['realizada']): ?>
             <form method="post" style="display: inline-block;">
               <input type="hidden" name="consulta_id" value="<?php echo $consulta['id'] ?>">
-              <button type="submit" name="excluir_consulta" onclick="return confirm('Tem certeza que deseja excluir esta consulta?')">Excluir</button>
+              <button type="submit" name="marcar_realizada">Marcar como realizada</button>
             </form>
-            <?php if (!$consulta['realizada']): ?>
-              <form method="post" style="display: inline-block;">
-                <input type="hidden" name="consulta_id" value="<?php echo $consulta['id'] ?>">
-                <button type="submit" name="marcar_realizada">Marcar como realizada</button>
-              </form>
-            <?php endif; ?>
-          </td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
+          <?php endif; ?>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+<?php endif; ?>
+  <br>
+  <a href="agendarconsulta.php">Agendar novas consultas</a>
+  <br>
   <a href="inicio_nutricionista.php">Voltar para o início</a>
-
 </body>
 </html>
