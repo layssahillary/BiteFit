@@ -29,11 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $telefone = $_POST['telefone'];
   $celular = $_POST['celular'];
   $crn = $_POST['crn'];
-  $endereco = $_POST['endereco'];
   
-  $sql = "UPDATE nutricionista SET nome = ?, email = ?, telefone = ?, celular = ?, crn = ?, endereco = ? WHERE id = ?";
+  $sql = "UPDATE nutricionista SET nome = ?, email = ?, telefone = ?, celular = ?, crn = ? WHERE id = ?";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute([$nome, $email, $telefone, $celular, $crn, $endereco, $_SESSION['nutricionista_id']]);
+  $stmt->execute([$nome, $email, $telefone, $celular, $crn, $_SESSION['nutricionista_id']]);
   
   // Redireciona para a página de perfil do nutricionista
   header("Location: perfil_nutricionista.php");
@@ -117,7 +116,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <p><strong>CRN:</strong> <?php echo $nutricionista['crn']; ?></p>
   <p><strong>Telefone:</strong> <?php echo $nutricionista['telefone']; ?></p>
   <p><strong>Celular:</strong> <?php echo $nutricionista['celular']; ?></p>
-  <p><strong>Endereço:</strong> <?php echo $nutricionista['endereco']; ?></p>
+  <strong>Horário de início:</strong> <?php echo $nutricionista['horario_inicio']; ?> | 
+  <strong>Horário de fim:</strong> <?php echo $nutricionista['horario_fim']; ?>
+
+  <p><strong>Dias de atendimento:</strong>
+<?php 
+$semana = explode(',', $nutricionista['dias_semana']);
+foreach($semana as $dia) {
+    echo '<br>' . $dia . ' ';
+}
+?>
+</p>
   
 <div class="botao-editar">
 <button onclick="trocarDivs()" class="button-68">Editar</button>
@@ -144,9 +153,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		<label for="crn">CRN:</label>
 		<input type="text" id="crn" name="crn" value="<?php echo $nutricionista['crn']; ?>">
 		<br>
-		<label for="endereco">Endereço:</label>
-		<input type="text" id="endereco" name="endereco" value="<?php echo $nutricionista['endereco']; ?>">
-		<br>
+    <label for="horario_inicio">Horário de Início:</label>
+	<input type="time" id="horario_inicio" name="horario_inicio" value="<?php echo $nutricionista['horario_inicio']; ?>">
+	<br>
+
+	<label for="horario_fim">Horário de Fim:</label>
+	<input type="time" id="horario_fim" name="horario_fim" value="<?php echo $nutricionista['horario_fim']; ?>">
+	<br>
+
+	<label for="dias_semana">Dias da Semana:</label><br>
+
+	<input type="checkbox" id="segunda" name="dias_semana[]" value="Segunda-Feira" <?php if (in_array("Segunda-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
+	<label for="segunda">Segunda-Feira</label><br>
+
+	<input type="checkbox" id="terca" name="dias_semana[]" value="Terça-Feira" <?php if (in_array("Terça-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
+	<label for="terca">Terça-Feira</label><br>
+
+	<input type="checkbox" id="quarta" name="dias_semana[]" value="Quarta-Feira" <?php if (in_array("Quarta-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
+	<label for="quarta">Quarta-Feira</label><br>
+
+	<input type="checkbox" id="quinta" name="dias_semana[]" value="Quinta-Feira" <?php if (in_array("Quinta-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
+	<label for="quinta">Quinta-Feira</label><br>
+
+	<input type="checkbox" id="sexta" name="dias_semana[]" value="Sexta-Feira" <?php if (in_array("Sexta-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
+	<label for="sexta">Sexta-Feira</label><br>
+
+	<input type="checkbox" id="sabado" name="dias_semana[]" value="Sábado" <?php if (in_array("Sábado", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
+	<label for="sabado">Sábado</label><br>
+
+	<input type="checkbox" id="domingo" name="dias_semana[]" value="Domingo" <?php if (in_array("Domingo", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
+	<label for="domingo">Domingo</label><br><br>
     <div class="btn-voltar">
 		<input class="button-68" type="submit" value="Salvar">
     <a href="perfil_nutricionista.php"><button class="button-68">Voltar</button></a>

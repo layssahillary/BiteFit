@@ -15,7 +15,7 @@ $nutricionista_id = $_SESSION['nutricionista_id'];
 // Obtém os pacientes do nutricionista
 $stmt_pacientes = $pdo->prepare('SELECT * FROM paciente WHERE nutricionista_id = ?');
 $stmt_pacientes->execute([$nutricionista_id]);
-$pacientes = $stmt_pacientes->fetchAll(); 
+$pacientes = $stmt_pacientes->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -100,6 +100,7 @@ $pacientes = $stmt_pacientes->fetchAll();
 <div class="container">
 <div class="container-calculos">
 
+
 <?php
 $imc = null;
 $gcd = null;
@@ -116,13 +117,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_paciente'])) {
     $altura = $_POST["altura"];
     $idade = $_POST["idade"];
     $genero = $_POST["sexo"];
-    $imc = $peso / ($altura * $altura);
+    $imc = $peso / (($altura/100)**2);
+    $imc_formatado = number_format($imc, 2, ',', '');
+
     $nivel_atividade = $_POST["atividade"];
 
-    if ($genero == "Masculino") {
-        $taxa_metabolica = 88.36 + (13.4 * $peso) + (4.8 * $altura * 100) - (5.7 * $idade);
+    // Calcula o metabolismo basal
+    if ($genero == 'Feminino') {
+        $taxa_metabolica = (655 + (9.6 * $peso) + (1.8 * $altura) - (4.7 * $idade));
+    } elseif ($sexo == 'Masculino') {
+        $taxa_metabolica = (66 + (13.7 * $peso) + (5 * $altura) - (6.8 * $idade));
     } else {
-        $taxa_metabolica = 447.6 + (9.2 * $peso) + (3.1 * $altura * 100) - (4.3 * $idade);
+        $taxa_metabolica = (88.36 + (13.4 * $peso) + (4.8 * $altura) - (5.7 * $idade));
     }
 
     $gcd = $taxa_metabolica * $nivel_atividade;
@@ -237,7 +243,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_paciente'])) {
     }
     echo "</div>";
     echo "</div>";
-
     // Defina a data atual
     $data = date('Y-m-d');
 
