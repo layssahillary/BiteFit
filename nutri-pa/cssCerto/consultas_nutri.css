@@ -185,13 +185,362 @@ nav a {
     font-size: 14px;
   }
 }
+.titulo-bg{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #132c16;
+}
 
+
+.titulo p{
+  margin-bottom: 4px
+}
+
+.titulo-bg h1{
+  font: 600 4rem/1.125 "Poppins", sans-serif;
+  color: #ffffff;
+}
 
 
 .conteudo{
+  display: flex;
+  justify-content: center;
+}
+
+.info-div{
+  background-color:#f7f7f7 ;
+}
+
+.consultas {
+  position: relative;
+  padding: 20px;
+  background-color: #5F8D4E;
+  margin: 80px 20px 40px 80px;
+  width:  880px;
+  height: auto;
+  border-radius: 0px  10px 10px;
+}
+
+.consultas::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #5F8D4E;
+  margin-right: 6px;
+  top: -41px;
+  left: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.consultas::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #4e7441;
+  margin-left: 6px;
+  top: -41px;
+  left: 190px; 
+  cursor: pointer;
+}
+
+
+.conteudo-consultas{
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  }
+
+  .conteudo-consultas form{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+  }
+  .conteudo-consultas form  button{
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+  }
+  .conteudo-consultas form  img {
+    width:25px;
+    cursor: pointer;
+  }
+ 
+  
+  .conteudo-consultas h2{
+    font: 400 1rem/1.35 "Quicksand", sans-serif;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #285430;
+  }
+
+  .conteudo-consultas h2::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 11px;
+    background-color: #285430;
+    margin-right: 6px;
+}
+
+  .conteudo-consultas select{
+    font: 400 1rem/1.5 "Roboto", sans-serif;
+    background: #f7f7f7;
+    border: 1px solid #EDEDED;
+    padding: 12px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .conteudo-consultas label {
+    display: block;
+    font: 600 1rem/1.5 "Poppins", sans-serif;
+    margin-bottom: 4px;
+}
+
+.conteudo-consultas table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  align-items: center;
+}
+
+
+
+.conteudo-consultas th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font: 600 1rem/1.125 "Quicksand", sans-serif;
+  color: #1d3d23;
+}
+
+
+
+.conteudo-consultas td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.conteudo-consultas table  button{
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+}
+.conteudo-consultas td  img {
+  width: 40px;
+  cursor: pointer;
+}
+
+#before {
+  position: absolute;
+  left: 225px;
+  top: -40px;
+  height: 41px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  z-index: 2;
+  font: 400 1rem/1.35 "Poppins", sans-serif;
+  color: #fff;
+  cursor: pointer;
+}
+
+#before:hover {
+  color: #A4BE7B;
+}
+
+.form-div{
+  background-color: #f7f7f7;
+}
+
+.cadastro{
+  position: relative;
+  padding: 20px;
+  background-color: #4e7441;
+  margin: 80px 20px 40px 80px;
+  width: 880px;
+  height: auto;
+  border-radius: 0px 10px 10px;
+}
+
+.cadastrar-consulta{
+  background-color: #fff;
+  padding: 20px 20px 0px 10px;
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.cadastrar-consulta h2{
+  font: 400 1rem/1.35 "Quicksand", sans-serif;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  color: #285430;
+}
+
+.cadastrar-consulta h2::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 11px;
+  background-color: #285430;
+  margin-right: 6px;
+}
+
+.form-cadastrar{
+  padding: 10px 10px ;
+}
+.form-cadastrar input[type="date"], .form-cadastrar input[type="time"], .form-cadastrar select {
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+    background: #f7f7f7;
+    border: 1px solid #EDEDED;
+    padding: 12px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.cadastrar-consulta form label {
+  display: block;
+  font: 600 1rem/1.5 "Poppins", sans-serif;
+  margin-bottom: 4px;
+}
+
+.form-data{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
+
+
+
+.form-data .col-2{
+  grid-column: span 2;
+}
+
+.form-data .col-1 {
+  grid-column: span 1;
+}
+
+.botao-agendar{
+  display: flex;
+  justify-content: end;
+  padding-top: 20px;
+}
+
+.button-68:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+button > img {
+  width: 25px;
+  display: inline;
+  padding-right: 10px;
+  vertical-align: bottom;
+}
+
+.button-68:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+.button-68 {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.cadastrar-consulta::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #5F8D4E;
+  margin-right: 6px;
+  top: -41px;
+  left: 0;
+  cursor: pointer;
+}
+
+.cadastrar-consulta::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #4e7441;
+  margin-left: 6px;
+  top: -41px;
+  left: 190px; 
+  cursor: pointer;
+}
+
+#before2 {
+  position: absolute;
+  left: 18px;
+  top: -30px;
+  height: 41px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  z-index: 2;
+  font: 400 1rem/1.35 "Poppins", sans-serif;
+  color: #fff;
+  cursor: pointer;
+}
+
+#before2:hover {
+  color: #A4BE7B;
+}
+
+
+
 
 .footer-bg {
   background-color: #122c17;
@@ -338,4 +687,53 @@ li button{
   font:400 1.5rem/1.125 "Poppins", sans-serif;
   color: #ffffff;
 }
+.tab {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
 
+.tab-link {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f4f4f4;
+  border: none;
+  border-right: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.tab-link:last-child {
+  border-right: none;
+}
+
+.tab-link.active {
+  background-color: #fff;
+}
+
+.tab-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  transition: top 0.3s;
+}
+
+.tab-content.active {
+  top: 0;
+}
+
+.hide {
+  display: none;
+}

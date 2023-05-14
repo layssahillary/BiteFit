@@ -68,3 +68,19 @@ function toggleSenha(inputId) {
       toggleIcon.classList.add("fa-eye");
   }
 }
+
+const tabLinks = document.querySelectorAll('.tab-link');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const tab = link.dataset.tab;
+
+    tabLinks.forEach(link => link.classList.remove('active'));
+    link.classList.add('active');
+
+    tabContents.forEach(content => content.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+  });
+});
+
