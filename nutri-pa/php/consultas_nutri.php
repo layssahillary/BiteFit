@@ -173,7 +173,7 @@ $pacientes = $stmt->fetchAll();
 <div class="info-div">
 <div class="consultas">
   <div class="conteudo-consultas">
-<button id="before" onclick="trocarDivs()" >Marcar Consulta</button>
+<button id="before" onclick="trocarDivs()" >Agendar Consulta</button>
   <h2>Acompanhe suas consultas</h2>
   <form method="post">
     <label for="paciente_id">Filtrar por paciente:</label>
@@ -232,14 +232,14 @@ $pacientes = $stmt->fetchAll();
 </div>
 
   <div class="form-div" style="display: none;" id="form-div">
+  <div class="cadastro">
   <div class="cadastrar-consulta">
-    <div>
-  <a id="before2" href="consultas_nutri.php">Voltar</a>
-  <h1>Agendar Consulta</h1>
+  <a id="before2" href="consultas_nutri.php">Consultas Marcadas</a>
+  <h2>Agendar Consulta</h2>
   <?php if (isset($erro)): ?>
   <p style="color: red;"><?php echo $erro; ?></p>
   <?php endif; ?>
-  <form method="post">
+  <form class="form-cadastrar" method="post">
     <label>Paciente:</label>
     <select name="paciente_id" required>
       <option value="">Selecione um paciente</option>
@@ -247,15 +247,23 @@ $pacientes = $stmt->fetchAll();
       <option value="<?php echo $paciente['id']; ?>"><?php echo $paciente['nome']; ?></option>
       <?php endforeach; ?>
     </select><br><br>
+    <div class="form-data">
+    <div class="col-1">
     <label>Data:</label>
     <input type="date" name="data" required>
+    </div>
+    <div class="col-1">
     <label>Horário:</label>
-    <input type="time" name="horario" required><br><br>
-    <input type="submit" name="agendar_consulta" value="Agendar Consulta">
+    <input type="time" name="horario" required>
+    </div>
+    </div>
+    <div class="botao-agendar">
+    <button class="button-68" type="submit" name="agendar_consulta" value="Agendar Consulta"> <img src="../imagens/calendario.png" alt="">Agendar Consulta</button>
+    </div>
   </form>
   <br>
   </div>
-  </div>
+</div>
 </div>
 </div>
 
