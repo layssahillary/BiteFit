@@ -161,10 +161,20 @@ $pacientes = $stmt->fetchAll();
 </div>
 </header>
 
+<div class="titulo-bg">
+        <div class="titulo container">
+        <h1>Consultas<span>.</span></h1>
+        </div>        
+ </div>
+
+
 <div class="conteudo container">
 
+<div class="info-div">
 <div class="consultas">
-  <h1>Consultas - Nutricionista</h1>
+  <div class="conteudo-consultas">
+<button id="before" onclick="trocarDivs()" >Marcar Consulta</button>
+  <h2>Acompanhe suas consultas</h2>
   <form method="post">
     <label for="paciente_id">Filtrar por paciente:</label>
     <select name="paciente_id" id="paciente_id">
@@ -173,7 +183,7 @@ $pacientes = $stmt->fetchAll();
         <option value="<?php echo $paciente['id'] ?>" <?php if ($paciente_id == $paciente['id']) echo 'selected' ?>><?php echo $paciente['nome'] ?></option>
       <?php endforeach; ?>
     </select>
-    <button type="submit" name="filtro_pacientes">Filtrar</button>
+    <button type="submit" name="filtro_pacientes"><img src="../imagens/lupa.png" alt=""></button>
   </form>
   <?php if (empty($consultas)): ?>
     <p>Não há consultas agendadas.</p>
@@ -185,7 +195,8 @@ $pacientes = $stmt->fetchAll();
       <th>Horário</th>
       <th>Paciente</th>
       <th>Realizada?</th>
-      <th>Ações</th>
+      <th>Marcar como concluido</th>
+      <th>Excluir consulta</th>
     </tr>
   </thead>
   <tbody>
@@ -196,29 +207,34 @@ $pacientes = $stmt->fetchAll();
         <td><?php echo $consulta['paciente_nome'] ?></td>
         <td><?php echo $consulta['realizada'] ? 'Sim' : 'Não' ?></td>
         <td>
-          <form method="post" style="display: inline-block;">
-            <input type="hidden" name="consulta_id" value="<?php echo $consulta['id'] ?>">
-            <button type="submit" name="excluir_consulta" onclick="return confirm('Tem certeza que deseja excluir esta consulta?')">Excluir</button>
-          </form>
+
           <?php if (!$consulta['realizada']): ?>
             <form method="post" style="display: inline-block;">
               <input type="hidden" name="consulta_id" value="<?php echo $consulta['id'] ?>">
-              <button type="submit" name="marcar_realizada">Marcar como realizada</button>
+              <button type="submit" name="marcar_realizada"><img src="../imagens/concluido.png" alt=""></button>
             </form>
           <?php endif; ?>
+        </td>
+        <td>
+        <form method="post" style="display: inline-block;">
+            <input type="hidden" name="consulta_id" value="<?php echo $consulta['id'] ?>">
+            <button type="submit" name="excluir_consulta" onclick="return confirm('Tem certeza que deseja excluir esta consulta?')"><img src="../imagens/excluir.png" alt=""></button>
+          </form>
         </td>
       </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 <?php endif; ?>
-  <br>
-  <a href="agendarconsulta.php">Agendar novas consultas</a>
-  <br>
-  <a href="inicio_nutricionista.php">Voltar para o início</a>
-  </div>
 
+  </div>
+  </div>
+</div>
+
+  <div class="form-div" style="display: none;" id="form-div">
   <div class="cadastrar-consulta">
+    <div>
+  <a id="before2" href="consultas_nutri.php">Voltar</a>
   <h1>Agendar Consulta</h1>
   <?php if (isset($erro)): ?>
   <p style="color: red;"><?php echo $erro; ?></p>
@@ -238,8 +254,9 @@ $pacientes = $stmt->fetchAll();
     <input type="submit" name="agendar_consulta" value="Agendar Consulta">
   </form>
   <br>
-  <a href="consultas_nutri.php">Voltar para a lista de consultas</a>
   </div>
+  </div>
+</div>
 </div>
 
 
