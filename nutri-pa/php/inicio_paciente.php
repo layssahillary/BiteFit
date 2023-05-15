@@ -62,12 +62,12 @@ if (!isset($_SESSION['paciente_id'])) {
 <main>
     <div class="card-inicio">
         <div class="card-titulo">
-            <h1>Registre <br> seus <br> pacientes</h1>
-            <p>Bem-vindo(a), nutricionista! Este é o seu portal de gerenciamento de pacientes e consultas. Aqui você pode facilmente cadastrar novos pacientes, criar planos de dieta personalizados, realizar cálculos nutricionais e gerenciar suas consultas agendadas.</p>
+            <h1>Explore<br>seu<br>perfil</h1>
+            <p>Bem-vindo(a) ao seu portal de cuidados nutricionais personalizados! Aqui você terá acesso a recursos que o ajudarão a alcançar uma <strong>alimentação saudável e equilibrada</strong>. Através deste portal, você pode visualizar o seu <strong>perfil</strong>, acompanhar seus <strong>cálculos nutricionais </strong> individuais, explorar planos de <strong>dieta personalizados</strong> e manter o controle das suas <strong>consultas agendadas</strong> com o nutricionista.</p>
             <a class="button-68" href="./cadastro_paciente.php">Registrar</a>
         </div>
         <div class="card-imagem">
-            <img class="imagem-card" src="../imagens/inicio-nutri-img.svg" alt="">
+            <img class="imagem-card" src="../imagens/paciente.svg" alt="paciente">
         </div>
     </div>
 
