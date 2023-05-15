@@ -24,6 +24,10 @@ $stmt = $pdo->prepare("
 $stmt->execute([$_SESSION['paciente_id']]);
 $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$sql = "SELECT * FROM nutricionista WHERE id = (SELECT nutricionista_id FROM paciente WHERE id = ?)";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$_SESSION['paciente_id']]);
+$nutricionista = $stmt->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -63,26 +67,32 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	<a href="#" onmouseover="showMenu()">Pacientes</a>
 <div id="menu" onmouseout="hideMenu()" onmouseover="keepMenu()">
   <ul class="header-menu  font-2-l cor-0">
-		<li><a class="link-cadastro" href="./cadastro_paciente.php">Cadastrar Paciente</a></li>
-		<li><a href="./pacientes.php">Lista de Pacientes</a></li>
-		<li><a href="./consultas_nutri.php">Consultas</a></li>
-		<li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-		<li><a href="./dietas.php">Dietas e Receitas</a></li>
+      <li><a href="perfilpaciente_paciente.php">Perfil</a></li>
+      <li><a href="dieta.php">Dietas</a></li>
+      <li><a href="perfilnutricionista_paciente.php">Seu Nutricionista</a></li>
+      <li><a href="consultas_paciente.php">Consultas</a></li>
+      <li><a href="logout_paciente.html">Sair</a></li>
   </ul>
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
 <li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
+
+
 </nav>
 </div>
-
 </header>
 
 <div class="container ">
+
+
+    <div class="info-div">
     <div class="container-conteudo">
-    <div class="dados-perfil">
     <div class="dados-conteudo">
-	<h2>Seu perfil como paciente:</h2>
+    <div class="conteudo-img">
+    <div class="dados">
+    <button id="before" onclick="trocarDivs()" >Perfil nutricionsita</button>
+	<h2>Seu perfil</h2>
     <p><strong>Nome completo:</strong> <?php echo $paciente['nome']; ?></p>
     <p><strong>Sexo:</strong> <?php echo $paciente['sexo']; ?></p>
     <p><strong>Data de Nascimento:</strong> <?php echo $paciente['data_nascimento']; ?></p>
@@ -94,7 +104,10 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="dados-img">
         <img src="../imagens/comendo.gif" alt="mulher comendo">
     </div>
+    
     </div>
+    </div>
+    
 
     <div class="dados-nutricionais">
     <h2>Histórico de Suas Informações nutricionais:</h2>
@@ -126,9 +139,7 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </tbody>
     </table>
-    </div>
-    <div class="botao">
-    <a class="button-68" href="inicio_paciente.php">Voltar para o início</a>
+    
     </div>
 
     <div id="overlay" style="display: none;">
@@ -142,6 +153,65 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </div>
     </div>
+
+    </div>
+
+    <div class="form-div" style="display: none;" id="form-div">
+    <div class="container-conteudo">
+    <div class="dados-conteudo-nutri">
+    <div class="conteudo-img">
+    <div class="dados">
+    <a id="before2" href="perfilpaciente_paciente.php">Seu Perfil</a>
+    <h2>Perfil do seu Nutricionista</h2>
+	<p><strong>Nome:</strong><?php echo $nutricionista['nome']; ?></p>
+	<p><strong>E-mail:</strong> <?php echo $nutricionista['email']; ?></p>
+	<p><strong>Telefone:</strong> <?php echo $nutricionista['telefone']; ?></p>
+	<p><strong>Celular:</strong> <?php echo $nutricionista['celular']; ?></p>	
+	<p><strong>Endereço:</strong> <?php echo $nutricionista['endereco']; ?></p>
+	<p><strong>CRN:</strong> <?php echo $nutricionista['crn']; ?></p>
+    </div>
+    <div class="dados-img">
+        <img src="../imagens/doctor.gif" alt="mulher comendo">
+    </div>
+    </div>
+    </div>
+    
+    <div class="dados-nutricionais">
+    <h2>Histórico de Suas Informações nutricionais:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>IMC</th>
+                <th>Proteínas</th>
+                <th>Carboidratos</th>
+                <th>Gorduras</th>
+                <th>Taxa Metabólica</th>
+                <th>GCD</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($info_nutri as $info): ?>
+                <tr>
+                    <td><?php echo $info['data']; ?></td>
+                    <td><?php echo $info['IMC']; ?></td>
+                    <td><?php echo $info['proteinas']; ?></td>
+                    <td><?php echo $info['carboidratos']; ?></td>
+                    <td><?php echo $info['gorduras']; ?></td>
+                    <td><?php echo $info['taxa_metabolica']; ?></td>
+                    <td><?php echo $info['GCD']; ?></td>
+                    <td><?php echo $info['resultado']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+
 </div>
     
 

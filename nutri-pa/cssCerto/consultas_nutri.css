@@ -539,6 +539,11 @@ button > img {
   color: #A4BE7B;
 }
 
+.descricao p{
+  font: 600 1.5rem/1.125 "Quicksand", sans-serif;
+  color: #122c17;
+}
+
 
 
 

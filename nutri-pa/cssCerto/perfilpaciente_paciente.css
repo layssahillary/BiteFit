@@ -229,22 +229,46 @@ nav a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
+  position: relative;
+  padding: 20px;
+  background-color: #5F8D4E;
+  margin: 80px 20px 40px 80px;
+  width:  880px;
+  height: auto;
+  border-radius: 0px  10px 10px;
 }
 
-.dados-perfil{
+.dados{
+  display: flex;
+  flex-direction: column;
+}
+
+.conteudo-img{
   display: flex;
   justify-content: space-between;
-  gap: 30px;
-  border-radius: 10px;
+  padding: 30px 60px 0px 60px;
   background-color: #fff;
-  padding: 30px 100px 30px 100px;
+  border-radius: 10px;
+
 }
+
 
 .botao{
   display: flex;
   justify-content: flex-end;
+}
 
+.dados-conteudo-nutri{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  padding: 20px;
+  background-color: #4e7441;
+  margin: 80px 20px 40px 80px;
+  width:  880px;
+  height: auto;
+  border-radius: 0px  10px 10px;
 }
 
 .dados-nutricionais{
@@ -450,4 +474,174 @@ li button{
   position: relative;
   font:400 1.5rem/1.125 "Poppins", sans-serif;
   color: #ffffff;
+}
+
+
+/*  */
+
+
+.dados-conteudo::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #5F8D4E;
+  margin-right: 6px;
+  top: -41px;
+  left: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.dados-conteudo::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #4e7441;
+  margin-left: 6px;
+  top: -41px;
+  left: 190px; 
+  cursor: pointer;
+}
+
+.dados-conteudo-nutri::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #5F8D4E;
+  margin-right: 6px;
+  top: -41px;
+  left: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.dados-conteudo-nutri::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #4e7441;
+  margin-left: 6px;
+  top: -41px;
+  left: 190px; 
+  cursor: pointer;
+}
+.perfil-nutri-paciente::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #5F8D4E;
+  margin-right: 6px;
+  top: -41px;
+  left: 0;
+  cursor: pointer;
+}
+
+#before2 {
+  position: absolute;
+  left: 60px;
+  top: -30px;
+  height: 41px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  z-index: 2;
+  font: 400 1rem/1.35 "Poppins", sans-serif;
+  color: #fff;
+  cursor: pointer;
+}
+
+#before2:hover {
+  color: #A4BE7B;
+}
+
+#before {
+  position: absolute;
+  left: 225px;
+  top: -40px;
+  height: 41px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  z-index: 2;
+  font: 400 1rem/1.35 "Poppins", sans-serif;
+  color: #fff;
+  cursor: pointer;
+}
+
+#before:hover {
+  color: #A4BE7B;
+}
+
+.container-perfil{
+  display: flex;
+  gap: 20px;
+  background-color: #f2f2f2;
+  padding: 30px;
+  flex-direction: column;
+}
+.container-perfil-nutri{
+  display: flex;
+justify-content: space-between;
+gap: 30px;
+border-radius: 10px;
+background-color: #fff;
+padding: 30px 100px 30px 100px;
+}
+
+
+.perfil-nutri{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 30px 100px 30px 100px;
+}
+
+
+.perfil-nutri-paciente{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  padding: 20px;
+  background-color: #5F8D4E;
+  margin: 80px 20px 40px 80px;
+  width: 880px;
+  height: auto;
+  border-radius: 0px 10px 10px;
+}
+.perfil-nutri-paciente::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #4e7441;
+  margin-left: 6px;
+  top: -41px;
+  left: 190px; 
+  cursor: pointer;
+}
+
+.perfil-nutri-paciente{
+  background-color: #1e8449;
 }
