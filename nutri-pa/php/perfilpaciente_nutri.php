@@ -201,14 +201,23 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
   <img src="../imagens/profile.gif" alt="profile">
   </div>
-  <div class="botoes">
-
   
+  <div class="botoes-juntos">
+  <div class="botao-agendar">
+  <a class="button-68" href="./consultas_nutri.php"><img src="../imagens/calendario.png" alt="">Agendar Consulta</a>
+  
+  
+  <a class="button-68" href="./calculos.php"><img src="../imagens/calculadora.png" alt="">Calculo Nutricional</a>
+  </div>
+
+  <div class="botoes">
   <a href="#" onclick="trocarDiv()">
   <img src="../imagens/editar.png" alt="Descrição da imagem">
 </a>
 
   <a href="excluir_paciente.php?id=<?php echo $paciente['id']; ?>"><img src="../imagens/lixeira.png" alt="excluir"></a>
+  </div>
+  </div>
   </div>
   </div>
   

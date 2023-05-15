@@ -44,119 +44,6 @@ img[src$=".jpg"]{
     margin-right: auto;
 }
 
-.container-pefil-nutri{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 90px;
-  margin: 0;
-  background-color: #f7f7f7;
-}
-
-.container-conteudo{
-  display: grid;
-  grid-template-columns: 1fr 3fr ;
-
-}
-.container-conteudo-img{
-  display: flex;
-  flex-direction: column;
- }
-
-.container-conteudo-img img{
-  width: 200px;
-  height: 200px;
-  padding-top: 60px;
-  padding-bottom: 10px;
-  align-self: center;
-}
-
-.container-conteudo-img p{
-  font:  400 1rem/1.7 "Roboto", sans-serif;
-  color: #717171;
-  text-align: start;
-}
-
-.container-conteudo-img h2{
-  font: 600 1.5rem/1.125 "Quicksand", sans-serif;
-  color: #132c16;
-  padding-bottom: 10px;
-}
-
-
-
-.container-pefil-nutri h1{
-  font:600 2rem/1.125 "Quicksand", sans-serif;
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-
-
-.container-pequeno{
-  border: 1px solid #DEDEDE;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: #ffffff;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-.container-pequeno p{
-  font: 400 1rem/1.7 "Roboto", sans-serif;
-  color: #595959;
-}
-
-.container-pequeno h2{
-  font: 600 1.5rem/1.125 "Quicksand", sans-serif;
-  padding-bottom: 20px;
-  color: #285430;
-}
-
-.container-pequeno h2::after {
-  content: "";
-  display: inline-block;
-  width: 500px;
-  height: 2px;
-  background-color: #CCCCCC;
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
-.atendimento{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border: 1px solid #A4BE7B;
-  padding: 10px;
-  border-radius: 8px;
-  align-items: center;
-  margin: 20px;
-}
-
-.atendimento h3{
-  text-align: center;
-  font: 400 1rem/1.125 "Quicksand", sans-serif;
-  color: #285430;
-  padding-right: 10px;
-}
-
-.atendimento p {
- color:#285430 ; 
-} 
-
-
-.horario{
-  display: flex;
-  justify-content: center;
-}
-
-.horario h3{
-  text-align: center;
-  font: 400 1rem/1.125 "Quicksand", sans-serif;
-  color: #285430;
-}
-
 .header-bg {
   background:#285430;  
 }
@@ -224,111 +111,6 @@ nav a {
   width: 30px;
 }
 
-li button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  display: inline-block;
-  padding: 16px 0px;
-  position: relative;
-  font: 400 1.5rem/1.125 "Poppins", sans-serif;
-  color: #ffffff;
-}
-
-.form-div form{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 20px 70px 20px 70px;
-  gap: 10px;
-  border: 1px solid #DEDEDE;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: #ffffff;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-.form-div input[type="text"], .form-div input[type="email"], .form-div input[type="date"], .form-div input[type="time"], .form-div input[type="number"], select, .form-div textarea {
-  font: 400 1rem/1.5 "Roboto", sans-serif;
-  background: #f7f7f7;
-  border: 1px solid #EDEDED;
-  padding: 12px;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-
-.checkbox {
-  display: flex;
-  gap: 30px;
-  justify-content: space-evenly;
-}
-.checkbox input[type="checkbox"] {
-  display: none;
-}
-
-.checkbox label {
-  padding: 0.5em;
-  margin: 0.2em;
-  border-radius: 4px;
-  color: #555;
-  cursor: pointer;
-  text-align: center;
-  position: relative;
-  padding-left: 1.5em;
-  margin-right: 1em;
-  border: 1px solid #EDEDED;
-}
-
-.checkbox input[type="checkbox"]:checked + label {
-  background-color: #285430;
-  color: #fff;
-}
-
-.form-div .checkbox label{
-  margin: 0 0 5px 0;
-  padding: 0;
-  width: 100%;
-  box-sizing: border-box;
-  /* border: none; */
-  border-radius: 5px;
-}
-
-
-.checkbox label.borda:before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1em;
-  height: 1em;
-  border: 1px solid #bbb;
-  box-sizing: border-box;
-  margin-right: 0.5em;
-}
-
-.checkbox label.borda:hover:before {
-  border-color: #000;
-}
-
-.form-div label {
-  display: block;
-  font: 600 1rem/1.5 "Poppins", sans-serif;
-  margin-bottom: 4px;
-}
-
-.form-div .col-2{
-  grid-column: span 2;
-}
-
-.form-div .col-1 {
-  grid-column: span 1;
-}
-
 
 .button-68:hover {
   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
@@ -370,10 +152,6 @@ li button {
   white-space: nowrap;
 }
 
-.btn-voltar{
- display: flex;
- justify-content: space-between;
-}
 
 #menu {
   display: none;
@@ -417,7 +195,110 @@ li button {
   border-color: transparent transparent #fff transparent;
 }
 
+.container-conteudo{
+  display: flex;
+  gap: 20px;
+  background-color: #f2f2f2;
+  padding: 30px;
+  flex-direction: column;
+}
+.container-conteudo p {
+  padding-bottom: 10px;
+}
 
+.container-conteudo h2 {
+  font: 600 1.5rem/1.125 "Quicksand", sans-serif;
+  padding-bottom: 30px;
+  color: #285430;
+}
+
+.dados-img img{
+  width: 300px;
+}
+
+.container-conteudo h2::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 15px;
+  background-color: #285430;
+  margin-right: 6px;
+}
+
+.dados-conteudo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  padding: 20px;
+  background-color: #5F8D4E;
+  margin: 80px 20px 40px 80px;
+  width:  880px;
+  height: auto;
+  border-radius: 0px  10px 10px;
+}
+
+.dados{
+  display: flex;
+  flex-direction: column;
+}
+
+.conteudo-img{
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 60px 0px 60px;
+  background-color: #fff;
+  border-radius: 10px;
+
+}
+
+
+.botao{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dados-conteudo-nutri{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  padding: 20px;
+  background-color: #4e7441;
+  margin: 80px 20px 40px 80px;
+  width:  880px;
+  height: auto;
+  border-radius: 0px  10px 10px;
+}
+
+.dados-nutricionais{
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.dados-nutricionais table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.dados-nutricionais th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font: 600 1rem/1.125 "Quicksand", sans-serif;
+  color: #1d3d23;
+}
+
+.dados-nutricionais td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 20px;
+}
 @media (max-width: 800px){
   .header-menu{
     gap: 20px;
@@ -595,39 +476,172 @@ li button{
   color: #ffffff;
 }
 
-.btn-editar {
+
+/*  */
+
+
+.dados-conteudo::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
   background-color: #5F8D4E;
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  margin-right: 6px;
+  top: -41px;
+  left: 0;
   cursor: pointer;
-  border-radius: 4px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 2;
 }
 
-.btn-editar a{
-  font:400 1rem/1.125 "Poppins", sans-serif;
+.dados-conteudo::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #4e7441;
+  margin-left: 6px;
+  top: -41px;
+  left: 190px; 
+  cursor: pointer;
 }
 
-.fa-paint-brush {
-  margin-left: 4px;
+.dados-conteudo-nutri::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #5F8D4E;
+  margin-right: 6px;
+  top: -41px;
+  left: 0;
+  cursor: pointer;
+  z-index: 2;
 }
 
-.botao-editar{
+.dados-conteudo-nutri::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #4e7441;
+  margin-left: 6px;
+  top: -41px;
+  left: 190px; 
+  cursor: pointer;
+}
+.perfil-nutri-paciente::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #5F8D4E;
+  margin-right: 6px;
+  top: -41px;
+  left: 0;
+  cursor: pointer;
+}
+
+#before2 {
+  position: absolute;
+  left: 60px;
+  top: -30px;
+  height: 41px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  z-index: 2;
+  font: 400 1rem/1.35 "Poppins", sans-serif;
+  color: #fff;
+  cursor: pointer;
+}
+
+#before2:hover {
+  color: #A4BE7B;
+}
+
+#before {
+  position: absolute;
+  left: 225px;
+  top: -40px;
+  height: 41px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  z-index: 2;
+  font: 400 1rem/1.35 "Poppins", sans-serif;
+  color: #fff;
+  cursor: pointer;
+}
+
+#before:hover {
+  color: #A4BE7B;
+}
+
+.container-perfil{
   display: flex;
-  align-content: end;
-  justify-content: flex-end;
+  gap: 20px;
+  background-color: #f2f2f2;
+  padding: 30px;
+  flex-direction: column;
+}
+.container-perfil-nutri{
+  display: flex;
+justify-content: space-between;
+gap: 30px;
+border-radius: 10px;
+background-color: #fff;
+padding: 30px 100px 30px 100px;
 }
 
-.btn-editar:hover{
-  background-color: #3a5c2d;
+
+.perfil-nutri{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 30px 100px 30px 100px;
 }
 
-.hide {
-  display: none;
+
+.perfil-nutri-paciente{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  padding: 20px;
+  background-color: #5F8D4E;
+  margin: 80px 20px 40px 80px;
+  width: 880px;
+  height: auto;
+  border-radius: 0px 10px 10px;
+}
+.perfil-nutri-paciente::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 41px;
+  background-color: #4e7441;
+  margin-left: 6px;
+  top: -41px;
+  left: 190px; 
+  cursor: pointer;
+}
+
+.perfil-nutri-paciente{
+  background-color: #1e8449;
 }

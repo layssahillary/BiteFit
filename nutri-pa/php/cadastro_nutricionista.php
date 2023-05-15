@@ -16,7 +16,6 @@ $nome           = "";
 $email          = "";
 $senha          = "";
 $confirmarSenha = "";
-$telefone       = "";
 $celular        = "";
 $crn            = "";
 $horario_inicio = "";
@@ -28,7 +27,6 @@ $nomeErro           = "";
 $emailErro          = "";
 $senhaErro          = "";
 $confirmarSenhaErro = "";
-$telefoneErro       = "";
 $celularErro        = "";
 $crnErro            = "";
 $horarioInicioErro  = "";
@@ -41,7 +39,6 @@ $diasSemanaErro     = "";
   // Define as variáveis com os dados enviados pelo formulário
   $nome = trim($_POST["nome"]);
   $email = trim($_POST["email"]);
-  $telefone = trim($_POST["telefone"]);
   $celular = trim($_POST["celular"]);
   $crn = trim($_POST["crn"]);
   $senha = $_POST["senha"];
@@ -114,9 +111,9 @@ $diasSemanaErro     = "";
     $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
     // Insere o nutricionista no banco de dados
-    $sql_inserir_nutricionista = "INSERT INTO nutricionista (nome, email, senha, telefone, celular, crn, horario_inicio, horario_fim, dias_semana) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_inserir_nutricionista = "INSERT INTO nutricionista (nome, email, senha, celular, crn, horario_inicio, horario_fim, dias_semana) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql_inserir_nutricionista);
-    $stmt->execute([$nome, $email, $senhaCriptografada, $telefone, $celular, $crn, $horario_inicio, $horario_fim, implode(',', $dias_semana)]);
+    $stmt->execute([$nome, $email, $senhaCriptografada, $celular, $crn, $horario_inicio, $horario_fim, implode(',', $dias_semana)]);
 
     // Redireciona o nutricionista para a página de login
     header("Location: login_nutricionista.php");
@@ -161,18 +158,12 @@ $diasSemanaErro     = "";
   </div>
 
   <div class= "col-1">
-  <label  for="telefone">Telefone:</label>
-	<input type = "text" name = "telefone" id = "telefone" value = "<?php echo $telefone; ?>">
-	<span><?php echo $telefoneErro; ?></span>
-  </div>
-
-  <div class= "col-1">
-	<label   = "celular">Celular:</label>
+	<label  for= "celular">Celular:</label>
 	<input type = "text" name = "celular" id = "celular" value = "<?php echo $celular; ?>">
 	<span><?php echo $celularErro; ?></span>
   </div>
 
-  <div class= "col-2">
+  <div class= "col-1">
 	<label for  = "crn">CRN:</label>
 	<input type = "text" name = "crn" id = "crn" value = "<?php echo $crn; ?>">
 	<span><?php echo $crnErro; ?></span>

@@ -18,8 +18,8 @@ if (!isset($_SESSION['nutricionista_id'])) {
         
         <title>Nutrição | BiteFit</title>
         <meta name="description" content="Home">
-        <link rel="preload" href="../cssCerto/inicio-nutricionista.css" as="style">
-        <link rel="stylesheet" href="../cssCerto/inicio-nutricionista.css">
+        <link rel="preload" href="../cssCerto/inicio_paciente.css" as="style">
+        <link rel="stylesheet" href="../cssCerto/inicio_paciente.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
