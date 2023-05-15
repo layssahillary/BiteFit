@@ -26,13 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Atualiza os dados do nutricionista no banco de dados
   $nome = $_POST['nome'];
   $email = $_POST['email'];
-  $telefone = $_POST['telefone'];
   $celular = $_POST['celular'];
   $crn = $_POST['crn'];
   
-  $sql = "UPDATE nutricionista SET nome = ?, email = ?, telefone = ?, celular = ?, crn = ? WHERE id = ?";
+  $sql = "UPDATE nutricionista SET nome = ?, email = ?, celular = ?, crn = ? WHERE id = ?";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute([$nome, $email, $telefone, $celular, $crn, $_SESSION['nutricionista_id']]);
+  $stmt->execute([$nome, $email, $celular, $crn, $_SESSION['nutricionista_id']]);
   
   // Redireciona para a página de perfil do nutricionista
   header("Location: perfil_nutricionista.php");
@@ -114,19 +113,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="container-pequeno">
   <h2>Dados</h2>
   <p><strong>CRN:</strong> <?php echo $nutricionista['crn']; ?></p>
-  <p><strong>Telefone:</strong> <?php echo $nutricionista['telefone']; ?></p>
   <p><strong>Celular:</strong> <?php echo $nutricionista['celular']; ?></p>
-  <strong>Horário de início:</strong> <?php echo $nutricionista['horario_inicio']; ?> | 
-  <strong>Horário de fim:</strong> <?php echo $nutricionista['horario_fim']; ?>
 
-  <p><strong>Dias de atendimento:</strong>
+
+  <div class="atendimento">
+  <h3><strong>Atendimento:</strong></h3>
+  <div class="horario">
+  <h3>Horário de início:  </h3> <?php echo $nutricionista['horario_inicio']; ?>    |   
+  <h3>Horário de fim:  </h3> <?php echo $nutricionista['horario_fim']; ?>
+  </div>
+  <p>
 <?php 
 $semana = explode(',', $nutricionista['dias_semana']);
 foreach($semana as $dia) {
-    echo '<br>' . $dia . ' ';
+    echo $dia . ' ';
 }
 ?>
 </p>
+</div>
   
 <div class="botao-editar">
 <button onclick="trocarDivs()" class="button-68">Editar</button>
@@ -138,58 +142,75 @@ foreach($semana as $dia) {
 <div class="form-div" style="display: none;" id="form-div">
 <h1>Edite suas informações:</h1>
 	<form method="POST">
+
+    <div class="col-2">
 		<label for="nome">Nome:</label>
 		<input type="text" id="nome" name="nome" value="<?php echo $nutricionista['nome']; ?>">
-		<br>
+    </div>
+		
+    <div class="col-2">
 		<label for="email">Email:</label>
 		<input type="email" id="email" name="email" value="<?php echo $nutricionista['email']; ?>">
-		<br>
-		<label for="telefone">Telefone:</label>
-		<input type="text" id="telefone" name="telefone" value="<?php echo $nutricionista['telefone']; ?>">
-		<br>
+		</div>
+
+    <div class="col-1">
 		<label for="celular">Celular:</label>
 		<input type="text" id="celular" name="celular" value="<?php echo $nutricionista['celular']; ?>">
-		<br>
+    </div>
+
+    <div class="col-1">
 		<label for="crn">CRN:</label>
 		<input type="text" id="crn" name="crn" value="<?php echo $nutricionista['crn']; ?>">
-		<br>
+		</div>
+
+    <div class="col-1">
     <label for="horario_inicio">Horário de Início:</label>
-	<input type="time" id="horario_inicio" name="horario_inicio" value="<?php echo $nutricionista['horario_inicio']; ?>">
-	<br>
+	  <input type="time" id="horario_inicio" name="horario_inicio" value="<?php echo $nutricionista['horario_inicio']; ?>">
+	  </div>
 
-	<label for="horario_fim">Horário de Fim:</label>
-	<input type="time" id="horario_fim" name="horario_fim" value="<?php echo $nutricionista['horario_fim']; ?>">
-	<br>
+    <div class="col-1">
+    <label for="horario_fim">Horário de Fim:</label>
+    <input type="time" id="horario_fim" name="horario_fim" value="<?php echo $nutricionista['horario_fim']; ?>">
+    </div>
 
-	<label for="dias_semana">Dias da Semana:</label><br>
+  <div class="col-2">
+	<label for="dias_semana">Dias da Semana:</label>
+  </div>
 
+  <div class="checkbox col-2">
 	<input type="checkbox" id="segunda" name="dias_semana[]" value="Segunda-Feira" <?php if (in_array("Segunda-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
-	<label for="segunda">Segunda-Feira</label><br>
+	<label for="segunda">Seg</label>
 
 	<input type="checkbox" id="terca" name="dias_semana[]" value="Terça-Feira" <?php if (in_array("Terça-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
-	<label for="terca">Terça-Feira</label><br>
+	<label for="terca">Ter</label>
 
 	<input type="checkbox" id="quarta" name="dias_semana[]" value="Quarta-Feira" <?php if (in_array("Quarta-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
-	<label for="quarta">Quarta-Feira</label><br>
+	<label for="quarta">Qua</label>
 
 	<input type="checkbox" id="quinta" name="dias_semana[]" value="Quinta-Feira" <?php if (in_array("Quinta-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
-	<label for="quinta">Quinta-Feira</label><br>
+	<label for="quinta">Qui</label>
 
 	<input type="checkbox" id="sexta" name="dias_semana[]" value="Sexta-Feira" <?php if (in_array("Sexta-Feira", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
-	<label for="sexta">Sexta-Feira</label><br>
+	<label for="sexta">Sex</label>
 
 	<input type="checkbox" id="sabado" name="dias_semana[]" value="Sábado" <?php if (in_array("Sábado", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
-	<label for="sabado">Sábado</label><br>
+	<label for="sabado">Sáb</label>
 
 	<input type="checkbox" id="domingo" name="dias_semana[]" value="Domingo" <?php if (in_array("Domingo", explode(',', $nutricionista['dias_semana']))) echo 'checked'; ?>>
-	<label for="domingo">Domingo</label><br><br>
-    <div class="btn-voltar">
-		<input class="button-68" type="submit" value="Salvar">
-    <a href="perfil_nutricionista.php"><button class="button-68">Voltar</button></a>
-    </div>
-	</form>
+	<label for="domingo">Dom</label>
+
+
+
     
 </div>
+<div class="btn-voltar col-2">
+		<button class="button-68" type="submit" value="Salvar"> Salvar</button>
+    <a href="perfil_nutricionista.php"><button class="button-68">Voltar</button></a>
+</div>
+</form>
+
+
+
 </div>
 
 

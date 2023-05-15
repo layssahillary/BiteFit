@@ -123,6 +123,40 @@ img[src$=".jpg"]{
   margin-bottom: 5px;
 }
 
+.atendimento{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid #A4BE7B;
+  padding: 10px;
+  border-radius: 8px;
+  align-items: center;
+  margin: 20px;
+}
+
+.atendimento h3{
+  text-align: center;
+  font: 400 1rem/1.125 "Quicksand", sans-serif;
+  color: #285430;
+  padding-right: 10px;
+}
+
+.atendimento p {
+ color:#285430 ; 
+} 
+
+
+.horario{
+  display: flex;
+  justify-content: center;
+}
+
+.horario h3{
+  text-align: center;
+  font: 400 1rem/1.125 "Quicksand", sans-serif;
+  color: #285430;
+}
+
 .header-bg {
   background:#285430;  
 }
@@ -190,7 +224,11 @@ nav a {
   width: 30px;
 }
 
-.form-div{
+.form-div form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 70px 20px 70px;
+  gap: 10px;
   border: 1px solid #DEDEDE;
   border-radius: 10px;
   padding: 20px;
@@ -199,7 +237,7 @@ nav a {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.form-div input[type="text"], .form-div input[type="email"], .form-div input[type="date"], .form-div input[type="password"], .form-div input[type="number"], select, .form-div textarea {
+.form-div input[type="text"], .form-div input[type="email"], .form-div input[type="date"], .form-div input[type="time"], .form-div input[type="number"], select, .form-div textarea {
   font: 400 1rem/1.5 "Roboto", sans-serif;
   background: #f7f7f7;
   border: 1px solid #EDEDED;
@@ -209,6 +247,61 @@ nav a {
   box-sizing: border-box;
   cursor: pointer;
   margin-bottom: 20px;
+}
+
+
+.checkbox {
+  display: flex;
+  gap: 30px;
+  justify-content: space-evenly;
+}
+.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox label {
+  padding: 0.5em;
+  margin: 0.2em;
+  border-radius: 4px;
+  color: #555;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  padding-left: 1.5em;
+  margin-right: 1em;
+  border: 1px solid #EDEDED;
+}
+
+.checkbox input[type="checkbox"]:checked + label {
+  background-color: #285430;
+  color: #fff;
+}
+
+.form-div .checkbox label{
+  margin: 0 0 5px 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  /* border: none; */
+  border-radius: 5px;
+}
+
+
+.checkbox label.borda:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  border: 1px solid #bbb;
+  box-sizing: border-box;
+  margin-right: 0.5em;
+}
+
+.checkbox label.borda:hover:before {
+  border-color: #000;
 }
 
 .form-div label {
