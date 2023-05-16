@@ -219,7 +219,7 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
   </div>
   </div>
-  </div>
+  
   
 
   <div id="conteudo2" style="display: none;">
@@ -268,6 +268,7 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     </form>
+    </div>
     </div>
     </div>
 
