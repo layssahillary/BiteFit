@@ -34,6 +34,21 @@ function logout() {
     });
 }
 
+function logoutP() {
+  fetch('logout_paciente.php')
+    .then(response => {
+      if (response.redirected) {
+        window.location.href = response.url; // redireciona para a página de login
+      } else {
+        // exibe mensagem de erro ou faz outra coisa
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      // exibe mensagem de erro ou faz outra coisa
+    });
+}
+
 function trocarDivs() {
   var infoDiv = document.querySelector(".info-div");
   var formDiv = document.querySelector(".form-div");
