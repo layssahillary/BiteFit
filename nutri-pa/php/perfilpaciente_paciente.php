@@ -28,6 +28,15 @@ $sql = "SELECT * FROM nutricionista WHERE id = (SELECT nutricionista_id FROM pac
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$_SESSION['paciente_id']]);
 $nutricionista = $stmt->fetch();
+
+// Obtém o ID do paciente logado
+$paciente_id = $_SESSION['paciente_id'];
+
+// Obtém as consultas do paciente ordenadas pela data em que foram agendadas
+$stmt = $pdo->prepare('SELECT consulta.*, nutricionista.nome AS nutricionista_nome, consulta.descricao FROM consulta 
+INNER JOIN nutricionista ON consulta.nutricionista_id = nutricionista.id WHERE consulta.paciente_id = ? ORDER BY data ASC');
+$stmt->execute([$paciente_id]);
+$consultas = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -58,23 +67,13 @@ $nutricionista = $stmt->fetch();
 
 <header class="header-bg">
     <div class="header container">
-        <a href="./inicio_nutricionista.php">
+        <a href="./inicio_paciente.php">
             <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
         </a>
         
         <nav class="links header-menu" aria-label="primaria">
-
-	<a href="#" onmouseover="showMenu()">Pacientes</a>
-<div id="menu" onmouseout="hideMenu()" onmouseover="keepMenu()">
-  <ul class="header-menu  font-2-l cor-0">
-      <li><a href="perfilpaciente_paciente.php">Perfil</a></li>
-      <li><a href="dieta.php">Dietas</a></li>
-      <li><a href="perfilnutricionista_paciente.php">Seu Nutricionista</a></li>
-      <li><a href="consultas_paciente.php">Consultas</a></li>
-      <li><a href="logout_paciente.html">Sair</a></li>
-  </ul>
-</div>
-<li><a href="./perfil_nutricionista.php">Perfil</a></li>
+<li><a href="perfilpaciente_paciente.php">Perfil</a></li>
+<li><a href="dieta.php">Dietas</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
 <li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
 
@@ -104,8 +103,41 @@ $nutricionista = $stmt->fetch();
     <div class="dados-img">
         <img src="../imagens/comendo.gif" alt="mulher comendo">
     </div>
+    <div class="consultas">
+    <h2>Minhas Consultas</h2>
+  <?php if (count($consultas) > 0): ?>
+    <table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Horário</th>
+      <th>Nutricionista</th>
+      <th>Já foi realizada?</th>
+      <th>Descrição</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($consultas as $consulta): ?>
+    <tr>
+      <td><?php echo $consulta['data']; ?></td>
+      <td><?php echo $consulta['horario']; ?></td>
+      <td><?php echo $consulta['nutricionista_nome']; ?></td>
+      <td><?php echo $consulta['realizada'] ? 'Sim' : 'Não'; ?></td>
+      <td><?php echo $consulta['descricao']; ?></td>
+      
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+
+  <?php else: ?>
+    <p>Você não possui consultas agendadas.</p>
+    <?php endif; ?>
     
     </div>
+    </div>
+    
     </div>
     
 
@@ -142,16 +174,6 @@ $nutricionista = $stmt->fetch();
     
     </div>
 
-    <div id="overlay" style="display: none;">
-      <div id="overlay-content">
-        <p>Você está prestes a deslogar da sua conta de nutricionista. Deseja continuar?</p>
-        <div id="botoes-overlay">
-        <button onclick="hideOverlay()">Não, voltar para a página anterior</button>
-        <button onclick="logout()">Sim, deslogar</button>
-        
-        </div>
-      </div>
-    </div>
     </div>
 
     </div>
@@ -214,7 +236,16 @@ $nutricionista = $stmt->fetch();
 
 </div>
     
-
+<div id="overlay" style="display: none;">
+      <div id="overlay-content">
+        <p>Você está prestes a deslogar da sua conta de nutricionista. Deseja continuar?</p>
+        <div id="botoes-overlay">
+        <button onclick="hideOverlay()">Não, voltar para a página anterior</button>
+        <button onclick="logout()">Sim, deslogar</button>
+        
+        </div>
+      </div>
+    </div>
 
     <footer class="footer-bg">
     <div class="footer container">
@@ -237,13 +268,8 @@ $nutricionista = $stmt->fetch();
             <h3 class="font-2-l-b cor-0">Informações</h3>
             <nav>
                 <ul class="font-1-m cor-5">
-                    <li><a href="./perfil_nutricionista.php">Perfil</a></li>
-                    <li><a href="./cadastro_paciente.php">Cadastrar Paciente</a></li>
-                    <li><a href="./pacientes.php">Lista de Pacientes</a></li>
-                    <li><a href="./consultas_nutri.php">Consultas</a></li>
-                    <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
-                    
+                    <li><a href="./perfilpaciente_paciente.php">Perfil</a></li>
+                    <li><a href="./dieta.php">Dietas</a></li>
                     <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>
             </nav>
