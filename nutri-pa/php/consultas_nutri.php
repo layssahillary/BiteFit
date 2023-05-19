@@ -118,8 +118,8 @@ $pacientes = $stmt->fetchAll();
         
         <title>Nutrição | BiteFit</title>
         <meta name="description" content="Home">
-        <link rel="preload" href="../cssCerto/consultas_nutri.css" as="style">
-        <link rel="stylesheet" href="../cssCerto/consultas_nutri.css">
+        <link rel="preload" href="../css/consultas_nutri.css" as="style">
+        <link rel="stylesheet" href="../css/consultas_nutri.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -139,7 +139,7 @@ $pacientes = $stmt->fetchAll();
 <header class="header-bg">
     <div class="header container">
         <a href="./inicio_nutricionista.php">
-            <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+            <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         </a>
         
         <nav class="links header-menu" aria-label="primaria">
@@ -156,7 +156,7 @@ $pacientes = $stmt->fetchAll();
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 </nav>
 </div>
 </header>
@@ -183,7 +183,7 @@ $pacientes = $stmt->fetchAll();
         <option value="<?php echo $paciente['id'] ?>" <?php if ($paciente_id == $paciente['id']) echo 'selected' ?>><?php echo $paciente['nome'] ?></option>
       <?php endforeach; ?>
     </select>
-    <button type="submit" name="filtro_pacientes"><img src="../imagens/lupa.png" alt=""></button>
+    <button type="submit" name="filtro_pacientes"><img src="../imagens/icons/lupa.png" alt=""></button>
   </form>
   <?php if (empty($consultas)): ?>
     <p>Não há consultas agendadas.</p>
@@ -211,14 +211,14 @@ $pacientes = $stmt->fetchAll();
           <?php if (!$consulta['realizada']): ?>
             <form method="post" style="display: inline-block;">
               <input type="hidden" name="consulta_id" value="<?php echo $consulta['id'] ?>">
-              <button type="submit" name="marcar_realizada"><img src="../imagens/concluido.png" alt=""></button>
+              <button type="submit" name="marcar_realizada"><img src="../imagens/icons/concluido.png" alt=""></button>
             </form>
           <?php endif; ?>
         </td>
         <td>
         <form method="post" style="display: inline-block;">
             <input type="hidden" name="consulta_id" value="<?php echo $consulta['id'] ?>">
-            <button type="submit" name="excluir_consulta" onclick="return confirm('Tem certeza que deseja excluir esta consulta?')"><img src="../imagens/excluir.png" alt=""></button>
+            <button type="submit" name="excluir_consulta" onclick="return confirm('Tem certeza que deseja excluir esta consulta?')"><img src="../imagens/icons/excluir.png" alt=""></button>
           </form>
         </td>
       </tr>
@@ -258,7 +258,7 @@ $pacientes = $stmt->fetchAll();
     </div>
     </div>
     <div class="botao-agendar">
-    <button class="button-68" type="submit" name="agendar_consulta" value="Agendar Consulta"> <img src="../imagens/calendario.png" alt="">Agendar Consulta</button>
+    <button class="button-68" type="submit" name="agendar_consulta" value="Agendar Consulta"> <img src="../imagens/icons/calendario.png" alt="">Agendar Consulta</button>
     </div>
   </form>
   <br>
@@ -285,7 +285,7 @@ $pacientes = $stmt->fetchAll();
 
     <footer class="footer-bg">
     <div class="footer container">
-        <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+        <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         <div class="footer-contato">
             <h3 class="font-2-l-b cor-0">Contato</h3>
             <ul class="font-2-m cor-5">
@@ -295,9 +295,9 @@ $pacientes = $stmt->fetchAll();
 
             <div class="footer-redes">
                 <a href="./">
-                <img src="../imagens/instagram.png" alt="Instagram"></a>
+                <img src="../imagens/redes/instagram.png" alt="Instagram"></a>
                 <a href="./">
-                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
+                    <img src="../imagens/icons/linkedin.png" alt="Linkedin"></a>
             </div>
         </div>
         <div class="footer-informacoes">
@@ -319,7 +319,7 @@ $pacientes = $stmt->fetchAll();
     </div>
 </footer>
     
-<script src="js.js"></script>
+<script src="../js/index.js"></script>
     
         </body>
     </html>

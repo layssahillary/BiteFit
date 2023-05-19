@@ -27,8 +27,8 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <title>Nutrição | BiteFit</title>
         <meta name="description" content="Home">
-        <link rel="preload" href="../cssCerto/pacientes.css" as="style">
-        <link rel="stylesheet" href="../cssCerto/pacientes.css">
+        <link rel="preload" href="../css/pacientes.css" as="style">
+        <link rel="stylesheet" href="../css/pacientes.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <header class="header-bg">
     <div class="header container">
         <a href="./inicio_nutricionista.php">
-            <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+            <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         </a>
         
         <nav class="links header-menu" aria-label="primaria">
@@ -62,7 +62,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 
 
 </nav>
@@ -96,7 +96,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </tbody>
 </table>
   <div class="botoes">
-  <a id="button-68"  href="cadastro_paciente.php"><img src="../imagens/cadastro-icon.svg" alt="descrição da imagem">Cadastrar paciente</a>
+  <a id="button-68"  href="cadastro_paciente.php"><img src="../imagens/icons/cadastro-icon.svg" alt="descrição da imagem">Cadastrar paciente</a>
   <a id="button-68"  href="inicio_nutricionista.php">Voltar</a>
   </div>
   </div>
@@ -117,7 +117,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   <footer class="footer-bg">
     <div class="footer container">
-        <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+        <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         <div class="footer-contato">
             <h3 class="font-2-l-b cor-0">Contato</h3>
             <ul class="font-2-m cor-5">
@@ -127,9 +127,9 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="footer-redes">
                 <a href="./">
-                <img src="../imagens/instagram.png" alt="Instagram"></a>
+                <img src="../imagens/redes/instagram.png" alt="Instagram"></a>
                 <a href="./">
-                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
+                    <img src="../imagens/icons/linkedin.png" alt="Linkedin"></a>
             </div>
         </div>
         <div class="footer-informacoes">
@@ -151,6 +151,6 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </footer>
     
-<script src="./js.js"></script>
+<script src="./../js/index.js"></script>
 </body>
 </html>
