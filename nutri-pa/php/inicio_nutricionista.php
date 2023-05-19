@@ -18,8 +18,8 @@ if (!isset($_SESSION['nutricionista_id'])) {
         
         <title>Nutrição | BiteFit</title>
         <meta name="description" content="Home">
-        <link rel="preload" href="../cssCerto/inicio-nutricionista.css" as="style">
-        <link rel="stylesheet" href="../cssCerto/inicio-nutricionista.css">
+        <link rel="preload" href="../css/inicio-nutricionista.css" as="style">
+        <link rel="stylesheet" href="../css/inicio-nutricionista.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
 <header class="header-bg">
     <div class="header container">
         <a href="./inicio_nutricionista.php">
-            <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+            <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         </a>
         
         <nav class="links header-menu" aria-label="primaria">
@@ -53,7 +53,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 
 
 </nav>
@@ -68,7 +68,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
             <a class="button-68" href="./cadastro_paciente.php">Registrar</a>
         </div>
         <div class="card-imagem">
-            <img class="imagem-card" src="../imagens/inicio-nutri-img.svg" alt="">
+            <img class="imagem-card" src="../imagens/illustrations/inicio-nutri-img.svg" alt="">
         </div>
     </div>
 
@@ -78,7 +78,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
             <div class="introducao-imagem">
-                <img src="../imagens/avatar-de-perfil.png" alt="bicicleta preta">
+                <img src="../imagens/icons/avatar-de-perfil.png" alt="bicicleta preta">
             </div>
             </div>
             <div class="introducao-conteudo">
@@ -93,7 +93,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
             <div class="introducao-imagem">
-                <img src="../imagens/consulta-medica.png" alt="bicicleta preta">
+                <img src="../imagens/icons/consulta-medica.png" alt="bicicleta preta">
             </div>
             </div>
             <div class="introducao-conteudo">
@@ -107,7 +107,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
                 <div class="introducao-imagem">
-                    <img src="../imagens/dieta (2).png" alt="bicicleta preta">
+                    <img src="../imagens/icons/dieta (2).png" alt="bicicleta preta">
                 </div>
             </div>
                 <div class="introducao-conteudo">
@@ -137,7 +137,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
 
 <footer class="footer-bg">
     <div class="footer container">
-        <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+        <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         <div class="footer-contato">
             <h3 class="font-2-l-b cor-0">Contato</h3>
             <ul class="font-2-m cor-5">
@@ -147,9 +147,9 @@ if (!isset($_SESSION['nutricionista_id'])) {
 
             <div class="footer-redes">
                 <a href="./">
-                <img src="../imagens/instagram.png" alt="Instagram"></a>
+                <img src="../imagens/redes/instagram.png" alt="Instagram"></a>
                 <a href="./">
-                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
+                    <img src="../imagens/icons/linkedin.png" alt="Linkedin"></a>
             </div>
         </div>
         <div class="footer-informacoes">
@@ -171,7 +171,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
     </div>
 </footer>
     
-<script src="js.js"></script>
+<script src="../js/index.js"></script>
     
         </body>
     </html>

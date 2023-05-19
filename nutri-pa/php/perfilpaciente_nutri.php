@@ -134,8 +134,8 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <title>Nutrição | BiteFit</title>
         <meta name="description" content="Home">
-        <link rel="preload" href="../cssCerto/perfilpaciente_nutri.css" as="style">
-        <link rel="stylesheet" href="../cssCerto/perfilpaciente_nutri.css">
+        <link rel="preload" href="../css/perfilpaciente_nutri.css" as="style">
+        <link rel="stylesheet" href="../css/perfilpaciente_nutri.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -151,7 +151,7 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <header class="header-bg">
     <div class="header container">
         <a href="./inicio_nutricionista.php">
-            <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+            <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         </a>
         
         <nav class="links header-menu" aria-label="primaria">
@@ -199,23 +199,23 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <p><strong>Objetivo do paciente:</strong>  <?php echo $paciente['objetivo']; ?></p>
 
   </div>
-  <img src="../imagens/profile.gif" alt="profile">
+  <img src="../imagens/illustrations/profile.gif" alt="profile">
   </div>
   
   <div class="botoes-juntos">
   <div class="botao-agendar">
-  <a class="button-68" href="./consultas_nutri.php"><img src="../imagens/calendario.png" alt="">Agendar Consulta</a>
+  <a class="button-68" href="./consultas_nutri.php"><img src="../imagens/icons/calendario.png" alt="">Agendar Consulta</a>
   
   
-  <a class="button-68" href="./calculos.php"><img src="../imagens/calculadora.png" alt="">Calculo Nutricional</a>
+  <a class="button-68" href="./calculos.php"><img src="../imagens/icons/calculadora.png" alt="">Calculo Nutricional</a>
   </div>
 
   <div class="botoes">
   <a href="#" onclick="trocarDiv()">
-  <img src="../imagens/editar.png" alt="Descrição da imagem">
+  <img src="../imagens/icons/editar.png" alt="Descrição da imagem">
 </a>
 
-  <a href="excluir_paciente.php?id=<?php echo $paciente['id']; ?>"><img src="../imagens/lixeira.png" alt="excluir"></a>
+  <a href="excluir_paciente.php?id=<?php echo $paciente['id']; ?>"><img src="../imagens/icons/lixeira.png" alt="excluir"></a>
   </div>
   </div>
   </div>
@@ -323,7 +323,7 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <footer class="footer-bg">
     <div class="footer container">
-        <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+        <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         <div class="footer-contato">
             <h3 class="font-2-l-b cor-0">Contato</h3>
             <ul class="font-2-m cor-5">
@@ -333,9 +333,9 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="footer-redes">
                 <a href="./">
-                <img src="../imagens/instagram.png" alt="Instagram"></a>
+                <img src="../imagens/redes/instagram.png" alt="Instagram"></a>
                 <a href="./">
-                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
+                    <img src="../imagens/icons/linkedin.png" alt="Linkedin"></a>
             </div>
         </div>
         <div class="footer-informacoes">
@@ -357,6 +357,6 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </footer>
     
-<script src="./js.js"></script>
+<script src="./../js/index.js"></script>
 </body>
 </html>

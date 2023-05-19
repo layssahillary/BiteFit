@@ -47,8 +47,8 @@ $consultas = $stmt->fetchAll();
         
         <title>Nutrição | BiteFit</title>
         <meta name="description" content="Home">
-        <link rel="preload" href="../cssCerto/perfilpaciente_paciente.css" as="style">
-        <link rel="stylesheet" href="../cssCerto/perfilpaciente_paciente.css">
+        <link rel="preload" href="../css/perfilpaciente_paciente.css" as="style">
+        <link rel="stylesheet" href="../css/perfilpaciente_paciente.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -68,14 +68,14 @@ $consultas = $stmt->fetchAll();
 <header class="header-bg">
     <div class="header container">
         <a href="./inicio_paciente.php">
-            <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+            <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         </a>
         
         <nav class="links header-menu" aria-label="primaria">
 <li><a href="perfilpaciente_paciente.php">Perfil</a></li>
 <li><a href="dieta.php">Dietas</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 
 
 </nav>
@@ -101,7 +101,7 @@ $consultas = $stmt->fetchAll();
     <p><strong>Seu objetivo:</strong> <?php echo $paciente['objetivo']; ?></p>
     </div>
     <div class="dados-img">
-        <img src="../imagens/comendo.gif" alt="mulher comendo">
+        <img src="../imagens/illustrations/comendo.gif" alt="mulher comendo">
     </div>
     <div class="consultas">
     <h2>Minhas Consultas</h2>
@@ -193,7 +193,7 @@ $consultas = $stmt->fetchAll();
 	<p><strong>CRN:</strong> <?php echo $nutricionista['crn']; ?></p>
     </div>
     <div class="dados-img">
-        <img src="../imagens/doctor.gif" alt="mulher comendo">
+        <img src="../imagens/illustrations/doctor.gif" alt="mulher comendo">
     </div>
     </div>
     </div>
@@ -249,7 +249,7 @@ $consultas = $stmt->fetchAll();
 
     <footer class="footer-bg">
     <div class="footer container">
-        <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+        <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         <div class="footer-contato">
             <h3 class="font-2-l-b cor-0">Contato</h3>
             <ul class="font-2-m cor-5">
@@ -259,9 +259,9 @@ $consultas = $stmt->fetchAll();
 
             <div class="footer-redes">
                 <a href="./">
-                <img src="../imagens/instagram.png" alt="Instagram"></a>
+                <img src="../imagens/redes/instagram.png" alt="Instagram"></a>
                 <a href="./">
-                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
+                    <img src="../imagens/icons/linkedin.png" alt="Linkedin"></a>
             </div>
         </div>
         <div class="footer-informacoes">
@@ -278,7 +278,7 @@ $consultas = $stmt->fetchAll();
     </div>
 </footer>
     
-<script src="js.js"></script>
+<script src="../js/index.js"></script>
     
         </body>
     </html>

@@ -78,8 +78,8 @@ if (isset($mensagem)) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Termos e Condições">
-  <link rel="preload" href="../cssCerto/cadastro-paciente.css" as="style">
-  <link rel="stylesheet" href="../cssCerto/cadastro-paciente.css">
+  <link rel="preload" href="../css/cadastro-paciente.css" as="style">
+  <link rel="stylesheet" href="../css/cadastro-paciente.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -90,7 +90,7 @@ if (isset($mensagem)) {
 <header class="header-bg">
     <div class="header container">
         <a href="./inicio_nutricionista.php">
-            <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+            <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         </a>
         
         <nav class="links header-menu" aria-label="primaria">
@@ -107,7 +107,7 @@ if (isset($mensagem)) {
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
-<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/logout-icon.svg" alt="descrição da imagem"></button>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 </nav>
 </div>
 
@@ -191,7 +191,7 @@ if (isset($mensagem)) {
 
 
     <div class="botoes-cadastro col-2">
-    <button class="button-68" type="submit"><img src="../imagens/cadastro-icon.svg" alt="descrição da imagem">Cadastrar</button>
+    <button class="button-68" type="submit"><img src="../imagens/icons/cadastro-icon.svg" alt="descrição da imagem">Cadastrar</button>
     <button class="button-68" type="button" onclick="window.history.back()">Voltar</button>
     </div>
   </form>
@@ -209,7 +209,7 @@ if (isset($mensagem)) {
 
     <footer class="footer-bg">
     <div class="footer container">
-        <img src="../imagens/logoBiteFit.svg" alt="BiteFit">
+        <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
         <div class="footer-contato">
             <h3 class="font-2-l-b cor-0">Contato</h3>
             <ul class="font-2-m cor-5">
@@ -219,9 +219,9 @@ if (isset($mensagem)) {
 
             <div class="footer-redes">
                 <a href="./">
-                <img src="../imagens/instagram.png" alt="Instagram"></a>
+                <img src="../imagens/redes/instagram.png" alt="Instagram"></a>
                 <a href="./">
-                    <img src="../imagens/linkedin.png" alt="Linkedin"></a>
+                    <img src="../imagens/icons/linkedin.png" alt="Linkedin"></a>
             </div>
         </div>
         <div class="footer-informacoes">
@@ -243,7 +243,7 @@ if (isset($mensagem)) {
     </div>
 </footer>
 
-<script src="js.js"></script>
+<script src="../js/index.js"></script>
 
 </body>
 </html>
