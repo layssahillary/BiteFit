@@ -91,6 +91,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <td><?php echo $paciente['nome']; ?></td>
         <td><?php echo $paciente['email']; ?></td>
         <td><a class="button-4" href="perfilpaciente_nutri.php?id=<?php echo $paciente['id']; ?>">Ver Perfil</a></td>
+        <td><a href="dietapaciente_nutri.php?id=<?php echo $paciente['id']; ?>">Ver Dieta</a></td>
       </tr>
     <?php endforeach; ?>
   </tbody>
