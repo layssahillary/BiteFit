@@ -73,7 +73,7 @@ $consultas = $stmt->fetchAll();
         
         <nav class="links header-menu" aria-label="primaria">
 <li><a href="perfilpaciente_paciente.php">Perfil</a></li>
-<li><a href="dieta.php">Dietas</a></li>
+<li><a href="dietapaciente_paciente.php">Dietas</a></li>
 <li><a href="./sobre-nutricionista.html">Sobre</a></li>
 <li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 

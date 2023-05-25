@@ -143,7 +143,7 @@ $diasSemanaErro     = "";
 	
 <div class= "container-nutri">
 
-  <img src="./imagens/illustrations/cadastro-nutricionista.svg" alt="ilustracao">
+  <img src="../imagens/illustrations/cadastro-nutricionista.svg" alt="ilustracao">
 
 
   <form class= "form-nutri"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $mensagem = "A senha deve ter no mínimo 8 caracteres.";
     } else {
       // Insere os dados do paciente no banco de dados
-      $sql  = "INSERT INTO paciente (nutricionista_id, nome, email, data_nascimento, idade, sexo, altura, peso, senha, objetivo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      $sql = "INSERT INTO paciente (nutricionista_id, nome, email, data_nascimento, idade, sexo, altura, peso, senha, objetivo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
       $stmt = $pdo->prepare($sql);
       $stmt->execute([$_SESSION['nutricionista_id'], $nome, $email, $data_nascimento, $idade, $sexo, $altura, $peso, $senha, $objetivo]);
 
