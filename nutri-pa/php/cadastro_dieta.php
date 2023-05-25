@@ -76,9 +76,7 @@ $dieta = $stmt_dieta->fetchAll();
             <h1 class="font-1-xxl cor-0">Cadastrar Paciente<span class="cor-p1">.</span></h1>
         </div>        
     </div>
-    <div id="aviso" style="font-size: 12px; visibility: hidden">
-      <mark style = "color: red"> ESTE PACIENTE JÁ POSSUI UMA DIETA! <mark>
-    </div>
+   
   <form class="container-geral container" method="post" action="processa_dieta.php">
     <div class="container-info-geral">
     <h2>Selecione o <strong>paciente</strong> e <strong>data de validade</strong> da dieta</h2>
@@ -94,7 +92,9 @@ $dieta = $stmt_dieta->fetchAll();
     <input type="date" name="data_validade" required>
     
     </div>
-    
+    <div id="aviso" style="visibility: hidden">
+      <span><strong>Esse paciente já possui uma dieta!</strong>  <span>
+    </div>
     <p class="fundo">Crie um plano de alimentação para seu paciente abaixo:</p>
     </div>
     
@@ -102,12 +102,17 @@ $dieta = $stmt_dieta->fetchAll();
     <div  id="formulario">
     </div>
 
-    <div class="form-group  ">
-      <button class="button-68" type="button" onclick="adicionarAlimento()">Adicionar Alimento</button>
-      <button class="button-68"type="button" onclick="adicionarRefeicao(false)">Adicionar Refeição</button>
-      <button class="button-68"type="button" onclick="removerRefeicao()">Remover Refeição</button>
-      <input  class="button-68"type="submit" href="dietapaciente_nutri.php?id=<?php echo $paciente['id']; ?>" value="cadastrar" id="cadastrar" name="cadUsuario">
-      <a class="button-68" href="inicio_nutricionista.php">Voltar para o início</a>
+    <div class="button-adicionar">
+      <button class="button-img" type="button" onclick="adicionarRefeicao(false)"><img src="../imagens/icons/adicionar.png" alt="">Refeição</button>
+      <button class="button-img " type="button" onclick="removerRefeicao()"><img src="../imagens/icons/fechar.png" alt="">Refeição</button>
+      <button class="button-img button-last"  type="button" onclick="adicionarAlimento()"><img src="../imagens/icons/adicionar.png" alt="">Alimento</button>
+      </div>
+    <div class="form-group">
+    
+      <div class="form-buttons">
+      
+      <input  class="button-68"  type="submit" href="dietapaciente_nutri.php?id=<?php echo $paciente['id']; ?>" value="cadastrar" id="cadastrar" name="cadUsuario">
+      </div>
     </div>
 
   </form>
@@ -166,81 +171,81 @@ $dieta = $stmt_dieta->fetchAll();
   var ind = 'ref' + contRef + 'ali' + refContAli[contRef];
 
   if (!hidden) {
-    document.getElementById('formulario').insertAdjacentHTML('beforeend', 
-      '<div class=" borda form-group" id="' + ind + '">' +
+    document.getElementById('formulario').insertAdjacentHTML('beforeend',
+    '<div class=" borda form-group" id="' + ind + '">' +
       '<div class=" tables-container ">' +
-        '<table>' +
-          '<thead>' +
-            '<tr>' +
-              '<th>Alimento</th>' +
-              '<th>Quantidade</th>' +
-              '<th>Medida</th>' +
-              '<th>Calorias</th>' +
-              '<th>Proteina</th>' +
-              '<th>Carboidrato</th>' +
-              '<th>Gordura</th>' +
-              '<th>Remover</th>' +
-            '</tr>' +
-          '</thead>' +
-          '<tbody>' +
-            '<tr class="formulario-input" >' +
-              '<td><input type="text" name="nome_alimento[]"></td>' +
-              '<td><input type="number" name="quantidade[]"></td>' +
-              '<td class="radio-buttons">' +
-                '<input type="radio" name="' + ind + 'medidas[]" value="g" checked><span>g</span>' +
-                '<input type="radio" name="' + ind + 'medidas[]" value="Un"><span>Un</span>' +
-                '<input type="radio" name="' + ind + 'medidas[]" value="ml"><span>ml</span>' +
-              '</td>' +
-              '<td><input type="number"  name="calorias[]"></td>' +
-              '<td><input type="number" name="proteina[]"></td>' +
-              '<td><input type="number" name="carboidrato[]"></td>' +
-              '<td><input type="number" name="gordura[]"><input type="hidden" name="ref[]" value="' + contRef + '"></td>' +
-              '<td><button  type="button" onclick="removerAlimento(' + contRef + ',' + refContAli[contRef] +')"><img src="../imagens/icons/excluir.png" alt="lixeira icone"></button></td>' +
-            '</tr>' +
-          '</tbody>' +
-        '</table>' +
-        '</div>' +
+      '<table>' +
+      '<thead>' +
+      '<tr>' +
+      '<th class="invisivel"></th>' +
+      '<th>Alimento</th>' +
+      '<th>Quantidade</th>' +
+      '<th>Unidade de medida</th>' +
+      '<th>Calorias</th>' +
+      '<th>Proteina</th>' +
+      '<th>Carboidrato</th>' +
+      '<th>Gordura</th>' +
+      '<th>Remover</th>' +
+      '</tr>' +
+      '</thead>' +
+      '<tbody>' +
+      '<tr class="formulario-input" >' +
+      '<td class="invisivel"><input hidden type="text" value="' + ind + '" name="ind[]"></td>' +
+      '<td><input type="text" name="nome_alimento[]"></td>' +
+      '<td><input type="number" name="quantidade[]"></td>' +
+      '<td class="radio-buttons">' +
+      '<input type="radio" name="' + ind + 'medidas[]" value="g" checked><span>g</span>' +
+      '<input type="radio" name="' + ind + 'medidas[]" value="Un"><span>Un</span>' +
+      '<input type="radio" name="' + ind + 'medidas[]" value="ml"><span>ml</span>' +
+      '</td>' +
+      '<td><input type="number" name="calorias[]"></td>' +
+      '<td><input type="number" name="proteina[]"></td>' +
+      '<td><input type="number" name="carboidrato[]"></td>' +
+      '<td><input type="number" name="gordura[]"><input type="hidden" name="ref[]" value="' + contRef + '"></td>' +
+      '<td><button  type="button" onclick="removerAlimento(' + contRef + ',' + refContAli[contRef] +')"><img src="../imagens/icons/excluir.png" alt="lixeira icone"></button></td>' +
+      '</tr>' +
+      '</tbody>' +
+      '</table>' +
+      '</div>' +
       '</div>'
     );
   } else {
-    document.getElementById('formulario').insertAdjacentHTML('beforeend', 
+    document.getElementById('formulario').insertAdjacentHTML('beforeend',
       '<div hidden class="form-group" id="' + ind + '">' +
-        '<table>' +
-          '<thead>' +
-            '<tr>' +
-              '<th></th>' +
-              '<th>Alimento</th>' +
-              '<th>Quantidade</th>' +
-              '<th>Medida</th>' +
-              '<th>Calorias</th>' +
-              '<th>Proteina</th>' +
-              '<th>Carboidrato</th>' +
-              '<th>Gordura</th>' +
-            '</tr>' +
-          '</thead>' +
-          '<tbody>' +
-            '<tr>' +
-              '<td>' +
-                '<input hidden type="text" value="' + ind + '" name="ind[]">' +
-                '<input type="text" name="nome_alimento[]">' +
-              '</td>' +
-              '<td><input type="number" name="quantidade[]"></td>' +
-              '<td><input type="radio" name="' + ind + 'medidas[]" value="g" checked><span>g</span></td>' +
-              '<td><input type="radio" name="' + ind + 'medidas[]" value="Un"><span>Un</span></td>' +
-              '<td><input type="radio" name="' + ind + 'medidas[]" value="ml"><span>ml</span></td>' +
-              '<td><input type="number"  name="calorias[]"></td>' +
-              '<td><input type="number" name="proteina[]"></td>' +
-              '<td><input type="number" name="carboidrato[]"></td>' +
-              '<td><input type="number" name="gordura[]"><input type="hidden" name="ref[]" value="' + contRef + '"></td>' +
-              '<td><button  type="button" onclick="removerAlimento(' + contRef + ',' + refContAli[contRef] +')"><img src="../imagens/icons/excluir.png" alt="lixeira icone"></button></td>' +
-            '</tr>' +
-          '</tbody>' +
-        '</table>' +
+      '<table>' +
+      '<thead>' +
+      '<tr>' +
+      '<th></th>' +
+      '<th>Alimento</th>' +
+      '<th>Quantidade</th>' +
+      '<th>Medida</th>' +
+      '<th>Calorias</th>' +
+      '<th>Proteina</th>' +
+      '<th>Carboidrato</th>' +
+      '<th>Gordura</th>' +
+      '</tr>' +
+      '</thead>' +
+      '<tbody>' +
+      '<tr>' +
+      '<td><input hidden type="text" value="' + ind + '" name="ind[]"><input type="text" value="dummy" name="nome_alimento[]"></td>' +
+      '<td><input type="number" name="quantidade[]"></td>' +
+      '<td><input type="radio" name="' + ind + 'medidas[]" value="g" checked><span>g</span></td>' +
+      '<td><input type="radio" name="' + ind + 'medidas[]" value="Un"><span>Un</span></td>' +
+      '<td><input type="radio" name="' + ind + 'medidas[]" value="ml"><span>ml</span></td>' +
+      '<td><input type="number" name="calorias[]"></td>' +
+      '<td><input type="number" name="proteina[]"></td>' +
+      '<td><input type="number" name="carboidrato[]"></td>' +
+      '<td><input type="number" name="gordura[]"><input type="hidden" name="ref[]" value="' + contRef + '"></td>' +
+      '<td><button  type="button" onclick="removerAlimento(' + contRef + ',' + refContAli[contRef] +')"><img src="../imagens/icons/excluir.png" alt="lixeira icone"></button></td>' +
+      '</tr>' +
+      '</tbody>' +
+      '</table>' +
       '</div>'
     );
   }
   refContAli[contRef]++;
 }
+
 
 
 
