@@ -28,7 +28,7 @@ $dieta = $stmt_dieta->fetchAll();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cadastro de Paciente</title>
+  <title>Cadastro de Dieta</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Termos e Condições">
@@ -73,7 +73,7 @@ $dieta = $stmt_dieta->fetchAll();
  
     <div class="titulo-bg">
         <div class="titulo container">
-            <h1 class="font-1-xxl cor-0">Cadastrar Paciente<span class="cor-p1">.</span></h1>
+            <h1 class="font-1-xxl cor-0">Cadastrar Dieta<span class="cor-p1">.</span></h1>
         </div>        
     </div>
    
