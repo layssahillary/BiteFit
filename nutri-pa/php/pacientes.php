@@ -57,7 +57,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		<li><a href="./pacientes.php">Lista de Pacientes</a></li>
 		<li><a href="./consultas_nutri.php">Consultas</a></li>
 		<li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-		<li><a href="./dietas.php">Dietas e Receitas</a></li>
+    <li><a href="./cadastro_dieta.php">Criar nova dieta</a></li>
   </ul>
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
@@ -83,6 +83,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <th>Nome</th>
       <th>E-mail</th>
       <th>Perfil</th>
+      <th>Dieta</th>
     </tr>
   </thead>
   <tbody>
@@ -91,14 +92,21 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <td><?php echo $paciente['nome']; ?></td>
         <td><?php echo $paciente['email']; ?></td>
         <td><a class="button-4" href="perfilpaciente_nutri.php?id=<?php echo $paciente['id']; ?>">Ver Perfil</a></td>
-        <td><a href="dietapaciente_nutri.php?id=<?php echo $paciente['id']; ?>">Ver Dieta</a></td>
+        <div id="conteudo-dieta"></div>
+        <td>
+  <a class="button-4" href="dietapaciente_nutri.php?id=<?php echo $paciente['id']; ?>">Ver Dieta</a>
+</td>
+
+
+
       </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
   <div class="botoes">
-  <a id="button-68"  href="cadastro_paciente.php"><img src="../imagens/icons/cadastro-icon.svg" alt="descrição da imagem">Cadastrar paciente</a>
   <a id="button-68"  href="inicio_nutricionista.php">Voltar</a>
+  <a id="button-68"  href="cadastro_paciente.php"><img src="../imagens/icons/cadastro-icon.svg" alt="descrição da imagem">Cadastrar paciente</a>
+ 
   </div>
   </div>
   </div>
@@ -142,7 +150,6 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <li><a href="./pacientes.php">Lista de Pacientes</a></li>
                     <li><a href="./consultas_nutri.php">Consultas</a></li>
                     <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
                     
                     <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>
@@ -151,6 +158,9 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p class="footer-copy font-2-m cor-6"> Copyright © 2023 BiteFit. Todos os direitos reservados.</p>
     </div>
 </footer>
+
+
+
     
 <script src="./../js/index.js"></script>
 </body>
