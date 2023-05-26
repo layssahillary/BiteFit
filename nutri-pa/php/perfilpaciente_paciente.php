@@ -113,7 +113,6 @@ $consultas = $stmt->fetchAll();
       <th>Horário</th>
       <th>Nutricionista</th>
       <th>Já foi realizada?</th>
-      <th>Descrição</th>
       
     </tr>
   </thead>
@@ -124,7 +123,6 @@ $consultas = $stmt->fetchAll();
       <td><?php echo $consulta['horario']; ?></td>
       <td><?php echo $consulta['nutricionista_nome']; ?></td>
       <td><?php echo $consulta['realizada'] ? 'Sim' : 'Não'; ?></td>
-      <td><?php echo $consulta['descricao']; ?></td>
       
     </tr>
     <?php endforeach; ?>

@@ -339,6 +339,17 @@ function logout() {
 }
   </script>
   
+  <div id="overlay" style="display: none;">
+      <div id="overlay-content">
+        <p>Você está prestes a deslogar da sua conta de nutricionista. Deseja continuar?</p>
+        <div id="botoes-overlay">
+        <button onclick="hideOverlay()">Não, voltar para a página anterior</button>
+        <button onclick="logout()">Sim, deslogar</button>
+        
+        </div>
+      </div>
+    </div>
+    
   <footer class="footer-bg">
     <div class="footer container">
         <img src="../imagens/icons/logoBiteFit.svg" alt="BiteFit">
