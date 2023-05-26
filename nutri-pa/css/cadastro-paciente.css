@@ -215,6 +215,11 @@ main {
   background: #ffffff url("../../img/dec/bottom-right.svg") no-repeat bottom 20px right 20px;
 }
 
+.avisos {
+  font: 600 1rem/1.5 "Poppins", sans-serif;
+  color: rgb(255, 0, 0);
+}
+
 
 .button-68:hover {
   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
