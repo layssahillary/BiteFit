@@ -69,7 +69,7 @@ $paciente = $stmt->fetch(PDO::FETCH_ASSOC);
           <img src="../imagens/icons/perfil-dieta.svg" alt="perfil dieta">
         </div>
         <div class="perfil">
-          <h2>Perfil dieta do paciente</h2>
+          <h2>Sua Dieta</h2>
           <p>Nome: <?php echo $paciente['nome']; ?></p>
           <p>Objetivo: <?php echo $paciente['objetivo']; ?> </p>
         </div>
