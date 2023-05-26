@@ -78,7 +78,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
             <div class="introducao-imagem">
-                <img src="../imagens/icons/avatar-de-perfil.png" alt="bicicleta preta">
+                <img src="../imagens/icons/avatar-de-perfil.png" alt="avatar perfil">
             </div>
             </div>
             <div class="introducao-conteudo">
@@ -93,7 +93,7 @@ if (!isset($_SESSION['nutricionista_id'])) {
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
             <div class="introducao-imagem">
-                <img src="../imagens/icons/consulta-medica.png" alt="bicicleta preta">
+                <img src="../imagens/icons/consulta-medica.png" alt="medica consulta">
             </div>
             </div>
             <div class="introducao-conteudo">
@@ -103,11 +103,11 @@ if (!isset($_SESSION['nutricionista_id'])) {
             </div>
             </a>
 
-            <a href="./">
+            <a href="./cadastro_dieta.php">
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
                 <div class="introducao-imagem">
-                    <img src="../imagens/icons/dieta (2).png" alt="bicicleta preta">
+                    <img src="../imagens/icons/dieta (2).png" alt="icone dieta">
                 </div>
             </div>
                 <div class="introducao-conteudo">
@@ -161,7 +161,6 @@ if (!isset($_SESSION['nutricionista_id'])) {
                     <li><a href="./pacientes.php">Lista de Pacientes</a></li>
                     <li><a href="./consultas_nutri.php">Consultas</a></li>
                     <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
                     
                     <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>
