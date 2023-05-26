@@ -61,7 +61,7 @@ $dieta = $stmt_dieta->fetchAll();
   </ul>
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
-<li><a href="./sobre-nutricionista.html">Sobre</a></li>
+<li><a href="./sobre_nutricionista.html">Sobre</a></li>
 <li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 </nav>
 </div>
@@ -377,7 +377,7 @@ function logout() {
                     <li><a href="./consultas_nutri.php">Consultas</a></li>
                     <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
                     
-                    <li><a href="./sobre-nutricionista.html">Sobre</a></li>
+                    <li><a href="./sobre_nutricionista.html">Sobre</a></li>
                 </ul>
             </nav>
         </div>

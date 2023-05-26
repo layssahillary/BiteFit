@@ -195,7 +195,7 @@ function excluirPaciente() {
   </ul>
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
-<li><a href="./sobre-nutricionista.html">Sobre</a></li>
+<li><a href="./sobre_nutricionista.html">Sobre</a></li>
 <li><button class="deslogar" onclick="showOverlay()">Deslogar</button>
 
 
@@ -380,7 +380,7 @@ function excluirPaciente() {
                     <li><a href="./consultas_nutri.php">Consultas</a></li>
                     <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
                     
-                    <li><a href="./sobre-nutricionista.html">Sobre</a></li>
+                    <li><a href="./sobre_nutricionista.html">Sobre</a></li>
                 </ul>
             </nav>
         </div>
