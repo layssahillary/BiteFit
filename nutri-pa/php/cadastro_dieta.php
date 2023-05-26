@@ -57,7 +57,7 @@ $dieta = $stmt_dieta->fetchAll();
 		<li><a href="./pacientes.php">Lista de Pacientes</a></li>
 		<li><a href="./consultas_nutri.php">Consultas</a></li>
 		<li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-		<li><a href="./dietas.php">Dietas e Receitas</a></li>
+    <li><a href="./cadastro_dieta.php">Criar nova dieta</a></li>
   </ul>
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
@@ -110,7 +110,7 @@ $dieta = $stmt_dieta->fetchAll();
     <div class="form-group">
     
       <div class="form-buttons">
-      
+      <a class="button-68" href="pacientes.php">Voltar</a>
       <input  class="button-68"  type="submit" href="dietapaciente_nutri.php?id=<?php echo $paciente['id']; ?>" value="cadastrar" id="cadastrar" name="cadUsuario">
       </div>
     </div>
@@ -365,7 +365,6 @@ function logout() {
                     <li><a href="./pacientes.php">Lista de Pacientes</a></li>
                     <li><a href="./consultas_nutri.php">Consultas</a></li>
                     <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
                     
                     <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>
