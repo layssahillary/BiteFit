@@ -22,16 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $senha = $_POST['senha'];
   $objetivo = $_POST['objetivo'];
 
+  // Inicialize as variáveis das mensagens
+  $mensagem = "";
+  $confirmarSenhaErro = "";
+
   // Verifica se os campos obrigatórios foram preenchidos
   if (empty($nome) || empty($email) || empty($data_nascimento) || empty($sexo) || empty($altura) || empty($peso) || empty($senha) || empty($objetivo)) {
     $mensagem = "Por favor, preencha todos os campos obrigatórios.";
   } else {
     // Verifica se a confirmação de senha foi preenchida e se é igual à senha informada
-  if (empty($confirmarSenha)) {
-    $confirmarSenhaErro = "Por favor, confirme sua senha.";
-  } elseif ($senha !== $confirmarSenha) {
-    $confirmarSenhaErro = "As senhas não são iguais.";
-  }
+    if (empty($confirmarSenha)) {
+      $confirmarSenhaErro = "Por favor, confirme sua senha.";
+    } elseif ($senha !== $confirmarSenha) {
+      $confirmarSenhaErro = "As senhas não são iguais.";
+    }
+
     // Verifica se o email já está cadastrado
     $sql_verificar_email = "SELECT * FROM paciente WHERE email = ?";
     $stmt_verificar_email = $pdo->prepare($sql_verificar_email);
@@ -47,8 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $stmt = $pdo->prepare($sql);
       $stmt->execute([$_SESSION['nutricionista_id'], $nome, $email, $data_nascimento, $idade, $sexo, $altura, $peso, $senha, $objetivo]);
 
-      // Define uma mensagem de sucesso e redireciona de volta para a lista de pacientes
+      // Define uma mensagem de sucesso
       $mensagem = "Paciente cadastrado com sucesso.";
+      // Você pode usar essa variável em qualquer lugar no seu código HTML
+
+      // Redireciona de volta para a lista de pacientes
       header("Location: pacientes.php?novo_paciente=1");
       exit();
     }
@@ -63,11 +71,6 @@ function calcularIdade($data_nascimento) {
   $nascimento = new DateTime($data_nascimento);
   $intervalo = $nascimento->diff($agora);
   return $intervalo->y;
-}
-
-// Exibe a mensagem de erro ou sucesso
-if (isset($mensagem)) {
-  echo "<p>{$mensagem}</p>";
 }
 ?>
 
@@ -102,7 +105,7 @@ if (isset($mensagem)) {
 		<li><a href="./pacientes.php">Lista de Pacientes</a></li>
 		<li><a href="./consultas_nutri.php">Consultas</a></li>
 		<li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-		<li><a href="./dietas.php">Dietas e Receitas</a></li>
+    <li><a href="./cadastro_dieta.php">Criar nova dieta</a></li>
   </ul>
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
@@ -188,12 +191,23 @@ if (isset($mensagem)) {
     </div>
 </div>
 
+<!-- Aqui você pode exibir as mensagens de erro -->
+<?php if (!empty($mensagem)): ?>
+  <p   class="col-2 avisos"><?php echo $mensagem; ?></p>
+<?php endif; ?>
 
+<!-- Exibição do erro de confirmação de senha -->
+<?php if (!empty($confirmarSenhaErro)): ?>
+  <p  class="col-2 avisos"><?php echo $confirmarSenhaErro; ?></p>
+<?php endif; ?>
 
     <div class="botoes-cadastro col-2">
+    <button class="button-68" type="button" onclick="window.location.href='inicio_nutricionista.php'">Voltar</button>
     <button class="button-68" type="submit"><img src="../imagens/icons/cadastro-icon.svg" alt="descrição da imagem">Cadastrar</button>
-    <button class="button-68" type="button" onclick="window.history.back()">Voltar</button>
+    
     </div>
+
+
   </form>
 
   <div id="overlay" style="display: none;">
@@ -233,7 +247,6 @@ if (isset($mensagem)) {
                     <li><a href="./pacientes.php">Lista de Pacientes</a></li>
                     <li><a href="./consultas_nutri.php">Consultas</a></li>
                     <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
                     
                     <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>

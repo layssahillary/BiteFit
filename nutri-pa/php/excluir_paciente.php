@@ -49,9 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 	<h1>Excluir Paciente</h1>
 	<p>Tem certeza que deseja excluir o paciente <?php echo $paciente['nome']; ?>?</p>
-	<form method="POST">
-		<input type="submit" value="Sim">
-	</form>
-    <a href="perfilpaciente_nutri.php"><button>Não</button></a>
+  <div class="botao-excluir" >
+	<button onclick="excluirPaciente()"><img src="../imagens/icons/verifica.png" alt="verificar icone"></button>
+
+    <a href="perfilpaciente_nutri.php"><button><img src="../imagens/icons/fechar.png" alt="fechar icone"></button></a>
+  </div>
 </body>
 </html>

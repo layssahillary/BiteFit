@@ -142,6 +142,34 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <script>
+function exibirDivExcluir(idPaciente) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("conteudoExcluir").innerHTML = this.responseText;
+      document.getElementById("conteudoExcluir").classList.add("div-excluir");
+    }
+  };
+  xhttp.open("GET", "excluir_paciente.php?id=" + idPaciente, true);
+  xhttp.send();
+}
+
+function excluirPaciente() {
+  var idPaciente = <?php echo $paciente['id']; ?>;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      window.location.href = "pacientes.php";
+    }
+  };
+  xhttp.open("POST", "excluir_paciente.php?id=" + idPaciente, true);
+  xhttp.send();
+}
+</script>
+
+
       
 
        
@@ -163,7 +191,7 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		<li><a href="./pacientes.php">Lista de Pacientes</a></li>
 		<li><a href="./consultas_nutri.php">Consultas</a></li>
 		<li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-		<li><a href="./dietas.php">Dietas e Receitas</a></li>
+    <li><a href="./cadastro_dieta.php">Criar nova dieta</a></li>
   </ul>
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
@@ -215,7 +243,11 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <img src="../imagens/icons/editar.png" alt="Descrição da imagem">
 </a>
 
-  <a href="excluir_paciente.php?id=<?php echo $paciente['id']; ?>"><img src="../imagens/icons/lixeira.png" alt="excluir"></a>
+<div id="conteudoExcluir"></div>
+
+<a href="#" onclick="exibirDivExcluir(<?php echo $paciente['id']; ?>)"><img src="../imagens/icons/lixeira.png" alt="excluir"></a>
+
+
   </div>
   </div>
   </div>
@@ -347,7 +379,6 @@ $info_nutri = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <li><a href="./pacientes.php">Lista de Pacientes</a></li>
                     <li><a href="./consultas_nutri.php">Consultas</a></li>
                     <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
                     
                     <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>

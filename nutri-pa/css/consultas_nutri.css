@@ -544,6 +544,11 @@ button > img {
   color: #122c17;
 }
 
+.avisos {
+  font: 600 1rem/1.5 "Poppins", sans-serif;
+  color: rgb(255, 0, 0);
+}
+
 
 
 

@@ -198,12 +198,12 @@ a {
   border-radius: 10px;
   background-image: linear-gradient(to bottom, #2854306c 25%, transparent 10%);
   flex-direction: column;
-  gap: 30px;
 }
 .container-info{
   display: flex;
   align-items: center;
   gap: 20px;
+  padding-top: 30px;
 
 }
 
@@ -268,6 +268,8 @@ a {
 
 
 
+
+
 .formulario-input  input[type="text"],
 .formulario-input  input[type="email"],
 .formulario-input  input[type="date"],
@@ -293,6 +295,50 @@ a {
   width: 20px; /* Defina o tamanho desejado */
   height: 69px; /* Defina o tamanho desejado */
   /* Outros estilos, como cores e bordas, podem ser adicionados aqui */
+}
+
+.invisivel{
+  display: none;
+}
+
+.form-buttons{
+  display: flex;
+  text-align: center;
+}
+
+.form-buttons img{
+  width: 17px;
+}
+
+.form-buttons input{
+  margin-left: auto;
+}
+
+
+.button-img{
+  display: flex;
+  background: none;
+  border: none;
+  color: initial;
+  gap: 5px;
+  align-items: center;
+  font: 400 1rem/1.35 "Poppins", sans-serif;
+  color: #285430;
+  cursor: pointer;
+}
+
+.button-adicionar  img{
+  width: 17px;
+  
+}
+
+.button-adicionar{
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.button-adicionar .button-last {
+  margin-left: auto;
 }
 
 
@@ -341,6 +387,17 @@ a {
 .deslogar  img {
   width: 30px;
 }
+
+#aviso {
+  font-size: 12px;
+  visibility: visible;
+  padding: 13px 52px;
+  color: red;
+  font: 400 0.9rem/1.35 "Poppins", sans-serif;
+}
+
+
+
 
 
 

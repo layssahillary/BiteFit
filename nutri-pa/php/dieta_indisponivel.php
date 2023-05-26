@@ -15,11 +15,8 @@ if (!isset($_SESSION['nutricionista_id'])) {
 <head>
 	<title>Dieta indisponivel</title>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; URL=cadastro_dieta.php">
 </head>
 <body>
-	<h1>Dieta indisponivel</h1>
-	<p>Este paciente ainda não possui uma dieta, deseja cria-la??</p>
-    <a href="cadastro_dieta.php"><button>Sim</button></a>
-    <a href="perfilpaciente_nutri.php"><button>Não</button></a>
 </body>
 </html>

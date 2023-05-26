@@ -68,7 +68,7 @@ if (!isset($_SESSION['paciente_id'])) {
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
             <div class="introducao-imagem">
-                <img src="../imagens/icons/avatar-de-perfil.png" alt="bicicleta preta">
+                <img src="../imagens/icons/avatar-de-perfil.png" alt="avatar perfil">
             </div>
             </div>
             <div class="introducao-conteudo">
@@ -83,7 +83,7 @@ if (!isset($_SESSION['paciente_id'])) {
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
             <div class="introducao-imagem">
-                <img src="../imagens/icons/consulta-medica.png" alt="bicicleta preta">
+                <img src="../imagens/icons/consulta-medica.png" alt="medica consulta">
             </div>
             </div>
             <div class="introducao-conteudo">
@@ -97,7 +97,7 @@ if (!isset($_SESSION['paciente_id'])) {
             <div class="conteudo-imagem">
             <div class="circulo-imagem">
                 <div class="introducao-imagem">
-                    <img src="../imagens/icons/dieta (2).png" alt="bicicleta preta">
+                    <img src="../imagens/icons/dieta (2).png" alt="icon dieta">
                 </div>
             </div>
                 <div class="introducao-conteudo">

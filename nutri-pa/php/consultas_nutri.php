@@ -151,7 +151,7 @@ $pacientes = $stmt->fetchAll();
 		<li><a href="./pacientes.php">Lista de Pacientes</a></li>
 		<li><a href="./consultas_nutri.php">Consultas</a></li>
 		<li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-		<li><a href="./dietas.php">Dietas e Receitas</a></li>
+    <li><a href="./cadastro_dieta.php">Criar nova dieta</a></li>
   </ul>
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
@@ -186,7 +186,7 @@ $pacientes = $stmt->fetchAll();
     <button type="submit" name="filtro_pacientes"><img src="../imagens/icons/lupa.png" alt=""></button>
   </form>
   <?php if (empty($consultas)): ?>
-    <p>Não há consultas agendadas.</p>
+    <p class="avisos">Não há consultas agendadas.</p>
     <?php else: ?>
       <table>
   <thead>
@@ -309,7 +309,6 @@ $pacientes = $stmt->fetchAll();
                     <li><a href="./pacientes.php">Lista de Pacientes</a></li>
                     <li><a href="./consultas_nutri.php">Consultas</a></li>
                     <li><a href="./calculos.php">Cáculos Nutricionais</a></li>
-                    <li><a href="./dietas.php">Dietas e Receitas</a></li>
                     
                     <li><a href="./sobre-nutricionista.html">Sobre</a></li>
                 </ul>
