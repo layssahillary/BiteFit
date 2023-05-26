@@ -566,5 +566,49 @@ li button{
   justify-content: space-between;
 }
 
+.div-excluir {
+  display: flex;
+  position: fixed;
+  top: 34%;
+  left: 34%;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  border: 1px solid #5F8D4E;
+  padding: 40px 30px;
+  border-radius: 10px;
+  text-align: center;
+  gap: 20px;
+  flex-direction: column;
+}
 
+.div-excluir h1{
+  font: 600 1.4rem/1.125 "Poppins", sans-serif;
+  color: #1d3d23;
+}
+
+.div-excluir p{
+  font: 400 1rem/1.125 "Poppins", sans-serif;
+  color:#b2b2b2 ;
+}
+
+.botao-excluir{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.botao-excluir button img{
+  width: 32px;
+}
+
+.botao-excluir button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+}
 
