@@ -41,8 +41,9 @@ if (!isset($_SESSION['paciente_id'])) {
         <nav class="links header-menu" aria-label="primaria">
 
 <li><a href="perfilpaciente_paciente.php">Perfil</a></li>
-<li><a href="dieta.php">Dietas</a></li>
-<li><a href="./sobre_nutricionista.html">Sobre</a></li>
+<li><a href="dietapaciente_paciente.php">Dietas</a></li>
+<li><a href="../ChatBite/index.html">ChatBot</a></li>
+<li><a href="./sobre_paciente.html">Sobre</a></li>
 <li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 
 
@@ -147,8 +148,9 @@ if (!isset($_SESSION['paciente_id'])) {
             <nav>
 <ul class="font-1-m cor-5">
                     <li><a href="./perfilpaciente_paciente.php">Perfil</a></li>
-                    <li><a href="./dieta.php">Dietas</a></li>
-                    <li><a href="./sobre_nutricionista.html">Sobre</a></li>
+                    <li><a href="./dietapaciente_paciente.php">Dietas</a></li>
+                    <li><a href="../ChatBite/index.html">ChatBot</a></li>
+                    <li><a href="./sobre_paciente.html">Sobre</a></li>
                 </ul>
             </nav>
         </div>
