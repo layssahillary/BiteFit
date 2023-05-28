@@ -8,6 +8,7 @@ Linguagens utilizadas:
 - CSS
 - PHP
 - MySQL
+- JavaScript
 
 Funcionalidades do projeto:
 
@@ -15,6 +16,9 @@ Funcionalidades do projeto:
 - Lista de pacientes: exibe a lista de pacientes cadastrados e permite que o nutricionista acesse o perfil de cada paciente para visualizar as informações cadastradas e editar ou excluir o paciente.
 - Perfil do paciente: exibe as informações cadastradas de um paciente específico e permite que o nutricionista edite ou exclua o paciente.
 - Login: página de login para acesso ao sistema por parte dos nutricionistas.
+- Agendamento de consultas
+- Cálculos nutricionais
+- Cadastro de dietas saudáveis
 - Logout: botão para sair do sistema
 
 Instruções de instalação:
