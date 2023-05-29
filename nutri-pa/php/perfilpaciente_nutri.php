@@ -205,7 +205,7 @@ function excluirPaciente() {
 
 <div class="titulo-bg">
         <div class="titulo container">
-        <h1>Perfil paciente <span>.</span></h1>
+        <h1>Perfil paciente</h1>
         </div>        
 </div>
 
