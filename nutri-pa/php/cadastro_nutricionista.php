@@ -157,7 +157,11 @@ if (empty($nomeErro) && empty($emailErro) && empty($senhaErro) && empty($confirm
 </head>
 <body>
 	
+<a class="botao-voltar" href="index.html">
+  			<img src="../imagens/icons/seta-esquerda.png" alt="Meu botão">
+</a>
 <div class= "container-nutri">
+  
 
   <img src="../imagens/illustrations/cadastro-nutricionista.svg" alt="ilustracao">
 
