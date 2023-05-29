@@ -162,7 +162,7 @@ $pacientes = $stmt->fetchAll();
 </header>
 
 <div class="titulo-bg">
-        <div class="titulo container">
+        <div class="titulo container-chat">
         <h1>Consultas</h1>
         </div>        
  </div>
