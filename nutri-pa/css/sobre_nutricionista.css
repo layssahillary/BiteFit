@@ -172,6 +172,36 @@ nav a {
   color: #ffffff;
 }
 
+.descricao-geral {
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.descricao-geral h2{
+  font: 600 1.2rem/1.125 "Quicksand", sans-serif;
+  color: #122c17;
+  padding-bottom: 10px;
+}
+.descricao{
+  display: flex;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  align-items: center;
+}
+
+
+.descricao img{
+  width: 140px;
+  padding-left: 30px;
+}
+
+.descricao p{
+  font: 400 1rem/1.125 "Poppins", sans-serif;
+}
+
+
 /* Estilo para a galeria de imagens */
 .gallery {
   display: flex;
