@@ -215,7 +215,7 @@ nav a {
   position: relative;
   padding: 20px;
   background-color: #5F8D4E;
-  margin: 80px 20px 40px 80px;
+  margin: 80px 20px 0px 80px;
   width:  880px;
   height: auto;
   border-radius: 0px  10px 10px;
@@ -549,7 +549,10 @@ button > img {
   color: rgb(255, 0, 0);
 }
 
-
+.botao-voltar{
+display: flex;
+padding: 20px 0px 20px 80px;
+}
 
 
 .footer-bg {
