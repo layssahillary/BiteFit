@@ -70,7 +70,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </header>
 <div class="titulo-bg">
         <div class="titulo container">
-        <h1>Pacientes cadastrados<span>.</span></h1>
+        <h1>Pacientes cadastrados</h1>
         </div>        
     </div>
   

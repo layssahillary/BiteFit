@@ -120,7 +120,7 @@ function calcularIdade($data_nascimento) {
   <main>
     <div class="titulo-bg">
         <div class="titulo container">
-            <h1 class="font-1-xxl cor-0">Cadastrar Paciente<span class="cor-p1">.</span></h1>
+            <h1 class="font-1-xxl cor-0">Cadastrar Paciente</h1>
         </div>        
     </div>
 
@@ -181,6 +181,7 @@ function calcularIdade($data_nascimento) {
         <input type="password" id="senha" name="senha" required>
         <i class="toggle-icon fas fa-eye" onclick="toggleSenha('senha')"></i>
     </div>
+    <p>No minimo 8 caracteres</p>
 </div>
 
 <div class="col-1">

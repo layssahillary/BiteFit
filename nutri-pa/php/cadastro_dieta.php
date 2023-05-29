@@ -73,7 +73,7 @@ $dieta = $stmt_dieta->fetchAll();
  
     <div class="titulo-bg">
         <div class="titulo container">
-            <h1 class="font-1-xxl cor-0">Cadastrar Dieta<span class="cor-p1">.</span></h1>
+            <h1 class="font-1-xxl cor-0">Cadastrar Dieta</h1>
         </div>        
     </div>
    
