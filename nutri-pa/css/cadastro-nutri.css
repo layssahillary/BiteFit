@@ -132,6 +132,21 @@ span{
   color: #868686;
 }
 
+.form-nutri p {
+  font: 400 0.8rem/1.5 "Poppins", sans-serif;
+  color: #868686;
+  padding: 0px;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+#aviso {
+  font-size: 12px;
+  visibility: visible;
+  color: red;
+  font: 400 0.9rem/1.35 "Poppins", sans-serif;
+}
+
 .checkbox {
   display: flex;
   gap: 30px;

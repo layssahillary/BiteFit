@@ -23,29 +23,42 @@ $horario_fim    = "";
 $dias_semana    = [];
 
 // Define as variáveis que serão usadas para exibir mensagens de erro
-$nomeErro           = "";
-$emailErro          = "";
-$senhaErro          = "";
+$nomeErro = "";
+$emailErro = "";
+$senhaErro = "";
 $confirmarSenhaErro = "";
-$celularErro        = "";
-$crnErro            = "";
-$horarioInicioErro  = "";
-$horarioFimErro     = "";
-$diasSemanaErro     = "";
+$celularErro = "";
+$crnErro = "";
+$horarioInicioErro = "";
+$horarioFimErro = "";
+$diasSemanaErro = "";
 
-  // Verifica se o formulário foi submetido
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Define um valor padrão para a variável $dias_semana
+$dias_semana = [];
 
-  // Define as variáveis com os dados enviados pelo formulário
-  $nome = trim($_POST["nome"]);
-  $email = trim($_POST["email"]);
-  $celular = trim($_POST["celular"]);
-  $crn = trim($_POST["crn"]);
-  $senha = $_POST["senha"];
-  $confirmarSenha = $_POST["confirmarSenha"];
-  $horario_inicio = $_POST["horario_inicio"];
-  $horario_fim = $_POST["horario_fim"];
+// Verifica se o formulário foi submetido
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Resto do código...
+
+
+// Define as variáveis com os dados enviados pelo formulário
+$nome = trim($_POST["nome"]);
+$email = trim($_POST["email"]);
+$celular = trim($_POST["celular"]);
+$crn = trim($_POST["crn"]);
+$senha = $_POST["senha"];
+$confirmarSenha = $_POST["confirmarSenha"];
+$horario_inicio = $_POST["horario_inicio"];
+$horario_fim = $_POST["horario_fim"];
+
+// Verifica se a variável $_POST["dias_semana"] está definida
+if (isset($_POST["dias_semana"])) {
   $dias_semana = $_POST["dias_semana"];
+} else {
+  $dias_semana = [];
+}
+
+
 
   // Verifica se o nome foi preenchido
   if (empty($nome)) {
@@ -58,6 +71,7 @@ $diasSemanaErro     = "";
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $emailErro = "Por favor, informe um email válido.";
   }
+  
 
   // Verifica se a senha foi preenchida e se tem pelo menos 8 caracteres
   if (empty($senha)) {
@@ -99,13 +113,15 @@ $diasSemanaErro     = "";
     $horarioFimErro = "Por favor, informe o horário de fim.";
   }
 
-  // Verifica se os dias da semana foram selecionados
+
   if (empty($dias_semana)) {
     $diasSemanaErro = "Por favor, selecione pelo menos um dia da semana.";
   }
+  
+  
 
-  // Se não houver erros, insere o nutricionista no banco de dados
-  if (empty($nomeErro) && empty($emailErro) && empty($senhaErro) && empty($confirmarSenhaErro) && empty($crnErro)  && empty($horarioInicioErro) && empty($horarioFimErro) && empty($diasSemanaErro)) {
+// Se não houver erros, insere o nutricionista no banco de dados
+if (empty($nomeErro) && empty($emailErro) && empty($senhaErro) && empty($confirmarSenhaErro) && empty($crnErro)  && empty($horarioInicioErro) && empty($horarioFimErro) && empty($diassemanaErro)) {
 
     // Criptografa a senha
     $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
@@ -136,7 +152,7 @@ $diasSemanaErro     = "";
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
-    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Cadastro nutricionista | BiteFit</title>
 </head>
 <body>
@@ -175,25 +191,29 @@ $diasSemanaErro     = "";
   <div class= "col-2">
   <label for  = "email">E-mail:</label>
 	<input type = "email" name = "email" id = "email" value = "<?php echo $email; ?>">
-	<span><?php echo $emailErro; ?></span>
+	<span id="aviso"><?php echo $emailErro; ?></span>
   </div>
 
-    <div class="col-1">
+  <div class="col-1">
     <label for="senha">Senha:</label>
     <div class="password-toggle">
         <input type="password" id="senha" name="senha" required>
         <i class="toggle-icon fas fa-eye" onclick="toggleSenha('senha')"></i>
-    </div>
+        <span id="aviso"><?php echo $senhaErro;?></span>
+      </div>
+      <p>No minimo 8 caracteres</p>
 </div>
+
 
 <div class="col-1">
     <label for="senha">Confirme a Senha:</label>
     <div class="password-toggle">
         <input type="password" id="confirmarSenha" name="confirmarSenha" required>
         <i class="toggle-icon fas fa-eye" onclick="toggleSenha('confirmarSenha')"></i>
-        <span><?php echo $confirmarSenhaErro;?></span>
+        <span id="aviso"><?php echo $confirmarSenhaErro;?></span>
     </div>
 </div>
+
   
 	
 
@@ -235,7 +255,11 @@ $diasSemanaErro     = "";
 
   <input type="checkbox" id="domingo" name="dias_semana[]" value="Domingo" <?php if(in_array('domingo', $dias_semana)) echo "checked"; ?>>
   <label for="domingo">Dom</label>
+  
+  
   </div>
+  <span id="aviso" class="col-2"><?php echo $diasSemanaErro; ?></span>
+
   
   <div class= "botao-submit col-2">
 	<button class= "button-68" type="submit" > Cadastrar </button>
@@ -249,6 +273,7 @@ $diasSemanaErro     = "";
 
 
 </div>
+<script src="../js/index.js"></script>
 
 </body>
 </html>
