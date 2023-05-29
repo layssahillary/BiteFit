@@ -554,7 +554,12 @@ li button{
   max-width: 25px;
   vertical-align: middle;
 }
-
+.header-bg button > img {
+  width: 25px;
+  display: inline;
+  padding-right: 10px;
+  vertical-align: bottom;
+}
 .botao-voltar{
   display: flex;
   align-content: end;

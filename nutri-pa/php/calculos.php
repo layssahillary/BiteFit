@@ -69,7 +69,7 @@ $pacientes = $stmt_pacientes->fetchAll();
 </header>
 <div class="titulo-bg">
         <div class="titulo container">
-        <h1>Calculos nutricionais<span>.</span></h1></h1>
+        <h1>Calculos nutricionais></h1>
         </div>        
     </div>
 
@@ -337,8 +337,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_paciente'])) {
         </div>
 
         <div class="botoes-cadastro col-2">
-    <button class="button-68" <input type="submit" value="Calcular">Calcular</button>
-    <button class="button-68" type="button" onclick="window.history.back()">Voltar</button>
+        <button class="button-68" type="button" onclick="window.history.back()">Voltar</button>
+        <button class="button-68" <input type="submit" value="Calcular">Calcular</button>
+    
     </div>
     </form>
 

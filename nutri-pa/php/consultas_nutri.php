@@ -162,8 +162,8 @@ $pacientes = $stmt->fetchAll();
 </header>
 
 <div class="titulo-bg">
-        <div class="titulo container">
-        <h1>Consultas<span>.</span></h1>
+        <div class="titulo container-chat">
+        <h1>Consultas</h1>
         </div>        
  </div>
 
@@ -228,6 +228,9 @@ $pacientes = $stmt->fetchAll();
 <?php endif; ?>
 
   </div>
+  </div>
+  <div class="botao-voltar">
+  <button class="button-68" type="button" onclick="window.history.back()">Voltar</button>
   </div>
 </div>
 

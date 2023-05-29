@@ -198,10 +198,43 @@ body {
       margin-left: auto;
       margin-right: auto;
   }
+
+
+  .titulo-bg{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #132c16;
+  }
+
+  .titulo-img img{
+    width: 120px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  
+  .titulo-img {
+    display: flex;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    font: 400 0.9rem/1.125 "Poppins", sans-serif;
+    color: #122c17;
+    border-radius: 10px;
+    box-shadow: rgba(253, 253, 253, 0.2) 0px 7px 29px 0px;
+    align-items: center;
+  }
+  
+  .titulo-bg h1{
+    font: 600 3rem/1.125 "Quicksans", sans-serif;
+    color: #ffffff;
+  }
   
   .header-bg {
     background:#285430;  
   }
+
+  
   
   .header {
     display: flex;

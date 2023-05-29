@@ -196,7 +196,7 @@ function excluirPaciente() {
 </div>
 <li><a href="./perfil_nutricionista.php">Perfil</a></li>
 <li><a href="./sobre_nutricionista.html">Sobre</a></li>
-<li><button class="deslogar" onclick="showOverlay()">Deslogar</button>
+<li><button class="deslogar" onclick="showOverlay()"><img src="../imagens/icons/logout-icon.svg" alt="descrição da imagem"></button>
 
 
 </nav>
@@ -205,7 +205,7 @@ function excluirPaciente() {
 
 <div class="titulo-bg">
         <div class="titulo container">
-        <h1>Perfil paciente <span>.</span></h1>
+        <h1>Perfil paciente</h1>
         </div>        
 </div>
 
