@@ -4,17 +4,17 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Orhanerday\OpenAi\OpenAi;
 
-$open_ai = new OpenAi('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');
+$open_ai = new OpenAi('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');
 
 $prompt = 'Você é um chatbot e se chama Chat-Bite especialista em nutrição e somente responde este tipo de pergunta' . $_POST['prompt'];
 
 $complete = $open_ai->completion([
     'model' => 'text-davinci-003',
     'prompt' => $prompt,
-    'temperature' => 0.1,
+    'temperature' => 0.9,
     'max_tokens' => 2500,
     'top_p' => 0.3,
-    'frequency_penalty' => 0.5,
+    'frequency_penalty' => 0,
     'presence_penalty' => 0
 ]);
 
